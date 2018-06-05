@@ -3,34 +3,70 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<title>ICSSCN</title>
+	<title>￥贷款计算器</title>
 </head>
 <body>
 	<div id="app">
-		<div class="wrap">
-			<ul class="header">
-				<dt><span>￥</span>贷款计算器</dt>
-				<dd>贷款金额 / 元<small v-if="MoneyEmpty">请输入贷款金额</small></dd>
-				<dd>
-					<input class="money" 
-					v-model="Money" 
-					type="number" 
-					@focus="Focus('money')" 
-					placeholder="请输入贷款金额" >
-				</dd>
-				<dd>综合月利率 / %<small v-if="RateEmpty">请输入利率</small></dd>
-				<dd>
-					<input class="rate" 
-					v-model="Rate" 
-					type="number" 
-					@focus="Focus('rate')" 
-					placeholder="请输入利率">
-				</dd>
+		<div class="wrap Loan">
+			<ul class="menu">
+				<li v-for="(m,i) in menu" 
+					:name="m.service" 
+					:class="{'On': i === s_index}" 
+					v-html="m.title"
+				></li>
 			</ul>
-			<h2 class="title">贷款货期</h2>
-			<div class="loan-date">
+			<div class="header">
+				<dl v-if="s_index === 0">
+					<!-- <dt><span>￥</span>贷款计算器</dt> -->
+					<dd class="w-title">贷款金额 / 元<small v-if="Loan.MoneyEmpty">请输入贷款金额</small></dd>
+					<dd class="w-input">
+						<input class="money" 
+						v-model="Loan.Money" 
+						type="number" 
+						@focus="Focus('money')" 
+						placeholder="请输入贷款金额" >
+					</dd>
+					<dd class="w-title">综合月利率 / %<small v-if="Loan.RateEmpty">请输入利率</small></dd>
+					<dd class="w-input">
+						<input class="rate" 
+						v-model="Loan.Rate" 
+						type="number" 
+						@focus="Focus('rate')" 
+						placeholder="请输入利率">
+					</dd>
+				</dl>
+				<dl v-if="s_index === 1">
+					<!-- <dt><span>￥</span>贷款计算器</dt> -->
+					<dd class="w-title">投资金额（元）<small v-if="Loan.MoneyEmpty">请输入投资金额</small></dd>
+					<dd class="w-input">
+						<input class="money" 
+						v-model="Loan.Money" 
+						type="number" 
+						@focus="Focus('money')" 
+						placeholder="请输入投资金额" >
+					</dd>
+					<dd class="w-title">综合月利率（%）<small v-if="Loan.RateEmpty">请输入利率</small></dd>
+					<dd class="w-input">
+						<input class="rate" 
+						v-model="Loan.Rate" 
+						type="number" 
+						@focus="Focus('rate')" 
+						placeholder="请输入利率">
+					</dd>
+					<dd class="w-title">投资时长（天）<small v-if="Loan.RateEmpty">请输入天数</small></dd>
+					<dd class="w-input">
+						<input class="rate" 
+						v-model="Loan.Rate" 
+						type="number" 
+						@focus="Focus('rate')" 
+						placeholder="请输入天数">
+					</dd>
+				</dl>
+			</div>
+			<h2 v-if="s_index === 0" class="title">贷款货期</h2>
+			<div v-if="s_index === 0" class="loan-date">
 				<ul>
-					<li v-for="i in 12" :class="{'On' : i*3 === LoanDate}" @click="selectLoanDate(i*3)">
+					<li v-for="i in 12" :class="{'On' : i*3 === Loan.Date}" @click="selectLoanDate(i*3)">
 						<span v-html="i*3"></span>
 						<span v-html="i*3 + '个月'"></span>
 					</li>
@@ -41,29 +77,29 @@
 
 			<div v-if="popUp" class="pop-up-bg"></div>
 			<div v-if="popUp" class="pop-up">
-				<div class="Loan" v-if="Total.t_month_also">
+				<div v-if="Loan.Total.month_also">
 					<div class="head">
 						<div>
-							<span>每个月应还款（元）</span>
-							<p v-html="matchMoney(Total.t_month_also)"></p>
+							<span>每月应还款（元）</span>
+							<p v-html="matchMoney(Loan.Total.month_also)"></p>
 							<span>其中包含利息（元）</span>
-							<p v-html="matchMoney(Total.t_interest)"></p>
+							<p v-html="matchMoney(Loan.Total.interest)"></p>
 						</div>
 						<ul>
 							<li>
 								<span>总支付利息（元）</span>
-								<span v-html="matchMoney(Total.t_total_interest)"></span>
+								<span v-html="matchMoney(Loan.Total.total_interest)"></span>
 							</li>
 							<li>
 								<span>利息&本金总和（元）</span>
-								<span v-html="matchMoney(Total.t_total)"></span>
+								<span v-html="matchMoney(Loan.Total.total)"></span>
 							</li>
 						</ul>
 					</div>
 					<ul class="list">
-						<li>贷款金额<span v-html="matchMoney(Money) + ' 元'"></span></li>
-						<li>贷款期限<span v-html="LoanDate + ' 月'"></span></li>
-						<li>综合月利率<span v-html="Rate + ' %'"></span></li>
+						<li>贷款金额<span v-html="matchMoney(Loan.Money) + ' 元'"></span></li>
+						<li>贷款期限<span v-html="Loan.Date + ' 月'"></span></li>
+						<li>综合月利率<span v-html="Loan.Rate + ' %'"></span></li>
 					</ul>
 					<div class="start-btn"><span @click="_loanStart">明白了</span></div>
 				</div>
@@ -83,7 +119,7 @@
 			<div @click="_ShowAbout" class="about-btn"><span>立即查看</span>想要了解更多的理财小知识吗？</div>
 		</div>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script type="text/javascript" src="dist/vue.js"></script>
 	<script type="text/javascript" src="dist/app.js"></script>
 </body>
 </html>
