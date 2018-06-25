@@ -104,7 +104,7 @@
 					<div class="start-btn"><span @click="_countStart">明白了</span></div>
 				</div>
 
-				<div v-if="profit.Day">
+				<div v-if="profit.Total.day_interest">
 					<div class="head">
 						<div>
 							<span>利息&本金总和（元）</span>
@@ -123,9 +123,14 @@
 							</li>
 						</ul>
 					</div>
-					<ul class="list">
-
-					</ul>
+					<div class="day-interest-list">
+						<ul>
+							<li v-for="(pdi, i) in profit.Total.day_interest_arr">
+								<span v-html="'第' + (i + 1) + '天收益' "></span>
+								<span v-html="'+' + matchMoney(pdi)"></span>
+							</li>
+						</ul>
+					</div>
 					<div class="start-btn"><span @click="_countStart">明白了</span></div>
 				</div>
 
