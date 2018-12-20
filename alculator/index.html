@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>财通理财</title>
+</head>
+<body>
+	<div id="app">
+		<div class="wrap Loan">
+			<!-- <ul class="menu">
+				<li v-for="(m,i) in menu" 
+					:name="m.service" 
+					:class="{'On': i === s_index}" 
+					v-html="m.title"
+				></li>
+			</ul> -->
+			<div class="header">
+				<dl v-if="countType === 'loan'">
+					<dt v-html="title"></dt>
+					<dd class="w-title">贷款金额 / 元<small v-if="MoneyEmpty">请输入贷款金额</small></dd>
+					<dd class="w-input">
+						<input class="money" 
+						v-model="Money" 
+						type="number" 
+						@focus="Focus('money')" 
+						placeholder="请输入贷款金额" >
+					</dd>
+					<dd class="w-title">综合月利率 / %<small v-if="RateEmpty">请输入利率</small></dd>
+					<dd class="w-input">
+						<input class="rate" 
+						v-model="Rate" 
+						type="number" 
+						@focus="Focus('rate')" 
+						placeholder="请输入利率">
+					</dd>
+				</dl>
+				<dl v-if="countType === 'profit'">
+					<dt><span>￥</span>贷款计算器</dt>
+					<dd class="w-title">投资金额（元）<small v-if="MoneyEmpty">请输入投资金额</small></dd>
+					<dd class="w-input">
+						<input class="money" 
+						v-model="Money" 
+						type="number" 
+						@focus="Focus('money')" 
+						placeholder="请输入投资金额" >
+					</dd>
+					<dd class="w-title">综合月利率（%）<small v-if="RateEmpty">请输入利率</small></dd>
+					<dd class="w-input">
+						<input class="rate" 
+						v-model="Rate" 
+						type="number" 
+						@focus="Focus('rate')" 
+						placeholder="请输入利率">
+					</dd>
+					<dd class="w-title">投资时长（天）<small v-if="profit.DayEmpty">请输入天数</small></dd>
+					<dd class="w-input">
+						<input class="rate" 
+						v-model="profit.Day" 
+						type="number" 
+						@focus="Focus('day')" 
+						placeholder="请输入天数">
+					</dd>
+				</dl>
+			</div>
+			<h2 v-if="countType === 'loan'" class="title">贷款期数</h2>
+			<div v-if="countType === 'loan'" class="loan-date">
+				<ul>
+					<li v-for="i in 12" :class="{'On' : i*3 === Loan.Date}" @click="selectLoanDate(i*3)">
+						<span v-html="i*3"></span>
+						<span v-html="i*3 + '个月'"></span>
+					</li>
+				</ul>
+				<div class="loan-date-bg"></div>
+			</div>
+			<div class="start-btn"><span @click="_countStart">开始计算</span></div>
+
+			<div v-if="popUp" class="pop-up-bg"></div>
+			<div v-if="popUp" class="pop-up">
+				<div v-if="Loan.Total.month_also">
+					<div class="head">
+						<div>
+							<span>每月应还款（元）</span>
+							<p v-html="matchMoney(Loan.Total.month_also)"></p>
+							<span>其中包含利息（元）</span>
+							<p v-html="matchMoney(Loan.Total.interest)"></p>
+						</div>
+						<ul>
+							<li>
+								<span>总支付利息（元）</span>
+								<span v-html="matchMoney(Loan.Total.total_interest)"></span>
+							</li>
+							<li>
+								<span>利息&本金总和（元）</span>
+								<span v-html="matchMoney(Loan.Total.total)"></span>
+							</li>
+						</ul>
+					</div>
+					<ul class="list">
+						<li>贷款金额<span v-html="matchMoney(Money) + ' 元'"></span></li>
+						<li>贷款期限<span v-html="Loan.Date + ' 月'"></span></li>
+						<li>综合月利率<span v-html="Rate + ' %'"></span></li>
+					</ul>
+					<div class="start-btn"><span @click="_countStart">明白了</span></div>
+				</div>
+
+				<div v-if="profit.Total.day_interest">
+					<div class="head">
+						<div>
+							<span>利息&本金总和（元）</span>
+							<p v-html="matchMoney(profit.Total.money)"></p>
+							<span>其中包含利息（元）</span>
+							<p v-html="matchMoney(profit.Total.interest)"></p>
+						</div>
+						<ul>
+							<li>
+								<span>七天年化率</span>
+								<span v-html="Rate + '%'"></span>
+							</li>
+							<li>
+								<span>投放时长</span>
+								<span v-html="profit.Day + '天'"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="day-interest-list">
+						<ul>
+							<li v-for="(pdi, i) in profit.Total.day_interest_arr">
+								<span v-html="'第' + (i + 1) + '天收益' "></span>
+								<span v-html="'+' + matchMoney(pdi)"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="start-btn"><span @click="_countStart">明白了</span></div>
+				</div>
+
+				
+
+				<div class="About" v-if="About.logo">
+					<div class="head"></div>
+					<img class="logo" :src="'src/images/'+About.logo" alt="">
+					<ul>
+						<li v-for="d in About.description" v-html="d"></li>
+					</ul>
+					<img class="qrcode" :src="'src/images/'+About.qrcode" alt="">
+					<div class="show-about-btn">
+						<span @click="_ShowAbout"><img src="src/images/close.png" alt=""></span>
+					</div>
+				</div>
+			</div>
+
+			<div @click="_ShowAbout" class="about-btn"><span>立即查看</span>想要了解更多的理财小知识吗？</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="dist/vue.js"></script>
+	<script type="text/javascript" src="dist/app.js"></script>
+</body>
+</html>
