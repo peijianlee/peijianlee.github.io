@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<title>webpack3</title>
+	<title>LiPeijian's resume</title>
 </head>
 <body>
 	<div id="app">
@@ -11,11 +11,11 @@
 			<span></span>
 			<span></span>
 			<span></span>
-			<p>Loading...</p>
+			<p v-html="load"></p>
 		</div>
 		<div v-else class="swiper-container">
 		    <dl class="nav home">
-		    	<dt><span>i</span>csscn</dt>
+		    	<dt v-html="logo"></dt>
 		    </dl>
 
 			<div class="swiper-wrapper">
