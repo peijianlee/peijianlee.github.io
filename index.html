@@ -7,12 +7,12 @@
 </head>
 <body>
 	<div id="app">
-		<div v-if="isShow" class="Loading">
-			<!-- <span></span>
+		<div v-if="!page['Me']" class="Loading">
 			<span></span>
-			<span></span> -->
+			<span></span>
+			<span></span>
 			<p v-html="load"></p>
-			<div ref="progress" class="progress-bar"></div>
+			<!-- <div ref="progress" class="progress-bar"></div> -->
 		</div>
 		<div v-else class="swiper-container">
 		    <dl class="nav home">
