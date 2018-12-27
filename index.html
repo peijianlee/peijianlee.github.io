@@ -7,13 +7,13 @@
 </head>
 <body>
 	<div id="app">
-		<template v-if="isShow" class="Loading">
-<!-- 			<span></span>
+		<div v-if="isShow" class="Loading">
+			<!-- <span></span>
 			<span></span>
-			<span></span>
-			<p v-html="load"></p> -->
+			<span></span> -->
+			<p v-html="load"></p>
 			<div ref="progress" class="progress-bar"></div>
-		</template>
+		</div>
 		<div v-else class="swiper-container">
 		    <dl class="nav home">
 		    	<dt v-html="logo"></dt>
