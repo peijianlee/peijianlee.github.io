@@ -195,25 +195,6 @@ var app = new Vue({
 			// val: 0
 		};
 	},
-
-	// props: {
-	// 	step: {
-	// 		type: Number,
-	// 		default: 5
-	// 	},
-	// 	initVal: {
-	// 		type: Number,
-	// 		default: 0
-	// 	},
-	// 	stopVal: {
-	// 		type: Number,
-	// 		default: 100
-	// 	},
-	// 	isOk: {
-	// 		type: Boolean,
-	// 		default: false
-	// 	}
-	// },
 	mounted: function mounted() {
 		var _this = this;
 
@@ -224,18 +205,6 @@ var app = new Vue({
 			_this.swiperJs(_this);
 			_this.arrowShow = true;
 		}, 5000);
-
-		// this.val = this.initVal
-		// let step = this.step
-		// let timer = setInterval(()=>{
-		// 	this.val = this.val + step
-		// 	this.$refs.progress.style.width = this.val + '%'
-
-		// 	if(this.val >= this.stopVal){
-		// 		clearInterval(timer)
-		// 		return
-		// 	}
-		// }, 100)
 	},
 
 	methods: {
@@ -251,35 +220,7 @@ var app = new Vue({
 			});
 		}
 	},
-	watch: {
-
-		// val(n) {
-		// 	if(n === 100){
-		// 		setTimeout(()=>{
-		// 			this.isShow = false
-		// 		}, 300)
-		// 	}
-		// }
-
-		// isOk(n) {
-		// 	let val = this.val
-		// 	let step = this.step
-		// 	let timer = setInterval(() => {
-		// 		val = val + step
-		// 		this.$refs.progress.style.width = 100 + '%'
-		// 		if(val >= 100) {
-		// 			clearInterval(timer)
-		// 			this.isShow = false
-
-		// 			console.log(this.isShow)
-		// 			this.$emit('callback', 'load success')
-		// 			return
-		// 		}
-		// 	}, 10)
-		// }
-
-
-	}
+	watch: {}
 });
 
 /***/ }),
