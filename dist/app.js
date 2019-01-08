@@ -175,14 +175,13 @@ var app = new Vue({
 		};
 	},
 	mounted: function mounted() {
-		var _this = this;
-
+		var self = this;
 		setTimeout(function () {
-			_this.page = _data.lpj;
+			self.page = _data.lpj;
 		}, 2000);
 		setTimeout(function () {
-			_this.swiperJs(_this);
-			_this.arrowShow = true;
+			self.swiperJs(self);
+			self.arrowShow = true;
 		}, 5000);
 	},
 
@@ -198,8 +197,7 @@ var app = new Vue({
 				}
 			});
 		}
-	},
-	watch: {}
+	}
 });
 
 /***/ }),
@@ -829,17 +827,6 @@ module.exports = function (css) {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-var home = exports.home = {
-	"欢迎语": "欢迎访问我的主页！",
-	"cover": "",
-	"姓名": "DOGE",
-	"应聘职位": "WEB 前端",
-	"工作年限": "5年",
-	"出生日期": "2012-12-12",
-	"专业技能": ["javascript", "html", "css", "stylus", "nodejs", "webpack", "vue"],
-	"自我描述": "欢迎访问我的主页！欢迎访问我的主页！欢迎访问我的主页！欢迎访问我的主页！欢迎访问我的主页！"
-};
-
 var userinfo = exports.userinfo = [{
 	type: "avatar",
 	value: "avatar.jpg"
@@ -915,24 +902,7 @@ var lpj = exports.lpj = {
 		},
 		"skill": "javascript",
 		"des": "作为前端最核心的语言，对于常用的函数和原型链、作用域有基础的理解。框架方面，jQuery 比较表常用，能 DOM 做一些基础的操作；对于目前的三大框架来说，Vue 比较常用，能完成一般APP开发的业务需求，react、angular目前没有任何的开发经验。"
-	},
-	// {
-	// 	"icon": {
-	// 		class: '<svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M615.6 123.6h165.5L512 589.7 242.9 123.6H63.5L512 900.4l448.5-776.9z" fill="#41B883" p-id="790"></path><path d="M781.1 123.6H615.6L512 303 408.4 123.6H242.9L512 589.7z" fill="#34495E" p-id="791"></path></svg>',
-	// 		color: ""
-	// 	},
-	// 	"skill": "vue",
-	// 	"des": "能使用..."
-	// },
-	// {
-	// 	"icon": {
-	// 		class: "icon-jQuery",
-	// 		color: "#0769ad"
-	// 	},
-	// 	"skill": "jQuery",
-	// 	"des": "能使用..."
-	// },
-	{
+	}, {
 		"icon": {
 			class: "icon-node-jsNodejsxingnengpingtai",
 			color: "#f15533"
@@ -949,12 +919,6 @@ var lpj = exports.lpj = {
 		"company": "中山初心技术服务有限公司",
 		"des": "主要负责公司官网（www.mdecomics.com）的前端工作，由于公司技术部门管理上的问题，后期开发工作就交由外包公司全面负责。"
 	}],
-	// "Project": [
-	// 	{
-	// 		company: "",
-
-	// 	}
-	// ],
 	"About": {
 		"title": "自我简介",
 		"des": "本人主攻前端方向和 Node.js 开发，有近4年的开发经验<span>（期间断断续续，因为在工作过程中也运营过公众号、自媒体，也对其有一点点的理解和经验）</span>，一直都是待过技术团队都是以小团队居多，使自己的技术得不到更高突破和提升。做过企业官网、商城网站及由前端到后台全部由个人编写的小程序。",
@@ -968,9 +932,6 @@ var lpj = exports.lpj = {
 
 var download = [{
 	file: "word",
-	url: ""
-}, {
-	file: "pdf",
 	url: ""
 }];
 
