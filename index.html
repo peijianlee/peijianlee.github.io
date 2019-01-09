@@ -6,6 +6,92 @@
 	<title>lipeijan's resume</title>
 </head>
 <body>
-	<h1>dfdfdsfsdf</h1>
+	<div id="app">
+		<div v-if="!page['Me']" class="Loading">
+			<span></span>
+			<span></span>
+			<span></span>
+			<p v-html="load"></p>
+		</div>
+		<div v-else class="swiper-container">
+		    <dl class="nav home">
+		    	<dt v-html="logo"></dt>
+		    </dl>
+
+			<div class="swiper-wrapper">
+				<div v-for="(val,key,index) in page" class="swiper-slide">
+					<div class="page">
+						<!-- 个人信息 -->
+						<template v-if="key === 'Me'">
+							<ul v-if="val" :class="'userinfo' + (pageIndex === index ? ' Animation':' opacity-0')">
+								<template v-for="u in val">
+									<li v-if="u.type === 'avatar'" class="Avatar">
+										<img v-if="u.type === 'avatar'" :src="u.value" alt="">
+									</li>
+									<li v-else-if="u.type === 'name'" class="tc fs-large-3x" v-html="u.value"></li>
+									<li v-else-if="u.type === 'en-name'" class="tc en-name" v-html="u.value"></li>
+									<li v-else-if="u.type === 'job'" class="tc job fs-large-2x" v-html="u.value"></li>
+									<li v-else-if="u.type === 'line'" class="line"></li>
+									<li v-else>
+										<span v-if="u.icon">
+											<i :class="'iconfont ' + u.icon.class"
+												:style="'color:' + u.icon.color + ';font-size:' + ( u.icon.size || '20px') + ';'">
+											</i>
+										</span>
+										{{u.value}}
+									</li>
+								</template>
+							</ul>
+						</template>
+						<!-- 技能 -->
+						<template v-if="key === 'Skills'">
+							<ul v-if="val" :class="'skills' + (pageIndex === index ? ' Animation':' opacity-0')">
+								<li v-for="s in val">
+									<span v-if="s.icon.class.indexOf('svg') > -1" v-html="s.icon.class"></span>
+									<span v-else><i :class="'fl iconfont ' + s.icon.class" :style="'color:' + s.icon.color + ';'"></i></span>
+									<h6 class="fb">{{s.skill}}</h6>
+									<p>{{s.des}}</p>
+								</li>
+							</ul>
+						</template>
+						<!-- 工作 -->
+						<template v-if="key === 'Works'">
+							<dl v-if="val" :class="'works' + (pageIndex === index ? ' Animation':' opacity-0')">
+								<dt></dt>
+								<dd v-for="w in val">
+									<h6 v-html="w.year"></h6>
+									<h5 v-html="w.company"></h5>
+									<p v-html="w.des"></p>
+								</dd>
+							</dl>
+						</template>
+						<!-- 工作 -->
+						<div v-if="key === 'About'" :class="'about' + (pageIndex === index ? ' Animation':' opacity-0')">
+							<h5 v-html="val.title"></h5>
+							<p class="des" v-html="val.des"></p>
+							<p class="thx" v-html="val.thx"></p>
+							<a href="resume.jpg" class="btn" v-html="val.btn.title" download="lipeijan.resume"></a>
+						</div>
+
+
+						<span class="bg-text" v-html="key"></span>
+					</div>
+				</div>
+			</div>
+			<div v-if="arrowShow" class="bottomArrow">
+				<template v-if="pageIndex !== Object.keys(this.page).length - 1">
+					<span class="iconfont icon-jiantouxia"></span>
+					<span class="iconfont icon-jiantouxia"></span>
+				</template>
+				<template v-else>
+					<span class="iconfont icon-jiantoushang"></span>
+					<span class="iconfont icon-jiantoushang"></span>
+				</template>
+			</div>
+
+		</div>
+	</div>
+	<script src="src/vue.js"></script>
+	<script type="text/javascript" src="dist/app.js"></script>
 </body>
 </html>
