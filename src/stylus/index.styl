@@ -1,0 +1,482 @@
+@import "./reset"
+@import "./icon"
+@import "./config"
+
+base-color-1 = #745f6e
+base-color-1-dark = #5f525b
+base-color-2 = #718c7d
+base-color-3 = #68ab82
+base-color-4 = #a2b98d
+base-color-5 = #c8cd97
+
+
+
+html
+body
+#app
+.page
+  fullScreen()
+html
+body
+#app
+  overflow hidden
+body
+	color #333
+	background-color #f8f8f8
+
+.swiper-container,
+.swiper-wrapper,
+.swiper-slide
+  fullScreen()
+
+.Animate
+  -webkit-transition:all 1s
+  -ms-transition:all 1s
+  -o-transition:all 1s
+  transition:all 1s
+
+.swiper-slide
+	font-size 14px
+	fullScreen()
+	padding-top 50px
+
+.nav
+	font-size 14px
+	width 19%
+	position fixed
+	z-index 1
+	top 0
+	left 7%
+	line-height 40px
+	dt
+		height 40px
+		width 80px
+		padding-top 10px
+		border-bottom 2px solid base-color-1
+		span
+			color white
+			text-align center
+			width 26px
+			height 26px
+			line-height 26px
+			display inline-block
+			margin-right 5px
+	dd
+		line-height 50px
+		font-weight bold
+		text-align right
+	&.home
+		color base-color-1
+		dt
+			border-bottom-color base-color-1
+			span
+				background-color base-color-1
+	
+.page
+	position relative
+	line-height 1.7em
+	border-top 2px solid #ddd
+	width 86%
+	margin 0 7% 0
+	padding-top 16px
+	&.home
+		h1
+			font-size 1.8em
+			padding-top 30px
+		.avatar
+			width 120px
+			height 120px
+			display inline-block
+			background-image url('../images/avatar.jpg')
+			background-size 120px 120px
+			border-radius 61px
+			border 2px black solid
+			margin-left 10px
+		.home-skill span
+			display inline-block
+			padding 5px 10px
+			margin 5px 2px 0
+			background-color rgba(0,0,0,.05)
+			border-radius 3px
+			&:before
+				content ''
+				display inline-block
+				width 10px
+				height 10px
+				background-color base-color-1
+				margin-right 3px
+				
+	.bg-text
+		color rgba(0,0,0,.05)
+		font-size 100px
+		font-weight bold
+		position absolute
+		top -14%
+		right -16%
+
+// 我的信息
+.userinfo
+	font-size 1em
+	letter-spacing .05em
+	li
+		margin-top 12px
+		line-height 2em
+		span
+			width 50px
+			padding-left 10px
+			display inline-block
+			text-align center
+		&.Avatar
+		&.Avatar img
+			width 110px
+			height 110px
+			border-radius 50%
+		&.Avatar
+			overflow hidden
+			text-align center
+			display block
+			margin 0 auto
+			padding 8px
+			border 1px solid #aaa
+			box-shadow 0 0 8px rgba(0,0,0,.1)
+		&:nth-child(2)
+			color base-color-1-dark
+		&.en-name
+			margin-top 0
+			font-size .8em
+			color #999
+		&.job
+			color base-color-1-dark
+			margin 5px 20px 20px
+		&.line
+			height 0
+			border-bottom 1px dashed #aaa
+			margin 0 30px 15px
+			
+
+// 我的信息 - 动画
+userinfo-time = 0.2s
+.userinfo.Animation
+	li
+	li span
+		AnimationReset(userinfo-time)
+	for num in 1 2 3 4 5
+		li:nth-child({num})
+			animation-name animate-up-show
+			animation-delay num * userinfo-time
+	for num in 	6 7 8 9 10
+		li:nth-child({num})
+			animation-name animate-up-left-show
+			animation-delay num * (userinfo-time + 0.1s)
+			span
+				animation-name animate-left-show
+				animation-delay num * (userinfo-time + 0.1s)
+				
+
+@keyframes animate-up-show
+	0%
+		transform translate(0, 20px)
+	100%
+		transform translate(0, 0)
+		opacity 1
+@keyframes animate-up-left-show
+	0%
+		transform translate(20px, 20px)
+	100%
+		transform translate(0, 0)
+		opacity 1
+		
+
+// 技能
+.skills
+	li
+		position relative
+		padding-left 55px
+		margin-top 10px
+		span
+			position absolute
+			top 15px
+			left 0
+			i,svg
+				font-size 42px
+			svg
+				width 1em
+				height 1em
+				vertical-align middle
+				fill currentColor
+				overflow hidden
+				margin-top -8px
+		h6
+			color base-color-1-dark
+		p
+			font-size 13px
+			line-height 1.8em
+			color #555			
+
+// 技能 - 动画
+skills-time = 0.2s
+.skills.Animation
+	li
+		animation-name animate-up-show
+		AnimationReset(skills-time)
+		p,span
+			AnimationReset(skills-time)
+	for num in 1 2 3 4
+		li:nth-child({num})
+			animation-delay num * (skills-time + 0.1s)
+			p
+				animation-name animate-up-left-show
+				animation-delay num * (skills-time + 0.12s)
+			span
+				animation-name animate-left-show
+				animation-delay num * (skills-time + 0.12s)
+
+// 工作
+.works
+	height 84%
+	position relative
+	padding-left 20px
+	dt
+		position absolute
+		top 8px
+		height 0
+		border-left 1px dashed #aaa
+	dd
+		padding-left 20px
+		margin-top 15px
+		h6
+			font-size .8em
+			color #745f6e
+			position relative
+			&:before
+				content ""
+				width 8px
+				height 8px
+				background-color #745f6e
+				border-radius 4px
+				position absolute
+				top 7px
+				left -23px
+		h5
+			font-size 1.1em
+			font-weight bold
+			color base-color-1-dark
+			margin-top 5px
+			margin-bottom 5px
+		p
+			font-size .9em
+			color #555
+			line-height 2.2em
+			margin-bottom 25px
+
+// 工作 - 动画
+works-time = 0.3s
+.works.Animation
+	dt
+		animation-name animate-line-show
+		AnimationReset(1.8s)
+	dd
+		animation-name animate-left-show
+		AnimationReset(works-time)
+		h6,h5,p
+			animation-name animate-left-show
+			AnimationReset(works-time + 0.2s)
+	for num in 1 2 3
+		dd:nth-child({num})
+			animation-delay num * (works-time + 0.2s)
+			h6
+				animation-delay num * (works-time + 0.1s)
+			h5
+				animation-delay num * (works-time + 0.15s)
+			p
+				animation-delay num * (works-time + 0.2s)
+
+@keyframes animate-line-show
+	0%
+		height 0
+	100%
+		opacity 1
+		height 100%
+@keyframes animate-left-show
+	0%
+		transform translate(-30px, 0)
+	100%
+		transform translate(0, 0)
+		opacity 1
+
+
+
+// 自我简介
+.about
+	position relative
+	h5
+		color base-color-1
+		font-weight bold
+		font-size 18px
+		text-align center
+		padding-top 15px
+		padding-bottom 20px
+	p
+		&.des
+			color #666
+			font-size 16px
+			line-height 1.9em
+		&.thx
+			width 100%
+			position absolute
+			bottom -50%
+			text-align center
+			font-size 40px
+			font-weight bold
+			color rgba(0,0,0,0.05)
+			line-height 50px
+	.btn
+		display block
+		width 90px
+		height 40px
+		overflow hidden
+		line-height 40px
+		background-color base-color-1
+		color white
+		text-align center
+		letter-spacing 1px
+		border-radius 5px
+		margin 25px auto 0
+		text-shadow 1px 1px base-color-1-dark,
+			2px 2px base-color-1-dark,
+			3px 3px base-color-1-dark,
+			4px 4px base-color-1-dark,
+			5px 5px base-color-1-dark,
+			6px 6px base-color-1-dark,
+			7px 7px base-color-1-dark,
+			8px 8px base-color-1-dark,
+			9px 9px base-color-1-dark,
+			10px 10px base-color-1-dark,
+			11px 11px base-color-1-dark,
+			12px 12px base-color-1-dark,
+			13px 13px base-color-1-dark,
+			14px 14px base-color-1-dark,
+			15px 15px base-color-1-dark,
+			16px 16px base-color-1-dark,
+			17px 17px base-color-1-dark
+		&:active
+			background-color base-color-1-dark
+small
+	color #999
+	font-size .8em
+
+// 自我简介 - 动画
+about-time = 0.2s
+.about.Animation
+	h5
+		animation-name animate-up-show
+		AnimationReset(about-time)
+	p
+	.btn
+		animation-name animate-up-show
+		AnimationReset(about-time)
+	p
+		&.des
+			animation-delay about-time * 2
+		&.thx
+			animation-delay about-time * 8
+	.btn
+		animation-delay about-time * 4
+			
+	
+
+
+// 底部提示滚动箭头图标
+.bottomArrow
+	width 100%
+	height 30px
+	line-height 30px
+	position fixed
+	left 0
+	bottom 0
+	text-align center
+	span
+		color rgba(0,0,0,.2)
+		font-size 26px
+		position absolute
+		display inline-block
+		width 60px
+		line-height 100%
+		left 50%
+		margin-left -30px
+		opacity 0.3
+		animation animate-array-down 1.5s ease-in
+		animation-iteration-count infinite
+		&:nth-child(1)
+			top 0
+			animation-delay .1s
+		&:nth-child(2)
+			top 10px
+
+@keyframes animate-array-down
+	0%
+		transform translate(0, -20px)
+	50%
+		transform translate(0, -10px)
+		opacity 1
+	100%
+		transform translate(0, -20px)
+
+// Loading 动画
+loading-circle-size = 8px
+loading-time = 1.5s
+.Loading
+	width 100%
+	position fixed
+	top 50%
+	margin-top -150px
+	text-align center
+	span
+		display inline-block
+		width loading-circle-size * 2
+		height loading-circle-size * 2
+		border-radius loading-circle-size
+		transform scale(0, 0)
+		background-color base-color-1
+		animation-duration loading-time
+		animation-timing-function linear
+		animation-iteration-count infinite
+		&:nth-child(1)
+			animation-name animate-loading-show-1
+		&:nth-child(2)
+			animation-name animate-loading-show-2
+			margin-left -5px
+			margin-right -5px
+		&:nth-child(3)
+			animation-name animate-loading-show-3
+	p
+		font-size 11px
+		color base-color-1
+		line-height 40px	
+
+@keyframes animate-loading-show-1
+	25%
+		transform scale(1, 1)
+	50%
+		transform scale(0, 0)
+	100%
+		transform scale(0, 0)
+
+@keyframes animate-loading-show-2
+	25%
+		transform scale(0, 0)
+	50%
+		transform scale(1, 1)
+	75%
+		transform scale(0, 0)
+
+@keyframes animate-loading-show-3
+	50%
+		transform scale(0, 0)
+	75%
+		transform scale(1, 1)
+	100%
+		transform scale(0, 0)
+
+
+@import "./media"
