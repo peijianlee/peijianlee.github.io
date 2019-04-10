@@ -6,7 +6,7 @@ var userinfo = {
 	// },
 	'base':[
 		{
-			type: "name",
+			type: "namex",
 			name: "名字",
 			value: "李培坚"
 		},
