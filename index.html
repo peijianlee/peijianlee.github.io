@@ -23,7 +23,7 @@
 					<div class="page">
 						<!-- 个人信息 -->
 						<template v-if="key === 'Me'">
-							<ul v-if="val" :class="'userinfo' + (pageIndex === index ? ' Animation':' opacity-0')">
+							<!-- <ul v-if="val" :class="'userinfo' + (pageIndex === index ? ' Animation':' opacity-0')">
 								<template v-for="u in val">
 									<li v-if="u.type === 'avatar'" class="Avatar">
 										<img v-if="u.type === 'avatar'" :src="u.value" alt="">
@@ -39,6 +39,30 @@
 											</i>
 										</span>
 										{{u.value}}
+									</li>
+								</template>
+							</ul> -->
+							<ul v-if="val['base']" :class="'userinfo base ' + (pageIndex === index ? 'Animation':'opacity-0')">
+								<template v-for="vb in val['base']">
+									<li>
+										<span>{{vb.name + ':'}}</span>
+										<span v-html="vb.value"></span>
+									</li>
+								</template>
+								<li class="Avatar">
+									<img src="avatar.png" alt="lipeijian">
+								</li>
+								<li class="line"></li>
+							</ul>
+							<ul v-if="val['content']" :class="'userinfo content ' + (pageIndex === index ? 'Animation':'opacity-0')">
+								<template v-for="vc in val['content']">
+									<li>
+										<span v-if="vc.icon">
+											<i :class="'iconfont ' + vc.icon.class"
+												:style="'color:' + vc.icon.color + ';font-size:' + ( vc.icon.size || '20px') + ';'">
+											</i>
+										</span>
+										{{vc.value}}
 									</li>
 								</template>
 							</ul>

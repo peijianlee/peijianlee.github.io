@@ -1,66 +1,75 @@
 
-var userinfo = [
-	{
-		type: "avatar",
-		value: "avatar.png"
-	},
-	{
-		type: "name",
-		value: "李培坚"
-	},
-	{
-		type: "en-name",
-		value: "LIPEIJIAN"
-	},
-	{
-		type: "job",
-		value: "前端开发 <small>&#60;F2E&#62;</small>"
-	},
-	{
-		type: "line"
-	},
-	{
-		icon: {
-			class: "icon-weixin",
-			color: "#24db5a"
+var userinfo = {
+	// {
+	// 	type: "avatar",
+	// 	value: "avatar.png"
+	// },
+	'base':[
+		{
+			type: "name",
+			name: "名字",
+			value: "李培坚"
 		},
-		type: "wechat",
-		value: "13640430944"
-	},
-	{
-		icon: {
-			class: "icon-qq",
-			color: "#4cafe9"
+		{
+			type: "age",
+			name: "年龄",
+			value: "33<small> (1986-12-02)</small>"
 		},
-		type: "qq",
-		value: "200814174"
-	},
-	{
-		icon: {
-			class: "icon-shouji",
-			color: "#13227a"
+		{
+			type: "birthplace",
+			name: "籍贯",
+			value: "福建省泉州市"
 		},
-		type: "phonenumber",
-		value: "138002955988"
-	},
-	{
-		icon: {
-			class: "icon-youxiang",
-			color: "#d4237a",
-			size: "16px"
+		{
+			type: "job",
+			name: "应聘岗位",
+			value: "前端开发 <small>&#60;F2E&#62;</small>"
+		}
+	],
+	'content':[
+		{
+			icon: {
+				class: "icon-weixin",
+				color: "#24db5a"
+			},
+			type: "wechat",
+			value: "13640430944"
 		},
-		type: "e-mail",
-		value: "lpjsteel@hotmail.com"
-	},
-	{
-		icon: {
-			class: "icon-wangzhan",
-			color: "#e44d26"
+		{
+			icon: {
+				class: "icon-qq",
+				color: "#4cafe9"
+			},
+			type: "qq",
+			value: "200814174"
 		},
-		type: "website",
-		value: "www.icsscn.com"
-	}
-]
+		{
+			icon: {
+				class: "icon-shouji",
+				color: "#13227a"
+			},
+			type: "phonenumber",
+			value: "138002955988"
+		},
+		{
+			icon: {
+				class: "icon-youxiang",
+				color: "#d4237a",
+				size: "16px"
+			},
+			type: "e-mail",
+			value: "lpjsteel@hotmail.com"
+		},
+		{
+			icon: {
+				class: "icon-wangzhan",
+				color: "#e44d26"
+			},
+			type: "website",
+			value: "www.icsscn.com"
+		}
+	]
+}
 
 
 export var lpj = {

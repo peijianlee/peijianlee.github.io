@@ -119,58 +119,121 @@ body
 	font-size 1em
 	letter-spacing .05em
 	li
-		margin-top 12px
-		line-height 2em
-		span
-			width 50px
-			padding-left 10px
-			display inline-block
-			text-align center
-		&.Avatar
-		&.Avatar img
-			width 110px
-			height 110px
-			border-radius 50%
-		&.Avatar
-			overflow hidden
-			text-align center
-			display block
-			margin 0 auto
-			padding 8px
-			border 1px solid #aaa
-			box-shadow 0 0 8px rgba(0,0,0,.1)
-		&:nth-child(2)
-			color base-color-1-dark
-		&.en-name
-			margin-top 0
-			font-size .8em
-			color #999
-		&.job
-			color base-color-1-dark
-			margin 5px 20px 20px
-		&.line
-			height 0
-			border-bottom 1px dashed #aaa
-			margin 0 30px 15px
+		margin-bottom 20px
+	&.base
+		margin 15px 15px 0
+		position relative
+		li
+			span:nth-child(1)
+				color gray
+			span:nth-child(2)
+				font-size 1.1em
+			&.line
+				margin-top 40px
+				border-bottom 1px dashed #aaa
+			&.Avatar
+			&.Avatar img
+				width 70px
+				height 70px
+				border-radius 50%
+			&.Avatar
+				position absolute
+				top 0px
+				right 0
+				overflow hidden
+				display block
+				padding 3px
+				border 1px solid #aaa
+				box-shadow 0 0 8px rgba(0,0,0,.1)
+	&.content
+		margin-top 30px
+		li
+			span
+				width 28px
+				padding-left 15px
+				display inline-block
+				// text-align center
+// .userinfo
+// 	font-size 1em
+// 	letter-spacing .05em
+// 	li
+// 		margin-top 12px
+// 		line-height 2em
+// 		span
+// 			width 50px
+// 			padding-left 10px
+// 			display inline-block
+// 			text-align center
+// 		&.Avatar
+// 		&.Avatar img
+// 			width 110px
+// 			height 110px
+// 			border-radius 50%
+// 		&.Avatar
+// 			overflow hidden
+// 			text-align center
+// 			display block
+// 			margin 0 auto
+// 			padding 8px
+// 			border 1px solid #aaa
+// 			box-shadow 0 0 8px rgba(0,0,0,.1)
+// 		&:nth-child(2)
+// 			color base-color-1-dark
+// 		&.en-name
+// 			margin-top 0
+// 			font-size .8em
+// 			color #999
+// 		&.job
+// 			color base-color-1-dark
+// 			margin 5px 20px 20px
+// 		&.line
+// 			height 0
+// 			border-bottom 1px dashed #aaa
+// 			margin 0 30px 15px
 			
 
 // 我的信息 - 动画
 userinfo-time = 0.2s
 .userinfo.Animation
-	li
-	li span
-		AnimationReset(userinfo-time)
-	for num in 1 2 3 4 5
-		li:nth-child({num})
-			animation-name animate-up-show
-			animation-delay num * userinfo-time
-	for num in 	6 7 8 9 10
-		li:nth-child({num})
-			animation-name animate-up-left-show
-			animation-delay num * (userinfo-time + 0.1s)
-			span
-				animation-name animate-left-show
-				animation-delay num * (userinfo-time + 0.1s)
+	&.base
+		li
+			AnimationReset(userinfo-time)
+			for num in 1 2 3 4
+				&:nth-child({num})
+					animation-name animate-left-show
+					animation-delay num * (userinfo-time + 0.1s)
+			&:nth-child(5)
+				animation-name animate-up-left-show
+				animation-delay 5 * (userinfo-time + 0.1s)
+			&:nth-child(6)
+				animation-name animate-up-show
+				animation-delay 6 * (userinfo-time + 0.1s)
+	&.content
+		li
+		li span
+			AnimationReset(userinfo-time)
+			for num in 1 2 3 4 5
+				&:nth-child({num})
+					animation-name animate-up-left-show
+					animation-delay num * (userinfo-time + 0.1s) + 1.8s
+					span
+						animation-name animate-left-show
+						animation-delay num * (userinfo-time + 0.1s) + 1.8s
+// .userinfo.Animation
+// 	li
+// 	li span
+// 		AnimationReset(userinfo-time)
+// 	for num in 1 2 3 4 5
+// 		li:nth-child({num})
+// 			animation-name animate-up-show
+// 			animation-delay num * userinfo-time
+// 	for num in 	6 7 8 9 10
+// 		li:nth-child({num})
+// 			animation-name animate-up-left-show
+// 			animation-delay num * (userinfo-time + 0.1s)
+// 			span
+// 				animation-name animate-left-show
+// 				animation-delay num * (userinfo-time + 0.1s)
 				
 
 @keyframes animate-up-show
