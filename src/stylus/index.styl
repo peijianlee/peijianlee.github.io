@@ -3,6 +3,7 @@
 @import "./config"
 
 base-color-1 = #745f6e
+base-color-1-light = #9e8697
 base-color-1-dark = #5f525b
 base-color-2 = #718c7d
 base-color-3 = #68ab82
@@ -23,6 +24,7 @@ body
 body
 	color #333
 	background-color #f8f8f8
+	font-family Microsoft YaHei,tahoma,arial,Hiragino Sans GB,u5b8bu4f53,sans-serif
 
 .swiper-container,
 .swiper-wrapper,
@@ -39,11 +41,12 @@ body
 	font-size 14px
 	fullScreen()
 	padding-top 50px
+	position relative
 
 .nav
 	font-size 14px
 	width 19%
-	position fixed
+	position absolute
 	z-index 1
 	top 0
 	left 7%
@@ -52,7 +55,7 @@ body
 		height 40px
 		width 80px
 		padding-top 10px
-		border-bottom 2px solid base-color-1
+		border-bottom 1px solid base-color-1-light
 		span
 			color white
 			text-align center
@@ -66,16 +69,16 @@ body
 		font-weight bold
 		text-align right
 	&.home
-		color base-color-1
+		color base-color-1-light
 		dt
-			border-bottom-color base-color-1
+			border-bottom-color base-color-1-light
 			span
-				background-color base-color-1
+				background-color base-color-1-light
 	
 .page
 	position relative
 	line-height 1.7em
-	border-top 2px solid #ddd
+	border-top 1px solid #ddd
 	width 86%
 	margin 0 7% 0
 	padding-top 16px
@@ -107,7 +110,7 @@ body
 				margin-right 3px
 				
 	.bg-text
-		color rgba(0,0,0,.05)
+		color rgba(0,0,0,.02)
 		font-size 100px
 		font-weight bold
 		position absolute
@@ -295,7 +298,7 @@ skills-time = 0.2s
 				animation-delay num * (skills-time + 0.12s)
 
 // 工作
-.works
+.jobs
 	height 84%
 	position relative
 	padding-left 20px
@@ -333,26 +336,26 @@ skills-time = 0.2s
 			margin-bottom 25px
 
 // 工作 - 动画
-works-time = 0.3s
-.works.Animation
+jobs-time = 0.3s
+.jobs.Animation
 	dt
 		animation-name animate-line-show
 		AnimationReset(1.8s)
 	dd
 		animation-name animate-left-show
-		AnimationReset(works-time)
+		AnimationReset(jobs-time)
 		h6,h5,p
 			animation-name animate-left-show
-			AnimationReset(works-time + 0.2s)
+			AnimationReset(jobs-time + 0.2s)
 	for num in 1 2 3
 		dd:nth-child({num})
-			animation-delay num * (works-time + 0.2s)
+			animation-delay num * (jobs-time + 0.2s)
 			h6
-				animation-delay num * (works-time + 0.1s)
+				animation-delay num * (jobs-time + 0.1s)
 			h5
-				animation-delay num * (works-time + 0.15s)
+				animation-delay num * (jobs-time + 0.15s)
 			p
-				animation-delay num * (works-time + 0.2s)
+				animation-delay num * (jobs-time + 0.2s)
 
 @keyframes animate-line-show
 	0%
@@ -367,7 +370,63 @@ works-time = 0.3s
 		transform translate(0, 0)
 		opacity 1
 
+// 作品
+.projects
+	position relative
+	z-index 1
+.project-item
+	height 140px
+	width 100%
+	margin-bottom 10px
+	overflow hidden
+	position relative
+	transition all 0.4s
+	.content
+		color white
+		letter-spacing 1px
+		line-height 1.7em
+		position absolute
+		padding 15px 20px 0
+		width 100%
+		height 100%
+		box-sizing border-box
+		text-shadow 2px 2px black
+		box-shadow inset 50px 50px 80px rgba(0,0,0,0.5)
+		&.in-item
+		.title
+			transition all 0.4s
+			font-weight bold
+			font-size 17px
+		li
+			margin-top 12px
+			animation-name animate-up-show
+	img
+		width 100%
 
+
+project-item-time = 0.3s
+.project-item.project-item-show-animate
+	.title
+		font-size 22px
+		transform translate(0, 30px)
+	ul
+		padding-top 30px
+		li
+			AnimationReset(project-item-time)
+		for num in 1 2 3 4
+			li:nth-child({num})
+				animation-delay num * (project-item-time + 0.2s)
+
+
+// 弹出层
+.pop-up-bg
+	background-color rgba(255,255,255,.5)
+	position absolute
+	z-index 99
+	width 100%
+	height 100%
+	left 0
+	top 0
 
 // 自我简介
 .about
@@ -490,7 +549,7 @@ loading-circle-size = 8px
 loading-time = 1.5s
 .Loading
 	width 100%
-	position fixed
+	position absolute
 	top 50%
 	margin-top -150px
 	text-align center

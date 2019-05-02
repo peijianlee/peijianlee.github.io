@@ -7,6 +7,21 @@
 </head>
 <body>
 	<div id="app">
+		<!-- 作品页面弹出层 -->
+		<section v-if="projectItem.info" :class="'pop-up-bg' + (projectItem.showInfo?' project-item-show-animate':'')" @click="hideProject">
+			<div class="project-item project-item-show-animate" 
+			:style=`position:absolute;left:${projectItem.left};top:${projectItem.top};width:${projectItem.width};height:${projectItem.height};background-color:${projectItem.bgColor}`>
+				<div class="content">
+					<h6 class="title" v-html="projectItem.info.title"></h6>
+					<ul>
+						<li v-html="'使用技术：'+projectItem.info.skills"></li>
+						<li v-html="'项目地址：'+projectItem.info.website"></li>
+						<li v-html="'项目描述：'+projectItem.info.description"></li>
+					</ul>
+				</div>
+				<img :style=`filter:${projectItem.imgFilter}` :src="'src/images/projects/'+projectItem.info.banner" alt="">
+			</div>
+		</section>
 		<div v-if="!page['Me']" class="Loading">
 			<span></span>
 			<span></span>
@@ -18,7 +33,7 @@
 		    	<dt v-html="logo"></dt>
 		    </dl>
 
-			<div class="swiper-wrapper">
+			<div :class="'swiper-wrapper'">
 				<div v-for="(val,key,index) in page" class="swiper-slide">
 					<div class="page">
 						<!-- 个人信息 -->
@@ -79,8 +94,8 @@
 							</ul>
 						</template>
 						<!-- 工作 -->
-						<template v-if="key === 'Works'">
-							<dl v-if="val" :class="'works' + (pageIndex === index ? ' Animation':' opacity-0')">
+						<template v-if="key === 'Jobs'">
+							<dl v-if="val" :class="'jobs' + (pageIndex === index ? ' Animation':' opacity-0')">
 								<dt></dt>
 								<dd v-for="w in val">
 									<h6 v-html="w.year"></h6>
@@ -89,7 +104,24 @@
 								</dd>
 							</dl>
 						</template>
-						<!-- 工作 -->
+						<!-- 作品 -->
+						<template v-if="key === 'Projects'">
+							<section class="projects" @click="showProject(event)">
+								<div v-for="p,i in val" class="project-item" :data-item="i">
+									<div class="content in-item" v-html="p.title"></div>
+									<img :src="'src/images/projects/'+p.banner" alt="">
+								</div>
+							</section>
+							<!-- <dl v-if="val" :class="'jobs' + (pageIndex === index ? ' Animation':' opacity-0')">
+								<dt></dt>
+								<dd v-for="w in val">
+									<h6 v-html="w.year"></h6>
+									<h5 v-html="w.company"></h5>
+									<p v-html="w.des"></p>
+								</dd>
+							</dl> -->
+						</template>
+						<!-- 关于 -->
 						<div v-if="key === 'About'" :class="'about' + (pageIndex === index ? ' Animation':' opacity-0')">
 							<h5 v-html="val.title"></h5>
 							<p class="des" v-html="val.des"></p>

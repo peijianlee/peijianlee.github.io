@@ -81,7 +81,7 @@ export var lpj = {
 				color: "#e44d26"
 			},
 			"skill": "HTML/HTML5",
-			"des": "了解常用的标签， cavans、svg 绘图方面比较薄弱。"
+			"des": "了解常用的标签，注重语义化，能写出符合 W3C 标准的HTML，cavans、svg 绘图方面比较薄弱。"
 		},
 		{
 			"icon": {
@@ -97,7 +97,7 @@ export var lpj = {
 				color: "#f5dd1e"
 			},
 			"skill": "javascript",
-			"des": "作为前端最核心的语言，对于常用的函数和原型链、作用域有基础的理解。框架方面，jQuery 比较表常用，能 DOM 做一些基础的操作；对于目前的主流框架 Vue 比较常用，能完成一般APP开发的业务需求，react 、angular 目前没有任何的开发经验。"
+			"des": "作为前端最核心的语言，对于常用的函数和原型链、作用域有一定的理解。框架方面，jQuery 比较表常用，能 DOM 做一些基础的操作；对于目前的主流框架 Vue 比较常用，能完成一般APP开发的业务需求，react 、angular 目前没有任何的开发经验。"
 		},
 		{
 			"icon": {
@@ -108,7 +108,7 @@ export var lpj = {
 			"des": "作为现代前端的必备技能，能使用 Node.js 做业务比较简单网站的后台，通常配合 express + mongodb 进行开发；能使用 webpack 对网站进行简单的配置打包。"
 		}
 	],
-	"Works": [
+	"Jobs": [
 		{
 			"year": "2017-06-02 到 至今",
 			"company": "中山漫道服装设计有限公司",
@@ -118,6 +118,36 @@ export var lpj = {
 			"year": "2015-07-08 到 2017-06-02",
 			"company": "中山初心技术服务有限公司",
 			"des": "主要负责公司官网（www.mdecomics.com）的前端工作，由于公司技术部门管理上的问题，后期开发工作就交由外包公司全面负责。"
+		}
+	],
+	"Projects": [
+		{
+			"title": "漫道网",
+			"banner": "mandao.jpg",
+			"skills": "html, css, jQuery, javascript",
+			"website": "www.mdecomices.cn",
+			"description": "公司项目，主要是负责前端页面的开发。",
+		},
+		{
+			"title": "梵特家居网",
+			"banner": "vinte.jpg",
+			"skills": "html, javascript, Node.js, express, MongoDB 等等",
+			"website": "www.vinte.xin",
+			"description": "个人项目，前后端均为个人开发。开发该网站的主要目的是帮助该企业能够更好的展示产品，并能帮助用户更快地挑选自己的商品",
+		},
+		{
+			"title": "MAD.Q 童装小程序",
+			"banner": "madq.jpg",
+			"skills": "mina",
+			"website": "",
+			"description": "公司项目，主要个人负责开发后端(nodeJs + mangoDB)及前端页面",
+		},
+		{
+			"title": "mattmatt",
+			"banner": "mattmatt.jpg",
+			"skills": "html, css, jQuery, javascript",
+			"website": "www.mattmatt.cn",
+			"description": "公司项目，公司的外包项目，主要负责程序设计方案，及后期网站的测试。",
 		}
 	],
 	"About": {
