@@ -155,44 +155,6 @@ body
 				width 28px
 				padding-left 15px
 				display inline-block
-				// text-align center
-// .userinfo
-// 	font-size 1em
-// 	letter-spacing .05em
-// 	li
-// 		margin-top 12px
-// 		line-height 2em
-// 		span
-// 			width 50px
-// 			padding-left 10px
-// 			display inline-block
-// 			text-align center
-// 		&.Avatar
-// 		&.Avatar img
-// 			width 110px
-// 			height 110px
-// 			border-radius 50%
-// 		&.Avatar
-// 			overflow hidden
-// 			text-align center
-// 			display block
-// 			margin 0 auto
-// 			padding 8px
-// 			border 1px solid #aaa
-// 			box-shadow 0 0 8px rgba(0,0,0,.1)
-// 		&:nth-child(2)
-// 			color base-color-1-dark
-// 		&.en-name
-// 			margin-top 0
-// 			font-size .8em
-// 			color #999
-// 		&.job
-// 			color base-color-1-dark
-// 			margin 5px 20px 20px
-// 		&.line
-// 			height 0
-// 			border-bottom 1px dashed #aaa
-// 			margin 0 30px 15px
 			
 
 // 我的信息 - 动画
@@ -222,21 +184,6 @@ userinfo-time = 0.2s
 					span
 						animation-name animate-left-show
 						animation-delay num * (userinfo-time + 0.1s) + 1.8s
-// .userinfo.Animation
-// 	li
-// 	li span
-// 		AnimationReset(userinfo-time)
-// 	for num in 1 2 3 4 5
-// 		li:nth-child({num})
-// 			animation-name animate-up-show
-// 			animation-delay num * userinfo-time
-// 	for num in 	6 7 8 9 10
-// 		li:nth-child({num})
-// 			animation-name animate-up-left-show
-// 			animation-delay num * (userinfo-time + 0.1s)
-// 			span
-// 				animation-name animate-left-show
-// 				animation-delay num * (userinfo-time + 0.1s)
 				
 
 @keyframes animate-up-show
@@ -380,12 +327,12 @@ jobs-time = 0.3s
 	margin-bottom 10px
 	overflow hidden
 	position relative
-	transition all 0.4s
 	.content
 		color white
 		letter-spacing 1px
 		line-height 1.7em
 		position absolute
+		z-index 3
 		padding 15px 20px 0
 		width 100%
 		height 100%
@@ -397,26 +344,63 @@ jobs-time = 0.3s
 			transition all 0.4s
 			font-weight bold
 			font-size 17px
+		.title
+			transition all 0.2s
 		li
 			margin-top 12px
-			animation-name animate-up-show
 	img
 		width 100%
 
+// 作品 - 动画
+projects-time = 0.3s
+.projects.Animation
+	div.project-item
+		animation-name animate-left-show
+		AnimationReset(projects-time)
+	for num in 1 2 3 4
+		div.project-item:nth-child({num})
+			animation-delay num * (projects-time +0.1s)
 
+// 弹出层作品 - 动画
 project-item-time = 0.3s
-.project-item.project-item-show-animate
-	.title
-		font-size 22px
-		transform translate(0, 30px)
-	ul
-		padding-top 30px
-		li
-			AnimationReset(project-item-time)
-		for num in 1 2 3 4
-			li:nth-child({num})
-				animation-delay num * (project-item-time + 0.2s)
+.pop-up-bg
+	.project-item
+		transition all 0.4s
+		.title
+			// transition all 0.2s
+		&.project-item-show-animate
+			.title
+				// opacity 1
+				// AnimationReset(project-item-time)
+				// animation-name project-item-title
+				font-size 24px
+				transform translate(0, 20px)
+			ul
+				padding-top 30px
+				li
+					AnimationReset(project-item-time)
+					animation-name animate-up-show
+				for num in 1 2 3 4
+					li:nth-child({num})
+						animation-delay num * (project-item-time + 0.2s)
 
+@keyframes project-item-title
+	0%
+		transform translate(0, 0)
+	100%
+		transform translate(0, 30px)
+// 点击背景 - 圆圈
+.bg-circle
+	width 20px
+	height 20px
+	margin -10px 0 0 -10px
+	position fixed
+	border-radius 50%
+	background-color rgba(0,0,0,.1)
+	transition all 0.4s
+	&.changeSize
+		transform scale(100)
+		background-color rgba(0,0,0,.4)
 
 // 弹出层
 .pop-up-bg
@@ -425,6 +409,7 @@ project-item-time = 0.3s
 	z-index 99
 	width 100%
 	height 100%
+	overflow hidden
 	left 0
 	top 0
 

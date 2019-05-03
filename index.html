@@ -8,8 +8,8 @@
 <body>
 	<div id="app">
 		<!-- 作品页面弹出层 -->
-		<section v-if="projectItem.info" :class="'pop-up-bg' + (projectItem.showInfo?' project-item-show-animate':'')" @click="hideProject">
-			<div class="project-item project-item-show-animate" 
+		<section v-if="projectItem.info" :class="'pop-up-bg'" @click="hideProject(event)">
+			<div :class="'project-item' + (projectItem.showInfo?' project-item-show-animate':'')" 
 			:style=`position:absolute;left:${projectItem.left};top:${projectItem.top};width:${projectItem.width};height:${projectItem.height};background-color:${projectItem.bgColor}`>
 				<div class="content">
 					<h6 class="title" v-html="projectItem.info.title"></h6>
@@ -20,6 +20,8 @@
 					</ul>
 				</div>
 				<img :style=`filter:${projectItem.imgFilter}` :src="'src/images/projects/'+projectItem.info.banner" alt="">
+				<div v-if="projectItem.info" :class="'bg-circle'+(projectItem.showInfo? ' changeSize': '')" 
+					:style=`top:${projectItem.circle.y}px;left:${projectItem.circle.x}px;`></div>
 			</div>
 		</section>
 		<div v-if="!page['Me']" class="Loading">
@@ -38,25 +40,6 @@
 					<div class="page">
 						<!-- 个人信息 -->
 						<template v-if="key === 'Me'">
-							<!-- <ul v-if="val" :class="'userinfo' + (pageIndex === index ? ' Animation':' opacity-0')">
-								<template v-for="u in val">
-									<li v-if="u.type === 'avatar'" class="Avatar">
-										<img v-if="u.type === 'avatar'" :src="u.value" alt="">
-									</li>
-									<li v-else-if="u.type === 'name'" class="tc fs-large-3x" v-html="u.value"></li>
-									<li v-else-if="u.type === 'en-name'" class="tc en-name" v-html="u.value"></li>
-									<li v-else-if="u.type === 'job'" class="tc job fs-large-2x" v-html="u.value"></li>
-									<li v-else-if="u.type === 'line'" class="line"></li>
-									<li v-else>
-										<span v-if="u.icon">
-											<i :class="'iconfont ' + u.icon.class"
-												:style="'color:' + u.icon.color + ';font-size:' + ( u.icon.size || '20px') + ';'">
-											</i>
-										</span>
-										{{u.value}}
-									</li>
-								</template>
-							</ul> -->
 							<ul v-if="val['base']" :class="'userinfo base ' + (pageIndex === index ? 'Animation':'opacity-0')">
 								<template v-for="vb in val['base']">
 									<li>
@@ -106,7 +89,7 @@
 						</template>
 						<!-- 作品 -->
 						<template v-if="key === 'Projects'">
-							<section class="projects" @click="showProject(event)">
+							<section :class="'projects' + (pageIndex === index ? ' Animation':' opacity-0')" @click="showProject(event)">
 								<div v-for="p,i in val" class="project-item" :data-item="i">
 									<div class="content in-item" v-html="p.title"></div>
 									<img :src="'src/images/projects/'+p.banner" alt="">

@@ -19,7 +19,8 @@ var app = new Vue({
 				left: 0,
 				top: 0,
 				status: {},
-				showInfo: false
+				showInfo: false,
+				circle: {}
 			}
 		}
 	},
@@ -37,7 +38,7 @@ var app = new Vue({
 		swiperJs(that, lock) {
 			var mySwiper = new Swiper ('.swiper-container', {
 				direction: 'vertical',
-				autoplay: true,
+				autoplay: false,
 				on: {
 					slideChangeTransitionEnd: function() {
 						that.pageIndex = this.activeIndex
@@ -46,8 +47,10 @@ var app = new Vue({
 			})
 		},
 		showProject(event) {
-			// console.log(event)parent  
-			// var PARENT_ELM = event.target.getAttribute("id")
+			console.log(event)
+			console.log(event.clientY)
+			console.log(event.clientX)
+			
 			var ELM = event.target,
 				PARENT_ELM = ELM.parentElement,
 				PARENT_ELM_LOCATION = PARENT_ELM.getClientRects()[0],
@@ -69,13 +72,16 @@ var app = new Vue({
 				// this.projectItem.imgFilter = 'blur(8px)'
 				this.projectItem.status.height = HEIGHT + 'px'
 
+				// 获取背景圆圈位置
+				this.projectItem.circle.y = event.clientY
+				this.projectItem.circle.x = event.clientX
+
 				setTimeout(()=>{
-					console.log('1111')
 					this.projectItem.showInfo = true
-				}, 4000)
+				}, 10)
 			}
 		},
-		hideProject() {
+		hideProject(event) {
 			var STATUS = this.projectItem.status
 			this.projectItem.left = STATUS.left
 			this.projectItem.top = STATUS.top
@@ -83,6 +89,10 @@ var app = new Vue({
 			this.projectItem.height = STATUS.height
 			// filter: blur(8px)
 			this.projectItem.showInfo = false
+
+			// 获取背景圆圈位置
+			this.projectItem.circle.y = event.clientY
+			this.projectItem.circle.x = event.clientX
 			setTimeout(()=>{
 				this.projectItem.info = false
 			},400)
