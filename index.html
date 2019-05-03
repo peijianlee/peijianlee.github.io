@@ -10,7 +10,9 @@
 		<!-- 作品页面弹出层 -->
 		<section v-if="projectItem.info" :class="'pop-up-bg'" @click="hideProject(event)">
 			<div :class="'project-item' + (projectItem.showInfo?' project-item-show-animate':'')" 
-			:style=`position:absolute;left:${projectItem.left};top:${projectItem.top};width:${projectItem.width};height:${projectItem.height};background-color:${projectItem.bgColor}`>
+				:style="'background-image:url(src/images/projects/'+ projectItem.info.banner +');left:' + 
+				projectItem.left +';top:' + projectItem.top + ';width:' + projectItem.width +
+				';height:' + projectItem.height + ';'" >
 				<div class="content">
 					<h6 class="title" v-html="projectItem.info.title"></h6>
 					<ul>
@@ -19,7 +21,7 @@
 						<li v-html="'项目描述：'+projectItem.info.description"></li>
 					</ul>
 				</div>
-				<img :style=`filter:${projectItem.imgFilter}` :src="'src/images/projects/'+projectItem.info.banner" alt="">
+				<!-- <img :style=`filter:${projectItem.imgFilter}` :src="'src/images/projects/'+projectItem.info.banner" alt=""> -->
 				<div v-if="projectItem.info" :class="'bg-circle'+(projectItem.showInfo? ' changeSize': '')" 
 					:style=`top:${projectItem.circle.y}px;left:${projectItem.circle.x}px;`></div>
 			</div>

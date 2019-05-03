@@ -47,9 +47,6 @@ var app = new Vue({
 			})
 		},
 		showProject(event) {
-			console.log(event)
-			console.log(event.clientY)
-			console.log(event.clientX)
 			
 			var ELM = event.target,
 				PARENT_ELM = ELM.parentElement,
@@ -112,7 +109,6 @@ var app = new Vue({
 					this.projectItem.top = 0
 					this.projectItem.width = '100%'
 					this.projectItem.height = '100%'
-					this.projectItem.bgColor = '#fff'
 				},100)
 			}
 		}
