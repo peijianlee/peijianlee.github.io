@@ -48,13 +48,20 @@ var app = new Vue({
 		},
 		showProject(event) {
 			
-			var ELM = event.target,
+			var BASE_WIDTH = 414,
+				BASE_HEIGHT = 736,
+				WINDOW_WIDTH = document.body.offsetWidth,
+				WINDOW_HEIGHT = document.body.offsetHeight,
+				ELM = event.target,
 				PARENT_ELM = ELM.parentElement,
 				PARENT_ELM_LOCATION = PARENT_ELM.getClientRects()[0],
-				LEFT = PARENT_ELM_LOCATION.x,
-				TOP = PARENT_ELM_LOCATION.y,
+				LEFT = WINDOW_WIDTH > BASE_WIDTH ? PARENT_ELM_LOCATION.x - (WINDOW_WIDTH - BASE_WIDTH) / 2 : PARENT_ELM_LOCATION.x,
+				TOP = WINDOW_HEIGHT > BASE_HEIGHT ? PARENT_ELM_LOCATION.y - (WINDOW_HEIGHT - BASE_HEIGHT) / 2 : PARENT_ELM_LOCATION.y,
 				HEIGHT = PARENT_ELM_LOCATION.height,
 				WIDTH = PARENT_ELM_LOCATION.width
+
+			// console.log(WINDOW_WIDTH)
+			// console.log(WINDOW_HEIGHT)
 
 			if(PARENT_ELM.getAttribute('class') === 'project-item'){
 				var ITEM = PARENT_ELM.getAttribute('data-item')
@@ -70,8 +77,10 @@ var app = new Vue({
 				this.projectItem.status.height = HEIGHT + 'px'
 
 				// 获取背景圆圈位置
-				this.projectItem.circle.y = event.clientY
-				this.projectItem.circle.x = event.clientX
+				console.log(event.clientX - ((WINDOW_WIDTH - BASE_WIDTH) / 2))
+				// console.log()
+				this.projectItem.circle.x = WINDOW_WIDTH > BASE_WIDTH ? event.clientX - (WINDOW_WIDTH - BASE_WIDTH) / 2 : event.clientX
+				this.projectItem.circle.y = WINDOW_HEIGHT > BASE_HEIGHT ? event.clientY - (WINDOW_HEIGHT - BASE_HEIGHT) / 2 : event.clientY
 
 				setTimeout(()=>{
 					this.projectItem.showInfo = true
