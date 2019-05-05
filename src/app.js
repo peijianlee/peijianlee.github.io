@@ -21,7 +21,8 @@ var app = new Vue({
 				status: {},
 				showInfo: false,
 				circle: {}
-			}
+			},
+			showInfoNum: 0
 		}
 	},
 	mounted(){
@@ -46,8 +47,20 @@ var app = new Vue({
 				}
 			})
 		},
-		showProject(event) {
+		getCircleXY(event) {
+			var C_OBJ = {},
+				BASE_WIDTH = 414,
+				BASE_HEIGHT = 736,
+				WINDOW_WIDTH = document.body.offsetWidth,
+				WINDOW_HEIGHT = document.body.offsetHeight
+			// C_OBJ.x = WINDOW_WIDTH > BASE_WIDTH ? event.clientX - (WINDOW_WIDTH - BASE_WIDTH) / 2 : event.clientX
+			// C_OBJ.y = WINDOW_HEIGHT > BASE_HEIGHT ? event.clientY - (WINDOW_HEIGHT - BASE_HEIGHT) / 2 : event.clientY
+			this.projectItem.circle.x = WINDOW_WIDTH > BASE_WIDTH ? event.clientX - (WINDOW_WIDTH - BASE_WIDTH) / 2 : event.clientX
+			this.projectItem.circle.y = WINDOW_HEIGHT > BASE_HEIGHT ? event.clientY - (WINDOW_HEIGHT - BASE_HEIGHT) / 2 : event.clientY
 			
+			// return C_OBJ
+		},
+		showProject(event) {
 			var BASE_WIDTH = 414,
 				BASE_HEIGHT = 736,
 				WINDOW_WIDTH = document.body.offsetWidth,
@@ -77,10 +90,10 @@ var app = new Vue({
 				this.projectItem.status.height = HEIGHT + 'px'
 
 				// 获取背景圆圈位置
-				console.log(event.clientX - ((WINDOW_WIDTH - BASE_WIDTH) / 2))
-				// console.log()
-				this.projectItem.circle.x = WINDOW_WIDTH > BASE_WIDTH ? event.clientX - (WINDOW_WIDTH - BASE_WIDTH) / 2 : event.clientX
-				this.projectItem.circle.y = WINDOW_HEIGHT > BASE_HEIGHT ? event.clientY - (WINDOW_HEIGHT - BASE_HEIGHT) / 2 : event.clientY
+				this.getCircleXY(event)
+				// this.projectItem.circle.x = Circle.x
+				// this.projectItem.circle.y = Circle.y
+				// console.log(Circle.y)
 
 				setTimeout(()=>{
 					this.projectItem.showInfo = true
@@ -93,13 +106,14 @@ var app = new Vue({
 			this.projectItem.top = STATUS.top
 			this.projectItem.width = STATUS.width
 			this.projectItem.height = STATUS.height
-			// filter: blur(8px)
-			this.projectItem.showInfo = false
 
+			this.projectItem.showInfo = false
 			// 获取背景圆圈位置
-			this.projectItem.circle.y = event.clientY
-			this.projectItem.circle.x = event.clientX
+			this.getCircleXY(event)
 			setTimeout(()=>{
+				// filter: blur(8px)
+				this.showInfoNum = this.showInfoNum + 1
+				console.log(this.projectItem.showInfo + ' ,' + this.showInfoNum)
 				this.projectItem.info = false
 			},400)
 		}

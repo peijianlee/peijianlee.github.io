@@ -20,12 +20,15 @@
 						<li v-html="'使用技术：'+projectItem.info.skills"></li>
 						<li v-html="'项目地址：'+projectItem.info.website"></li>
 						<li v-html="'项目描述：'+projectItem.info.description"></li>
+						<li v-if="projectItem.info.qrcode">
+							<img :src="'src/images/projects/'+projectItem.info.qrcode" alt="">
+						</li>
 					</ul>
 				</div>
 				<!-- <img :style=`filter:${projectItem.imgFilter}` :src="'src/images/projects/'+projectItem.info.banner" alt=""> -->
-				<div v-if="projectItem.info" :class="'bg-circle'+(projectItem.showInfo? ' changeSize': '')" 
-					:style=`top:${projectItem.circle.y}px;left:${projectItem.circle.x}px;`></div>
 			</div>
+			<div v-if="projectItem.info" :class="'bg-circle'+(projectItem.showInfo? ' changeSize': '')" 
+				:style=`top:${projectItem.circle.y}px;left:${projectItem.circle.x}px;`></div>
 		</section>
 		<div v-if="!page['Me']" class="Loading">
 			<span></span>

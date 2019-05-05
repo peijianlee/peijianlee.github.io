@@ -384,6 +384,11 @@ project-item-time = 0.3s
 				// animation-name project-item-title
 				font-size 24px
 				transform translate(0, 20px)
+			img
+				width 130px
+				border 5px solid rgba(255,255,255,.5)
+				border-radius 70px
+				margin-top 10px
 			ul
 				font-size 14px
 				transform translate(0, 0)
@@ -392,7 +397,7 @@ project-item-time = 0.3s
 				li
 					AnimationReset(project-item-time)
 					animation-name animate-up-show
-				for num in 1 2 3 4
+				for num in 1 2 3 4 5
 					li:nth-child({num})
 						animation-delay num * (project-item-time + 0.2s)
 
@@ -410,9 +415,9 @@ project-item-time = 0.3s
 	position absolute
 	border-radius 50%
 	background-color rgba(0,0,0,.1)
-	transition all 0.4s
+	transition all .5s
 	&.changeSize
-		transform scale(100)
+		transform scale(90)
 		background-color rgba(0,0,0,.4)
 
 // 弹出层

@@ -144,6 +144,7 @@ export var lpj = {
 			"skills": "mina",
 			"website": "",
 			"description": "MAD.Q 是 mattmatt 旗下的童装品牌，是以「童趣」为品牌核心里面，制作适合0-15岁的儿童时装。",
+			"qrcode": "gh_5a969e2b9dea_258.png"
 		},
 		{
 			"title": "mattmatt",
