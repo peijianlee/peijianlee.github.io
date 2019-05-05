@@ -124,30 +124,34 @@ export var lpj = {
 		{
 			"title": "漫道网",
 			"banner": "mandao.jpg",
+			"work": "公司项目，主要是负责前端页面的开发。",
 			"skills": "html, css, jQuery, javascript",
 			"website": "www.mdecomices.cn",
-			"description": "公司项目，主要是负责前端页面的开发。",
+			"description": "「跨越港澳和内地的原创漫画网站，以培养漫画新人为己任，创造丰富的机会为漫画爱好者们提供展示的舞台，力求将最好的产品及服务提供给广大动漫从业人员及爱好者，为所有漫画、小说及插画作者创造良好的创作机制。",
 		},
 		{
 			"title": "梵特家居网",
 			"banner": "vinte.jpg",
+			"work": "个人项目，前后端和页面设计均为个人开发。",
 			"skills": "html, javascript, Node.js, express, MongoDB 等等",
 			"website": "www.vinte.xin",
-			"description": "个人项目，前后端均为个人开发。开发该网站的主要目的是帮助该企业能够更好的展示产品，并能帮助用户更快地挑选自己的商品",
+			"description": "梵特家具网主要目的是帮助该企业能够更好的展示产品，并能帮助用户更快地挑选自己的商品。",
 		},
 		{
 			"title": "MAD.Q 童装小程序",
 			"banner": "madq.jpg",
+			"work": "公司项目，主要个人负责开发后端(nodeJs + mangoDB)及前端页面",
 			"skills": "mina",
 			"website": "",
-			"description": "公司项目，主要个人负责开发后端(nodeJs + mangoDB)及前端页面",
+			"description": "MAD.Q 是 mattmatt 旗下的童装品牌，是以「童趣」为品牌核心里面，制作适合0-15岁的儿童时装。",
 		},
 		{
 			"title": "mattmatt",
 			"banner": "mattmatt.jpg",
+			"work": "公司项目，公司的外包项目，主要负责网站的原型设计方案，及后期网站的测试。",
 			"skills": "html, css, jQuery, javascript",
 			"website": "www.mattmatt.cn",
-			"description": "公司项目，公司的外包项目，主要负责程序设计方案，及后期网站的测试。",
+			"description": "mattmatt 为香港原创设计品牌，主要是以中高端品牌为定位，服装彰显个性，适合当代追求时尚的流行趋势，受众人群层面广，年龄跨度大。",
 		}
 	],
 	"About": {
