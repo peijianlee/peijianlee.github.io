@@ -122,14 +122,6 @@ export var lpj = {
 	],
 	"Projects": [
 		{
-			"title": "漫道网",
-			"banner": "mandao.jpg",
-			"work": "公司项目，主要是负责前端页面的开发。",
-			"skills": "html, css, jQuery, javascript",
-			"website": "www.mdecomices.cn",
-			"description": "「跨越港澳和内地的原创漫画网站，以培养漫画新人为己任，创造丰富的机会为漫画爱好者们提供展示的舞台，力求将最好的产品及服务提供给广大动漫从业人员及爱好者，为所有漫画、小说及插画作者创造良好的创作机制。",
-		},
-		{
 			"title": "梵特家居网",
 			"banner": "vinte.jpg",
 			"work": "个人项目，前后端和页面设计均为个人开发。",
@@ -141,8 +133,8 @@ export var lpj = {
 			"title": "MAD.Q 童装小程序",
 			"banner": "madq.jpg",
 			"work": "公司项目，主要个人负责开发后端(nodeJs + mangoDB)及前端页面",
-			"skills": "mina",
-			"website": "",
+			"skills": "微信小程序 API, javascript, css, Node.js",
+			"website": "https://api.vinte.xin",
 			"description": "MAD.Q 是 mattmatt 旗下的童装品牌，是以「童趣」为品牌核心里面，制作适合0-15岁的儿童时装。",
 			"qrcode": "gh_5a969e2b9dea_258.png"
 		},
@@ -153,6 +145,14 @@ export var lpj = {
 			"skills": "html, css, jQuery, javascript",
 			"website": "www.mattmatt.cn",
 			"description": "mattmatt 为香港原创设计品牌，主要是以中高端品牌为定位，服装彰显个性，适合当代追求时尚的流行趋势，受众人群层面广，年龄跨度大。",
+		},
+		{
+			"title": "漫道网",
+			"banner": "mandao.jpg",
+			"work": "公司项目，主要是负责前端页面的开发。",
+			"skills": "html, css, jQuery, javascript",
+			"website": "www.mdecomices.cn",
+			"description": "「跨越港澳和内地的原创漫画网站，以培养漫画新人为己任，创造丰富的机会为漫画爱好者们提供展示的舞台，力求将最好的产品及服务提供给广大动漫从业人员及爱好者，为所有漫画、小说及插画作者创造良好的创作机制。",
 		}
 	],
 	"About": {
