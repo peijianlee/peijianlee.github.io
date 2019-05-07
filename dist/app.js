@@ -960,7 +960,7 @@ var userinfo = {
 			color: "#24db5a"
 		},
 		type: "wechat",
-		value: "13640430944"
+		value: "lipeijian2202"
 	}, {
 		icon: {
 			class: "icon-qq",
@@ -974,7 +974,7 @@ var userinfo = {
 			color: "#13227a"
 		},
 		type: "phonenumber",
-		value: "138002955988"
+		value: "13640430944"
 	}, {
 		icon: {
 			class: "icon-youxiang",
@@ -1022,7 +1022,7 @@ var lpj = exports.lpj = {
 			color: "#f15533"
 		},
 		"skill": "Node.js",
-		"des": "作为现代前端的必备技能，能使用 Node.js 做业务比较简单网站的后台，通常配合 express + mongodb 进行开发；能使用 webpack 对网站进行简单的配置打包。"
+		"des": "作为现代前端的必备技能，能使用 Node.js 做业务比较简单网站的后台，通常配合 Express + mongodb 进行开发；能使用 webpack 对网站进行简单的配置打包。"
 	}],
 	"Jobs": [{
 		"year": "2017-06-02 到 至今",
@@ -1031,19 +1031,19 @@ var lpj = exports.lpj = {
 	}, {
 		"year": "2015-07-08 到 2017-06-02",
 		"company": "中山初心技术服务有限公司",
-		"des": "主要负责公司官网（www.mdecomics.com）的前端工作，由于公司技术部门管理上的问题，后期开发工作就交由外包公司全面负责。"
+		"des": "主要负责公司官网（www.mdecomics.com）的前端页面开发的工作，由于公司技术部门管理上的问题，后期开发工作就交由外包公司全面负责。"
 	}],
 	"Projects": [{
 		"title": "梵特家居网",
 		"banner": "vinte.jpg",
 		"work": "个人项目，前后端和页面设计均为个人开发。",
-		"skills": "html, javascript, Node.js, express, MongoDB 等等",
+		"skills": "html, javascript, Node.js, Express, MongoDB 等等",
 		"website": "www.vinte.xin",
 		"description": "梵特家具网主要目的是帮助该企业能够更好的展示产品，并能帮助用户更快地挑选自己的商品。"
 	}, {
 		"title": "MAD.Q 童装小程序",
 		"banner": "madq.jpg",
-		"work": "公司项目，主要个人负责开发后端(nodeJs + mangoDB)及前端页面",
+		"work": "公司项目，主要个人负责开发小程序的前端页面和后台程序及API接口(api.vinte.xin)的开发。",
 		"skills": "微信小程序 API, javascript, css, Node.js",
 		"website": "https://api.vinte.xin",
 		"description": "MAD.Q 是 mattmatt 旗下的童装品牌，是以「童趣」为品牌核心里面，制作适合0-15岁的儿童时装。",
@@ -1065,7 +1065,7 @@ var lpj = exports.lpj = {
 	}],
 	"About": {
 		"title": "自我简介",
-		"des": "本人主攻前端开发方向和 Node.js 开发，目标是成为独当一面的全栈开发程序员。有近5年的开发经验<small>（期间断断续续，因为在工作过程中也运营过公众号、自媒体，也对其有一点点的理解和经验）</small>，一直都是待过技术团队都是以小团队居多，使自己的技术得不到更高突破和提升。做过企业官网、商城网站及由前端到后台全部由个人编写的小程序。",
+		"des": "本人主攻前端开发方向和 Node.js 开发，目标是成为独当一面的全栈开发程序员。有近5年的开发经验，平时会通过一些技术博客和GitHub 学习新的知识从而提高自己的专业技能，除了前端的知识外，本人还喜欢浏览Behace和站酷上浏览优秀的设计作品，有一定的审美标准。在工作期间过程中也运营过公众号、自媒体，也对其有一点点的理解和经验。",
 		"thx": "Thanks for<br>Watching",
 		"btn": {
 			"title": "简历下载",
