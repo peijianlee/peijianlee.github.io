@@ -273,6 +273,7 @@ var app = new Vue({
 			this.projectItem.height = STATUS.height;
 
 			this.projectItem.showInfo = false;
+
 			// 获取背景圆圈位置
 			this.getCircleXY(event);
 			setTimeout(function () {
