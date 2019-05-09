@@ -214,12 +214,8 @@ var app = new Vue({
 			    BASE_HEIGHT = 736,
 			    WINDOW_WIDTH = document.body.offsetWidth,
 			    WINDOW_HEIGHT = document.body.offsetHeight;
-			// C_OBJ.x = WINDOW_WIDTH > BASE_WIDTH ? event.clientX - (WINDOW_WIDTH - BASE_WIDTH) / 2 : event.clientX
-			// C_OBJ.y = WINDOW_HEIGHT > BASE_HEIGHT ? event.clientY - (WINDOW_HEIGHT - BASE_HEIGHT) / 2 : event.clientY
 			this.projectItem.circle.x = WINDOW_WIDTH > BASE_WIDTH ? event.clientX - (WINDOW_WIDTH - BASE_WIDTH) / 2 : event.clientX;
 			this.projectItem.circle.y = WINDOW_HEIGHT > BASE_HEIGHT ? event.clientY - (WINDOW_HEIGHT - BASE_HEIGHT) / 2 : event.clientY;
-
-			// return C_OBJ
 		},
 		showProject: function showProject(event) {
 			var _this2 = this;
@@ -249,14 +245,10 @@ var app = new Vue({
 				this.projectItem.width = WIDTH + 'px';
 				this.projectItem.status.width = WIDTH + 'px';
 				this.projectItem.height = HEIGHT + 'px';
-				// this.projectItem.imgFilter = 'blur(8px)'
 				this.projectItem.status.height = HEIGHT + 'px';
 
 				// 获取背景圆圈位置
 				this.getCircleXY(event);
-				// this.projectItem.circle.x = Circle.x
-				// this.projectItem.circle.y = Circle.y
-				// console.log(Circle.y)
 
 				setTimeout(function () {
 					_this2.projectItem.showInfo = true;
