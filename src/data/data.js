@@ -81,7 +81,7 @@ export var lpj = {
 				color: "#e44d26"
 			},
 			"skill": "HTML/HTML5",
-			"des": "了解常用的标签，注重语义化，能写出符合 W3C 标准的HTML，cavans、svg 绘图方面比较薄弱。"
+			"des": "了解常用的标签，注重语义化，能写出符合 W3C 标准的HTML，能使用。能使用 meta 便签 + CSS3 media ，对网站进行相对的尺寸自适应。"
 		},
 		{
 			"icon": {
@@ -89,15 +89,15 @@ export var lpj = {
 				color: "#264de4"
 			},
 			"skill": "CSS/CSS3",
-			"des": "比较熟练使用 CSS 进行对网页的排版，能使用 css3 animation 属性对标签添加简单的动画。对 Sass、Less、Stylus 的CSS预编译有一定的理解。"
+			"des": "对于常用的函数和原型链、作用域有一定的理解。框架使用方面，jQuery 比较表熟练，能对 DOM 的进行业务需要的操作，包括使用 Ajax 对服务进行获取数据；对于目前的主流框架 Vue 比较常用，通常都是使用 Vue + Vue-router + Vuex + axios 完成符合业务需求的web APP 。"
 		},
 		{
 			"icon": {
 				class: "icon-JavaScript",
 				color: "#f5dd1e"
 			},
-			"skill": "javascript",
-			"des": "作为前端最核心的语言，对于常用的函数和原型链、作用域有一定的理解。框架方面，jQuery 比较表常用，能 DOM 做一些基础的操作；对于目前的主流框架 Vue 比较常用，能完成一般APP开发的业务需求，react 、angular 目前没有任何的开发经验。"
+			"skill": "javascript/ECMAScript",
+			"des": "对于常用的函数和原型链、作用域有一定的理解。框架使用方面，jQuery 比较表熟练，能对 DOM 的进行业务需要的操作，包括使用 Ajax 对服务进行获取数据；对于目前的主流框架 Vue 比较常用，通常都是使用 Vue + Vue-router + Vuex + axios 完成符合业务需求的web APP 。"
 		},
 		{
 			"icon": {
@@ -105,7 +105,7 @@ export var lpj = {
 				color: "#f15533"
 			},
 			"skill": "Node.js",
-			"des": "作为现代前端的必备技能，能使用 Node.js 做业务比较简单网站的后台，通常配合 Express + mongodb 进行开发；能使用 webpack 对网站进行简单的配置打包。"
+			"des": "能使用 Node.js 做业务逻辑相对比较简单的网站的后台，通常配合 Node.js + Express + MongoDB 进行开发。能使用 Webpack、Grunt 对网站进行配置打包。"
 		}
 	],
 	"Jobs": [
@@ -118,30 +118,35 @@ export var lpj = {
 			"year": "2015-07-08 到 2017-06-02",
 			"company": "中山初心技术服务有限公司",
 			"des": "主要负责公司官网（www.mdecomics.com）的前端页面开发的工作，由于公司技术部门管理上的问题，后期开发工作就交由外包公司全面负责。"
+		},
+		{
+			"year": "珠海如易软件有限公司",
+			"company": "2010-09-01 到 2013-09-01",
+			"des": "主要公司官网（www.ueesoft.com）和如易汽车用品商城（www.uee360.com）前端页面开发及维护。"
 		}
 	],
 	"Projects": [
 		{
 			"title": "梵特家居网",
 			"banner": "vinte.jpg",
-			"work": "个人项目，前后端和页面设计均为个人开发。",
+			"work": "前后端和页面设计均为个人开发。",
 			"skills": "html, javascript, Node.js, Express, MongoDB 等等",
 			"website": "www.vinte.xin",
-			"description": "梵特家具网主要目的是帮助该企业能够更好的展示产品，并能帮助用户更快地挑选自己的商品。",
+			"description": "使用 grunt 自动化项目，前端页面使用 pug (原 jade) 模板引擎 + jQuery 框架开发；后端使用 Node.js + Express 的开发框架进行开发，数据库使用 nosql 的 MongoDB 对网站数据进行存储。通过自己对整个项目的开发，了解了 Grunt 的配置设置，如 最大的收获就是能够了解到整个项目在服务器上的发布过程，可以使用PM2对服务器自动化发布、更新代码，并且可以在服务器上防火墙的设置和Nginx的代理服务，https证书的获取和部署。",
 		},
 		{
 			"title": "MAD.Q 童装小程序",
 			"banner": "madq.jpg",
-			"work": "公司项目，主要个人负责开发小程序的前端页面和后台程序及API接口(api.vinte.xin)的开发。",
+			"work": "主要个人负责开发小程序的前端页面和后台程序及API接口(api.vinte.xin)的开发。",
 			"skills": "微信小程序 API, javascript, css, Node.js",
 			"website": "https://api.vinte.xin",
-			"description": "MAD.Q 是 mattmatt 旗下的童装品牌，是以「童趣」为品牌核心里面，制作适合0-15岁的儿童时装。",
+			"description": "通过该项目的开发，主要是能了解小程序提供的api功能及使用，收获比较大的是模块化开发，其好处就可重用易维护。还有就是组件开发，如自定义的wx.showLoading、wx.showToast。",
 			"qrcode": "gh_5a969e2b9dea_258.png"
 		},
 		{
 			"title": "mattmatt",
 			"banner": "mattmatt.jpg",
-			"work": "公司项目，公司的外包项目，主要负责网站的原型设计方案，及后期网站的测试。",
+			"work": "给予的外包公司项目，主要负责网站的原型设计方案，及后期网站的进度跟进及功能测试。",
 			"skills": "html, css, jQuery, javascript",
 			"website": "www.mattmatt.cn",
 			"description": "mattmatt 为香港原创设计品牌，主要是以中高端品牌为定位，服装彰显个性，适合当代追求时尚的流行趋势，受众人群层面广，年龄跨度大。",
@@ -157,7 +162,7 @@ export var lpj = {
 	],
 	"About": {
 		"title": "自我简介",
-		"des": "本人主攻前端开发方向和 Node.js 开发，目标是成为独当一面的全栈开发程序员。有近5年的开发经验，平时会通过一些技术博客和GitHub 学习新的知识从而提高自己的专业技能，除了前端的知识外，本人还喜欢浏览Behace和站酷上浏览优秀的设计作品，有一定的审美标准。在工作期间过程中也运营过公众号、自媒体，也对其有一点点的理解和经验。",
+		"des": "本人主攻前端开发方向和 Node.js 开发，目标是成为独当一面的全栈开发程序员。有近5年的开发经验，平时会通过一些技术博客和GitHub 学习新的知识从而提高自己的专业技能。但是如果任务急需快速了解一个框架或语言，本人会通过付费视频教程快速学习并使用，当任务完成后在业余时间内再去巩固其原理和基础。除了前端的知识外，本人还喜欢浏览Behace和站酷上浏览优秀的设计作品，有一定的审美标准。在工作期间过程中也运营过公众号、自媒体，也对其有一定的理解和经验。",
 		"thx": "Thanks for<br>Watching",
 		"btn": {
 			"title": "简历下载",
