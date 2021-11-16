@@ -1,142 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<title>lipeijan's resume</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lipeijian</title>
+    <style>
+        *{padding:0;margin:0;box-sizing:border-box}body,html{height:100%}body{display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:150%;padding:1vh 0 0}:root{--tian-color:rgb(161,9,9,0.2);--text-size:56px}#myCanvas{margin-top:-20vh;max-width:996px;width:100%}h1,h2{font-family:'Century Gothic','Trebuchet MS','Lucida Sans Unicode','Lucida Grande','Lucida Sans',Arial,sans-serif;opacity:0;transition:all 1s}h1{color:#999;letter-spacing:.2em;font-size:.6em;margin-top:6vh;font-weight:100;transform:translateY(0);transition-delay:2s}h2{color:#333;font-family:'华文细黑';font-size:1.2em;font-weight:bold;display:flex;transform:translateY(0);transition-delay:1s}h2 span{position:relative;width:var(--text-size);height:var(--text-size);text-align:center}ul{margin-top:10vh;display:flex;list-style:none;opacity:0;transition:opacity 1s}ul li{width:var(--text-size);height:var(--text-size);border:2px solid var(--tian-color);position:relative;display:flex;justify-content:center;align-items:center;transition:all 1s}ul li::before,ul li::after{content:'';height:0;width:155%;position:absolute;border-bottom:1px dashed var(--tian-color)}ul li::before{transform:rotate(45deg)}ul li::after{transform:rotate(-45deg)}h2 span::after{content:attr(j-yin);font-weight:100;color:#aaa;position:absolute;width:100%;top:-26px;left:0;font-size:.4em}ul.aimateTop{opacity:1}h2.aimateTop{opacity:1;transform:translateY(-50px)}h1.aimateTop{opacity:1;transform:translateY(-20px)}@media(max-width:768px){:root{--text-size:42px}body{font-size:100%;padding:0 5vw}h2.aimateTop{opacity:1;transform:translateY(-36px)}}
+    </style>
 </head>
 <body>
-	<div id="app">
-		<!-- 作品页面弹出层 -->
-		<section v-if="projectItem.info" :class="'pop-up-bg'" @click="hideProject(event)">
-			<div :class="'project-item' + (projectItem.showInfo?' project-item-show-animate':'')" 
-				:style="'background-image:url(src/images/projects/'+ projectItem.info.banner +');left:' + 
-				projectItem.left +';top:' + projectItem.top + ';width:' + projectItem.width +
-				';height:' + projectItem.height + ';'" >
-				<div class="content">
-					<h6 class="title" v-html="projectItem.info.title"></h6>
-					<ul style="list-style:none;">
-						<li v-html="'工作负责：'+projectItem.info.work"></li>
-						<li v-html="'使用技术：'+projectItem.info.skills"></li>
-						<li v-html="'项目地址：'+projectItem.info.website"></li>
-						<li v-html="'项目描述：'+projectItem.info.description"></li>
-						<li v-if="projectItem.info.qrcode">
-							<img :src="'src/images/projects/'+projectItem.info.qrcode" alt="">
-						</li>
-					</ul>
-				</div>
-				<!-- <img :style=`filter:${projectItem.imgFilter}` :src="'src/images/projects/'+projectItem.info.banner" alt=""> -->
-			</div>
-			<div v-if="projectItem.info" :class="'bg-circle'+(projectItem.showInfo? ' changeSize': '')" 
-				:style=`top:${projectItem.circle.y}px;left:${projectItem.circle.x}px;`></div>
-		</section>
-		<div v-if="!page['Me']" class="Loading">
-			<span></span>
-			<span></span>
-			<span></span>
-			<p v-html="load"></p>
-		</div>
-		<div v-else class="swiper-container">
-		    <dl class="nav home">
-		    	<dt v-html="logo"></dt>
-		    </dl>
-
-			<div :class="'swiper-wrapper'">
-				<div v-for="(val,key,index) in page" class="swiper-slide">
-					<div class="page">
-						<!-- 个人信息 -->
-						<template v-if="key === 'Me'">
-							<ul v-if="val['base']" :class="'userinfo base ' + (pageIndex === index ? 'Animation':'opacity-0')">
-								<template v-for="vb in val['base']">
-									<li>
-										<span>{{vb.name + ':'}}</span>
-										<span v-html="vb.value"></span>
-									</li>
-								</template>
-								<!-- <li class="Avatar">
-									<img src="avatar.png" alt="lipeijian">
-								</li> -->
-								<li class="line"></li>
-							</ul>
-							<ul v-if="val['content']" :class="'userinfo content ' + (pageIndex === index ? 'Animation':'opacity-0')">
-								<template v-for="vc in val['content']">
-									<li>
-										<span v-if="vc.icon">
-											<i :class="'iconfont ' + vc.icon.class"
-												:style="'color:' + vc.icon.color + ';font-size:' + ( vc.icon.size || '20px') + ';'">
-											</i>
-										</span>
-										{{vc.value}}
-									</li>
-								</template>
-							</ul>
-						</template>
-						<!-- 技能 -->
-						<template v-if="key === 'Skills'">
-							<ul v-if="val" :class="'skills' + (pageIndex === index ? ' Animation':' opacity-0')">
-								<li v-for="s in val">
-									<span v-if="s.icon.class.indexOf('svg') > -1" v-html="s.icon.class"></span>
-									<span v-else><i :class="'fl iconfont ' + s.icon.class" :style="'color:' + s.icon.color + ';'"></i></span>
-									<h6 class="fb">{{s.skill}}</h6>
-									<p>{{s.des}}</p>
-								</li>
-							</ul>
-						</template>
-						<!-- 工作 -->
-						<template v-if="key === 'Jobs'">
-							<dl v-if="val" :class="'jobs' + (pageIndex === index ? ' Animation':' opacity-0')">
-								<dt></dt>
-								<dd v-for="w in val">
-									<h6 v-html="w.year"></h6>
-									<h5 v-html="w.company"></h5>
-									<p v-html="w.des"></p>
-								</dd>
-							</dl>
-						</template>
-						<!-- 作品 -->
-						<template v-if="key === 'Projects'">
-							<section :class="'projects' + (pageIndex === index ? ' Animation':' opacity-0')" @click="showProject(event)">
-								<div v-for="p,i in val" class="project-item" :data-item="i">
-									<div class="content in-item" v-html="p.title"></div>
-									<img :src="'src/images/projects/'+p.banner" alt="">
-								</div>
-							</section>
-							<!-- <dl v-if="val" :class="'jobs' + (pageIndex === index ? ' Animation':' opacity-0')">
-								<dt></dt>
-								<dd v-for="w in val">
-									<h6 v-html="w.year"></h6>
-									<h5 v-html="w.company"></h5>
-									<p v-html="w.des"></p>
-								</dd>
-							</dl> -->
-						</template>
-						<!-- 关于 -->
-						<div v-if="key === 'About'" :class="'about' + (pageIndex === index ? ' Animation':' opacity-0')">
-							<h5 v-html="val.title"></h5>
-							<p class="des" v-html="val.des"></p>
-							<p class="thx" v-html="val.thx"></p>
-							<a href="web前端开发-李培坚.docx" class="btn" v-html="val.btn.title" target="_blank"></a>
-						</div>
-
-
-						<span class="bg-text" v-html="key"></span>
-					</div>
-				</div>
-			</div>
-			<div v-if="arrowShow" class="bottomArrow">
-				<template v-if="pageIndex !== Object.keys(this.page).length - 1">
-					<span class="iconfont icon-jiantouxia"></span>
-					<span class="iconfont icon-jiantouxia"></span>
-				</template>
-				<template v-else>
-					<span class="iconfont icon-jiantoushang"></span>
-					<span class="iconfont icon-jiantoushang"></span>
-				</template>
-			</div>
-
-		</div>
-	</div>
-	<script src="src/vue.js"></script>
-	<script type="text/javascript" src="dist/app.js"></script>
+    <canvas id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <h2>
+        <span j-yin="yòu">又</span>
+        <span j-yin="cái">菜</span>
+        <span j-yin="yòu">又</span>
+        <span j-yin="ài">愛</span>
+        <span j-yin="wān">玩</span>
+    </h2>
+    <h1>www.icsscn.com</h1>
 </body>
+<script src="code.js"></script>
+<script type="module">
+console.log(
+'  '+'\n'
++'  ┌───┐  ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌──────┐    ┌────┐'+'\n'
++'  │ : │  │ :::::::::: │ │ :::::::::: │ │ :::::::::: │ │ :::: └┐   │ :: │'+'\n'
++'  └───┘  │ : ┌────────┘ │ : ┌────────┘ │ : ┌────────┘ │ : ┌┐::└┐  └┐ : │'+'\n'
++'  ┌───┐  │ : │          │ : └────────┐ │ : └────────┐ │ : │└┐::└┐  │ : │'+'\n'
++'  │ : │  │ : │          │ :::::::::: │ │ :::::::::: │ │ : │ └┐::└┐ │ : │'+'\n'
++'  │ : │  │ : │    ┌───┐ └────────┐ : │ └────────┐ : │ │ : │  └┐::└┐│ : │'+'\n'
++'  │ : └┐ │ : └────┘ : │ ┌────────┘ : │ ┌────────┘ : │ │ : └┐  └┐::└┘ : │'+'\n'
++'  │ :: │ │ :::::::::: │ │ :::::::::: │ │ :::::::::: │ │ :: │   └┐ :::: │'+'\n'
++'  └────┘ └────────────┘ └────────────┘ └────────────┘ └────┘    └──────┘'+'\n'
++'  └────┘ └────────────┘ └────────────┘ └────────────┘ └────┘    └──────┘'+'\n'
++'  └────┘ └────────────┘ └────────────┘ └────────────┘ └────┘    └──────┘'+'\n'
+)
+let canvasDom=document.getElementById("myCanvas")
+let cxt=canvasDom.getContext("2d")
+let time=10
+let second=0
+let circleSize=6
+let[yLength,xLength]=[codes.length,codes[0].length]
+let spotInfo={
+maxSpots:yLength*xLength
+}
+canvasDom.width=xLength*(circleSize*2)
+canvasDom.height=yLength*(circleSize*2)
+let animateData=[]
+let animateType=Math.floor(Math.random()*3)
+codes.forEach((item,i)=>{
+for(let j=0;j<item.length;j++){
+let code=parseInt(item[j])
+let itemObj={
+y:i,
+x:j,
+code:code,
+scale:true,
+size:0
+}
+switch(animateType){
+case 1:
+if(code){
+second++
+itemObj.second=second*time
+animateData.push(itemObj)
+}
+break
+case 2:
+second++
+let random=Math.floor(Math.random()*spotInfo.maxSpots)
+let randomSecond=random*time
+itemObj.second=randomSecond
+if(animateData.length>1&&animateData[animateData.length-1].second>randomSecond){
+animateData.unshift(itemObj)
+}else{
+animateData.push(itemObj)
+}
+break
+default:
+second++
+itemObj.second=second*time
+animateData.push(itemObj)
+}
+}
+})
+let totalSecond=animateData[animateData.length-1].second
+let animateFnTime=time
+let animateFn=setInterval(()=>{
+if(totalSecond<=-(animateFnTime*(circleSize*20))){
+clearInterval(animateFn)
+let H1=document.getElementsByTagName('h1')[0]
+let H2=document.getElementsByTagName('h2')[0]
+let UL=document.getElementsByTagName('ul')[0]
+H1.setAttribute('class','aimateTop')
+H2.setAttribute('class','aimateTop')
+UL.setAttribute('class','aimateTop')
+}
+cxt.beginPath()
+cxt.fillStyle="#fff"
+cxt.fillRect(0,0,1000,1000)
+cxt.closePath()
+animateData.forEach(item=>{
+if(!item.second){
+drawCircle(item)
+}else{
+item.second=item.second-animateFnTime
+}
+})
+totalSecond-=animateFnTime
+},animateFnTime)
+function drawCircle(item){
+let X=item.x*(circleSize+circleSize)+circleSize
+let Y=item.y*(circleSize+circleSize)+circleSize
+let SIZE=0
+cxt.fillStyle=!item.code?RGB():RGB()
+if(!item.scale){
+item.size-=0.1
+SIZE=item.size<=0?0:item.size
+}else{
+item.size+=0.1
+SIZE=item.size>circleSize?circleSize:item.size
+if(item.size>circleSize&&!item.code){
+item.scale=false
+}
+if(item.size>=circleSize&&item.code){
+cxt.fillStyle=`rgba(${0+item.x*2},${200-item.y*15},${255-item.x*3})`
+}
+}
+cxt.beginPath()
+cxt.arc(X,Y,SIZE,0,2*Math.PI)
+cxt.closePath()
+cxt.fill()
+}
+function RGB(){
+let R=Math.floor(Math.random()*255)
+let G=Math.floor(Math.random()*255)
+let B=Math.floor(Math.random()*255)
+return`rgb(${R},${G},${B})`
+}
+</script>
 </html>
