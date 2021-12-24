@@ -1,0 +1,106 @@
+button {
+    color: var(--color);
+    font-size: 1.3em;
+    padding: 10px;
+    width: 34vw;
+    height: 6vh;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: 0 0 3px var(--color);
+    transition: all 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: white;
+}
+button:hover {
+    /* font-size: 1.4em; */
+    box-shadow: none;
+}
+
+.btn-group {
+    max-width: var(--max-width);
+    margin: 3vh auto 0;
+    display: flex;
+    padding: 0 10vw;
+}
+.btn-group button {
+    flex-grow: 1;
+    margin: 0 2vw;
+}
+
+#main header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3vw;
+}
+
+/* 修改主题颜色 */
+#theme-change__group {
+    display: flex;
+}
+#theme-change__group li {
+    width: 26px;
+    height: 26px;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 3px var(--color);
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-image: linear-gradient(0deg, var(--gradient-top), var(--gradient-bottom));
+}
+#theme-change__group li:active {
+    transform: scale(1.2);
+    box-shadow: 0;
+}
+
+#game-times {
+    color: white;
+    height: 10vh;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#game-times i {
+    font-style: normal;
+    width: 20px;
+}
+#game-times i:nth-child(3),
+#game-times i:nth-child(6) {
+    width: 10px;
+}
+
+#star-group > svg {
+    width: 6vw;
+    max-width: 35px;
+    margin: 0 2px;
+    fill: transparent;
+    transition: all .3s;
+    transform: scale(0.8);
+    transition-delay: var(--delay);
+}
+#star-group > svg > path {
+    cursor: pointer;
+    transition: all .3s ease-out;
+    /* transition-delay: var(--delay); */
+}
+#star-group[lv="1"] svg:nth-child(1),
+#star-group[lv="2"] svg:nth-child(1),
+#star-group[lv="2"] svg:nth-child(2),
+#star-group[lv="3"] svg:nth-child(1),
+#star-group[lv="3"] svg:nth-child(2),
+#star-group[lv="3"] svg:nth-child(3),
+#star-group[lv="4"] svg:nth-child(1),
+#star-group[lv="4"] svg:nth-child(2),
+#star-group[lv="4"] svg:nth-child(3),
+#star-group[lv="4"] svg:nth-child(4),
+#star-group[lv="5"] svg:nth-child(1),
+#star-group[lv="5"] svg:nth-child(2),
+#star-group[lv="5"] svg:nth-child(3),
+#star-group[lv="5"] svg:nth-child(4),
+#star-group[lv="5"] svg:nth-child(5) {
+    fill: white;
+    transform: scale(1);
+}
