@@ -22,12 +22,12 @@ function checkArray(array){
             }
         }
     }
-    console.log(marks)
+    // console.log(marks)
     return marks;
 }
 // const Toolkit = require("./toolkit");
 // checkArray([1,2,3,4,5,6,7,8,9,0])
-checkArray([0,0,0,0,0,0,0,0,0,0])
+// checkArray([0,0,0,0,0,0,0,0,0,0])
 import Toolkit from './toolkit.class.js'
 //输入：matrix 用户完成的数独数据，9*9
 //处理：对matrix 行、列、宫进行检查，并填写marks
