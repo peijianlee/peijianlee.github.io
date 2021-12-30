@@ -5,20 +5,20 @@ export default class theme {
         this.themeId = 'theme-change'
         this.themeConfig = {
             0: {
-                color: '#aa3059',
-                bgColor: '#f8b3ca',
-                borderColor: '#f89aba',
-                graColor: '#f8b4cb50',
-                gradientTop: '#f2709c',
-                gradientBottom: '#ff9472'
-            },
-            1: {
                 color: '#2e4c90',
                 bgColor: '#a6bffa',
                 borderColor: '#91a9df',
                 graColor: '#4b6cb750',
                 gradientTop: '#4b6cb7',
                 gradientBottom: '#4b6cb7'
+            },
+            1: {
+                color: '#aa3059',
+                bgColor: '#f8b3ca',
+                borderColor: '#f89aba',
+                graColor: '#f8b4cb50',
+                gradientTop: '#f2709c',
+                gradientBottom: '#ff9472'
             },
             // 1: {
             //     color: '#243641',

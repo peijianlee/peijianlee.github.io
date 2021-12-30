@@ -1,4 +1,4 @@
-button {
+/* button {
     color: var(--color);
     font-size: 1.3em;
     padding: 10px;
@@ -11,21 +11,25 @@ button {
     cursor: pointer;
     overflow: hidden;
     background-color: white;
-}
-button:hover {
-    /* font-size: 1.4em; */
+} */
+/* button:hover {
     box-shadow: none;
-}
-
+} */
 .btn-group {
-    max-width: var(--max-width);
-    margin: 3vh auto 0;
+    /* max-width: var(--max-width); */
     display: flex;
     padding: 0 10vw;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 15vh;
 }
 .btn-group button {
     flex-grow: 1;
     margin: 0 2vw;
+    max-width: 220px;
 }
 
 #main header {
@@ -79,12 +83,14 @@ button:hover {
     fill: transparent;
     transition: all .3s;
     transform: scale(0.8);
-    transition-delay: var(--delay);
+    /* transition-delay: var(--delay); */
 }
 #star-group > svg > path {
     cursor: pointer;
     transition: all .3s ease-out;
-    /* transition-delay: var(--delay); */
+    transition-delay: var(--delay);
+    stroke-dasharray: var(--stroke-length);
+    stroke-dashoffset: var(--stroke-length);
 }
 #star-group[lv="1"] svg:nth-child(1),
 #star-group[lv="2"] svg:nth-child(1),
@@ -103,4 +109,61 @@ button:hover {
 #star-group[lv="5"] svg:nth-child(5) {
     fill: white;
     transform: scale(1);
+}
+
+button {
+	cursor: pointer;
+	position:relative;
+	font-size: 1.4rem;
+	font-weight: 600;
+    padding: 10px;
+    width: 34vw;
+    height: 7vh;
+	border-radius: 3.5vh;
+	border:1px solid var(--gradient-bottom);
+	background-image:linear-gradient(-180deg, var(--gradient-top) 0%, var(--gradient-bottom) 100%);
+	box-shadow:0 1rem 1.25rem 0 var(--color),
+        0 -0.25rem 1.5rem var(--gradient-top) inset,
+        0 0.75rem 0.5rem rgba(255,255,255,0.4) inset,
+        0 0.25rem 0.5rem 0 var(--gradient-bottom) inset;
+    transform: scale(1);
+    transition: transform 0.1s ease-in;
+}
+button span {
+	color:transparent;
+	background-image: linear-gradient(0deg, rgba(255,255,255,0.4) 0%,rgba(255,255,255,0.4) 5%, white 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-filter: drop-shadow(0 2px 2px var(--gradient-bottom));
+	filter: drop-shadow(0 2px 2px var(--gradient-bottom));
+}
+button::before,
+button::after {
+	content: "";
+	display: block;
+	height: 0.25rem;
+	position: absolute;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	width: calc(100% - 6rem);
+	left: 50%;
+	-webkit-filter:blur(1px);
+	filter: blur(1px);
+}
+button::before {
+	top: 0.5rem;
+	background-color: rgba(255,255,255,0.2);
+	border-radius: 100%;
+	opacity: 0.7;
+	background-image: linear-gradient(-270deg,rgba(255,255,255,0.00) 0%,#FFF 20%,#FFF 80%,rgba(255,255,255,0.00) 100%);
+}
+button::after {
+	bottom: 0.75rem;
+	background-color:#fff;
+	border-radius:100%;
+	opacity: 0.1;
+	background-image:linear-gradient(-270deg,rgba(255,255,255,0.00) 0%,#FFFFFF 20%,#FFFFFF 80%,rgba(255,255,255,0.00) 100%);
+}
+button:active {
+    transform: scale(0.8);
 }

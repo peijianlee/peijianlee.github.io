@@ -50,16 +50,29 @@ export default class time {
         this.container.innerHTML = _html
     }
     toSTRING (H, M, S) {
-        const cnLetterHtml = `<i style="
-            font-style:normal;
-            font-weight: normal;
-            font-size: 0.5em;
-            margin: 0 3px;
-            transform: translateY(-4px);
-            display: inline-block;
-        ">NAME</i>`
+        const cnLetterHtml = `<i>NAME</i>`
         return (H? H + cnLetterHtml.replace('NAME', '时'): '')
             + M + cnLetterHtml.replace('NAME', '分')
             + S + cnLetterHtml.replace('NAME', '秒')
+    }
+    dateFormat (fmt = "YYYY-mm-dd", date) {
+        // YYYY-mm-dd HH:MM:SS
+        let ret
+        let _date = date || new Date()
+        const opt = {
+            "Y+": _date.getFullYear().toString(),        // 年
+            "m+": (_date.getMonth() + 1).toString(),     // 月
+            "d+": _date.getDate().toString(),            // 日
+            "H+": _date.getHours().toString(),           // 时
+            "M+": _date.getMinutes().toString(),         // 分
+            "S+": _date.getSeconds().toString()          // 秒
+        }
+        for (let k in opt) {
+            ret = new RegExp("(" + k + ")").exec(fmt)
+            if (ret) {
+                fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+            }
+        }
+        return fmt
     }
 }

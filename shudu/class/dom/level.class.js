@@ -10,7 +10,7 @@ export default class level {
         const i = localStorageLevel !== null
             ? localStorageLevel - 1
             : 0
-            console.log(this.levels[i])
+            // console.log(this.levels[i])
         return this.levels[i]
     }
     init () {
@@ -21,7 +21,11 @@ export default class level {
             let [_svg, _path] = this.starSvg(i)
             starGroup.append(_svg)
             setTimeout(() => {
-                _path.style['stroke-dashoffset'] = 0
+                _path.style['stroke-dashoffset'] = '0'
+                // console.log(_path.style['stroke-dasharray'])
+                _path.addEventListener('transitionend', () => {
+                    _path.parentNode.style = ''
+                })
             })
         }
         this.parent.appendChild(starGroup)
@@ -42,15 +46,27 @@ export default class level {
             fn && fn(true)
         }
     }
+    // 成功后，创建当前等级dom
+    create () {
+        const len = this.levels.indexOf(this.get()) || 0
+        let starstGroup = document.createElement('div')
+        starstGroup.id = 'mask-start__group'
+        for (let i = -1; i < len; i++) {
+            let startItem = this.starSvg(i)[0]
+            starstGroup.appendChild(startItem)
+        }
+        return starstGroup
+    }
     starSvg (i) {
         let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
         svg.setAttribute('width', '35')
         svg.setAttribute('height', '33')
         svg.setAttribute('viewBox', '0 0 35 33')
         svg.setAttribute('fill', 'none')
-        svg.setAttribute('data-level', parseInt(i) + 1)
         svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
-        svg.style = `--delay: ${i * 0.05}s;`
+        // if (i !== nude)
+        svg.setAttribute('data-level', parseInt(i) + 1)
+        svg.style = `--delay: ${i * 0.22}s;`
         let path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
         path.setAttribute('d', `M27.293 31.493L27.2245 32.9915L27.2186 31.4915C27.1766 31.4917 
             27.1358 31.4821 27.0996 31.4644L18.1639 26.8336L17.4737 26.4759L16.7835 
@@ -76,8 +92,7 @@ export default class level {
         path.setAttribute('stroke-width', '2')
         path.setAttribute('data-level', parseInt(i) + 1)
         path.style = `
-            stroke-dasharray: 113.692;
-            stroke-dashoffset: 113.692;
+            --stroke-length: 113.692;
         `
         // path.outerHTML = path.outerHTML.replace('></path>', '/>')
         svg.appendChild(path)

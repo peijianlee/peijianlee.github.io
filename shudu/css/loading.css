@@ -8,10 +8,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    --loading-color: #2e4c90;
+}
+#loading-frame::after {
+    content: '资源加载中...';
+    color: var(--loading-color);
+    position: absolute;
 }
 .loading{
     height: 40px;
     margin: -15vh auto 0;
+    position: relative;
 }
 .loading span{
     display: inline-block;
@@ -30,7 +37,7 @@
     50%{
         height: 60px;
         margin-top: -20px;
-        background: #2e4c90;
+        background: var(--loading-color);
     }
 }
 .loading span:nth-child(2){
