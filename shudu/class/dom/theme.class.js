@@ -5,27 +5,26 @@ export default class theme {
         this.themeId = 'theme-change'
         this.themeConfig = {
             0: {
-                color: '#2e4c90',
-                bgColor: '#a6bffa',
-                borderColor: '#91a9df',
-                graColor: '#4b6cb750',
+                color: '#15306D',
+                bgColor: '#a6bffa30',
+                borderColor: '#91a9dfbe',
+                graColor: '#4b55b750',
                 gradientTop: '#4b6cb7',
-                gradientBottom: '#4b6cb7'
+                gradientBottom: '#4b55b7',
+                toolColor1: '#4bb7a8',
+                toolColor2: '#903AA5'
             },
             1: {
                 color: '#aa3059',
-                bgColor: '#f8b3ca',
-                borderColor: '#f89aba',
+                bgColor: '#f8b3ca30',
+                borderColor: '#f89ababe',
                 graColor: '#f8b4cb50',
                 gradientTop: '#f2709c',
-                gradientBottom: '#ff9472'
-            },
-            // 1: {
-            //     color: '#243641',
-            //     borderColor: '#83a2b4',
-            //     gradientTop: '#536976',
-            //     gradientBottom: '#292E49'
-            // }
+                gradientBottom: '#ff9472',
+                toolColor1: '#be7a37',
+                toolColor2: '#aabe37',
+
+            }
         }
         this.init()
         this.createChangeBtns()
@@ -35,14 +34,11 @@ export default class theme {
     }
     init (current = this.current) {
         const _theme = this.themeConfig[current]
-        const _style = `
-            --color: ${_theme.color};
-            --bg-color: ${_theme.bgColor}30;
-            --border-color: ${_theme.borderColor}be;
-            --gra-color: ${_theme.graColor};
-            --gradient-top: ${_theme.gradientTop};
-            --gradient-bottom: ${_theme.gradientBottom};
-        `
+        let _style = ''
+        for (let key in _theme) {
+            let styleKey = '--' + this.camelToUnderline(key)
+            _style += `${styleKey}: ${_theme[key]};`
+        }
         document.body.style = _style
     }
     change (e) {
@@ -66,5 +62,10 @@ export default class theme {
         }
         group.innerHTML = btns
         this.parent.appendChild(group)
+    }
+    camelToUnderline(camelStr){
+        return camelStr.replace(/[A-Z]/g,function(s){
+            return ' ' + s.toLowerCase()
+        }).trim().replaceAll(' ','-')
     }
 }

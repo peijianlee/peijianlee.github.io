@@ -7,9 +7,11 @@ export default class Doms {
         this.rowTagName = 'section'
         this.itemClassNames = [
             'num-item',
-            'num-select'
+            'num-select',
+            'tool-item'
         ]
-        this.popupDom = null
+        this.popupNumsDom = null
+        this.popupToolsDom = null
         this.currentItemInfo = null
         this.animateSecond = 0.15
         this.warringTipClass = 'warring-tip'
@@ -38,8 +40,9 @@ export default class Doms {
             }
             this.container.append(colHTML)
         }
-        this.addNumsPopup()
-        this.popupDom = document.getElementById('popup')
+        this.addEventPopup()
+        this.popupNumsDom = document.getElementById(this.itemClassNames[1] + '__group')
+        this.popupToolsDom = document.getElementById(this.itemClassNames[2] + '__group')
     }
     // 验证不通过，添加报错单元格
     setErrorTip (matrixMarks) {
@@ -58,55 +61,99 @@ export default class Doms {
             }
         }
     }
-    addNumsPopup () {
-        let ID = 'popup'
-        if (document.getElementById(ID)) return
-        let popupUL = document.createElement('ul')
-        popupUL.id = 'popup'
-        popupUL.style = `--y: 0; --x: 0; --scale: scale(0); --second:${this.animateSecond}s;`
-        let popupHTML = ''
-        for (let i = 1; i < 10; i++) {
-            popupHTML += `<li class="${this.itemClassNames[1]}">${i}</li>`
+    addEventPopup () {
+        if (document.getElementById(this.itemClassNames[1] + '__group')) return
+        const popups = [this.itemClassNames[1], this.itemClassNames[2]]
+        for (let i = 0; i < popups.length; i++) {
+            let type = popups[i]
+            console.log(type)
+            let popupEventUL = document.createElement('ul')
+            popupEventUL.id = type + '__group'
+            popupEventUL.style = `--y: 0; --x: 0; --scale: scale(0); --second:${this.animateSecond}s;`
+            if (type === 'num-select') {
+                for (let j = 1;j < 10; j++) {
+                    let li = document.createElement('li')
+                    li.className = type
+                    li.innerHTML = j
+                    popupEventUL.appendChild(li)
+                }
+            } else {
+                for (let j = 1; j < 4; j++) {
+                    let li = document.createElement('li')
+                    li.className = type
+                    li.setAttribute('data-tool-color', j)
+                    popupEventUL.appendChild(li)
+                }
+            }
+            document.body.appendChild(popupEventUL)
         }
-        popupUL.innerHTML = popupHTML
-        document.body.appendChild(popupUL)
     }
-    showNumsPopup (y, x) {
+    showEventPopup (y, x, key) {
+        const tragets = {
+            'nums': this.popupNumsDom,
+            'tools': this.popupToolsDom
+        }
+        const _traget = tragets[key]
+        const _style = `
+            --y: ${y - 2}px;
+            --x: ${x - 2}px;
+            --scale: scale(1);
+            --second:${this.animateSecond}s;
+        `
         if (this.currentItemInfo) {
-            this.hideNumsPopup()
+            this.hideEventPopup()
             setTimeout(() => {
-                this.popupDom.style = `--y: ${y - 2}px; --x: ${x - 2}px; --scale: scale(1); --second:${this.animateSecond}s;`
+                _traget.style = _style
             }, this.animateSecond * 1000)
         } else {
-            this.popupDom.style = `--y: ${y - 2}px; --x: ${x - 2}px; --scale: scale(1); --second:${this.animateSecond}s;`
+            _traget.style = _style
         }
-        this.container.className = 'popup-bg'
+        this.container.className = this.itemClassNames[1] + '__bg'
         this.setPopupBg('1')
     }
-    hideNumsPopup () {
-        if (this.currentItemInfo) {
-            this.popupDom.style = `
-                --y: ${this.currentItemInfo.y || 0 - 2}px;
-                --x: ${this.currentItemInfo.x || 0 - 2}px;
-                --scale: scale(0); --second:${this.animateSecond}s;`
-            this.currentItemInfo = null
+    hideEventPopup () {
+        const popupDoms = [this.popupNumsDom, this.popupToolsDom]
+        for (let i = 0; i < popupDoms.length; i++) {
+            const popupDomItem = popupDoms[i]
+            const scale = this.getVarStyleItem(popupDomItem.getAttribute('style'), '--scale')
+            if (this.currentItemInfo && scale.includes('1')) {
+                let _style = `
+                    --y: ${this.currentItemInfo.y || 0 - 2}px;
+                    --x: ${this.currentItemInfo.x || 0 - 2}px;
+                    --scale: scale(0);
+                    --second:${this.animateSecond}s;`
+                popupDomItem.style = _style
+                this.currentItemInfo = null
+            }
         }
         this.container.className = ''
         this.setPopupBg('0')
     }
-    setPopupBg (config) {
-        const ID = 'popup-bg'
+    // 获取变量css其中的值
+    getVarStyleItem (str, key) {
+        const styleArr = str.split(';')
+        for (let i = 0; i < styleArr.length; i++) {
+            let style = styleArr[i]
+            if (style.includes(key)) {
+                style = style.split(':')
+                return style[1]
+            }
+        }
+        return ''
+    }
+    setPopupBg (opacity) {
+        const ID = this.itemClassNames[1] + '__bg'
         if (!document.getElementById(ID)) {
             let BG = document.createElement('div')
             BG.id = ID
             BG.style = 'opacity: 0;'
             this.container.appendChild(BG)
         }
-        let POPUP_BG = document.getElementById(ID)
-        let STYLE = POPUP_BG.style
-        STYLE['opacity'] = config + ''
+        const POPUP_BG = document.getElementById(ID)
+        const STYLE = POPUP_BG.style
+        STYLE['opacity'] = opacity + ''
     }
-    getAttr(e) {
+    getAttr(e, t) {
         const _target = e.target
         let [_boundingClientRect, _class, _num] = [
             _target.getBoundingClientRect(),
@@ -128,7 +175,9 @@ export default class Doms {
                     ? (_boundingClientRect.x - _itemWidth * 3 - 2)
                     : _boundingClientRect.x + _itemWidth + 2,
                 y: (8 - _colIndex) < 3
-                    ? (_boundingClientRect.y - _itemWidth * 3 + 2)
+                    ? t === 'tools'
+                        ? (_boundingClientRect.y - _itemWidth * 2 + 2 - 10)
+                        : (_boundingClientRect.y - _itemWidth * 3 + 2)
                     : _boundingClientRect.y + _itemWidth + 2
             }
             setTimeout(() => {
@@ -143,10 +192,22 @@ export default class Doms {
             this.setRowNum(_num)
             // this.container.className = ''
             // Dom.removeClass(this.currentItemInfo.target, this.warringTipClass)
-            this.hideNumsPopup()
+            this.hideEventPopup()
+        } else if (_class.includes(this.itemClassNames[2])) {
+            // 标识颜色
+            const toolColor = _target.getAttribute('data-tool-color')
+            if (toolColor === '3') {
+                // 清除
+                this.currentItemInfo.target.innerText = ''
+                this.setRowNum(0)
+                this.currentItemInfo.target.removeAttribute('data-tool-color')
+            } else {
+                this.currentItemInfo.target.setAttribute('data-tool-color', toolColor)
+            }
+            this.hideEventPopup()
         } else {
             this.container.className = ''
-            this.hideNumsPopup()
+            this.hideEventPopup()
             return false
         }
     }

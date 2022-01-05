@@ -6,25 +6,23 @@ import theme from './dom/theme.class.js'
 import level from './dom/level.class.js'
 import history from './dom/history.class.js'
 import scroll from './methods/scroll.class.js'
+import event from './methods/event.class.js'
 const Doms = new doms(document.getElementById('container'))
 const Time = new time(document.getElementById('game-times'))
 const Theme = new theme(document.getElementById('header'))
 const Level = new level(Theme.parent)
-
-// let LevelStarSvg = Level.starSvg(0)[0]
-// // console.log(LevelStarSvg)
-// LevelStarSvg.style.width = '24px'
-// LevelStarSvg.style.fill = 'orange'
-// document.getElementById('middle').appendChild(starSvg)
 const History = new history(Theme.parent, Level.starSvg)
 const Scroll = new scroll(Theme.parent)
 Scroll.overscroll(document.getElementById(History.themeName + '__main'))
+const Event = new event()
 
 export default class Game {
     constructor () {
         this.Sudoku = new sudoku()
         this.currentLv = ''
         document.body.addEventListener('click', this.itemClick)
+        const Event = new event(document.body)
+        Event.longTouch(document.body, this.itemLongTouch)
         document.getElementById(Level.ID).addEventListener('click', e => {
             Level.click(e, reset => {
                 if (reset) this.start()
@@ -52,7 +50,12 @@ export default class Game {
     }
     itemClick (e) {
         const _data = Doms.getAttr(e)
-        if (_data) Doms.showNumsPopup(_data.y, _data.x)
+        // console.log(_data)
+        if (_data) Doms.showEventPopup(_data.y, _data.x, 'nums')
+    }
+    itemLongTouch (e) {
+        const _data = Doms.getAttr(e, 'tools')
+        if (_data) Doms.showEventPopup(_data.y, _data.x, 'tools')
     }
     itemHover (e) {
         const _data = Doms.getAttr(e)
@@ -66,6 +69,8 @@ export default class Game {
             let playTime = this.getPlayInfo().playTime
             Doms.handleSuccessMask(playTime)
         } else {
+            // let playTime = this.getPlayInfo().playTime
+            // Doms.handleSuccessMask(playTime)
             Doms.setErrorTip(Checker.matrixMarks)
             // console.log(Checker.matrixMarks)
         }

@@ -71,9 +71,7 @@ export default class history {
                         levelStarSvg.style.width = '20px'
                         levelStarSvg.style.height = '20px'
                         levelStarSvg.style.fill = 'orange'
-                        let levelSpan = document.createElement('small')
-                        levelSpan.innerHTML = val
-                        span.append(levelStarSvg, levelSpan)
+                        span.appendChild(levelStarSvg)
                         break
                     default:
                         span.innerHTML = val                        
