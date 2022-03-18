@@ -1,0 +1,59 @@
+#loading-frame {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff582;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(var(--translateY));
+    transition: transform .3s;
+    --loading-color-1: #fffcd3;
+    --loading-color-2: #a3dcbc;
+    --loading-color-3: #73b778;
+}
+#loading-frame .loading {
+    height: 20px;
+    width: 80vw;
+    padding: 3px;
+    border: 1px solid var(--loading-color-3);
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+    margin-top: -8vh;
+}
+#loading-frame .loading > span {
+    display: block;
+    border-radius: 5px;
+    background-image: linear-gradient(45deg,var(--loading-color-1) 12.5%,
+        transparent 12.5%,var(--loading-color-2) 12.5%,var(--loading-color-2) 25%,
+        transparent 25%,var(--loading-color-1) 25%,var(--loading-color-1) 37.5%,
+        transparent 37.5%,var(--loading-color-3) 37.5%,var(--loading-color-3) 50%,
+        transparent 50%,var(--loading-color-1) 50%,var(--loading-color-1) 62.5%,
+        transparent 62.5%,var(--loading-color-2) 62.5%,var(--loading-color-2) 75%,
+        transparent 75%,var(--loading-color-1) 75%,var(--loading-color-1) 87.5%,
+        transparent 87.5%,var(--loading-color-3) 87.5%,var(--loading-color-3) 100%,
+        transparent);
+    background-size: 40px 40px;
+    height: 100%;
+    width: var(--percen);
+    transition: width 0.1s;
+    animation: loadingAnimate linear .5s infinite;
+}
+@keyframes loadingAnimate {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -40px;
+    }
+}
+#loading-frame .loading > p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--loading-color-3);
+    text-align: center;
+    padding-top: 1rem;
+}
