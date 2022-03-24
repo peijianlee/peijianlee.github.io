@@ -90,6 +90,10 @@ export default class Director {
             && score.isScore) {
             score.isScore = false
             score.scoreNumber++
+            // 加速度
+            if (!(score.scoreNumber % 10)) {
+                this.moveSpeed += 0.5
+            }
         }
     }
 
@@ -134,6 +138,8 @@ export default class Director {
         } else {
             this.dataStore.get('gameOver').draw()
             this.dataStore.get('startButton').draw()
+            this.dataStore.destory()
+            this.moveSpeed = 2
             cancelAnimationFrame(this.dataStore.get('timer'))
             this.isBestart = false
         }
