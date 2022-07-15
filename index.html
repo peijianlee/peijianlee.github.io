@@ -25,6 +25,7 @@ console.log(
 +'  └────┘ └────────────┘ └────────────┘ └────────────┘ └────┘    └──────┘'+'\n'
 +'  └────┘ └────────────┘ └────────────┘ └────────────┘ └────┘    └──────┘'+'\n'
 +'  └────┘ └────────────┘ └────────────┘ └────────────┘ └────┘    └──────┘'+'\n'
++'  └────┘ └────────────┘ └────────────┘ └────────────┘ └────┘    └──────┘'+'\n'
 )
 let canvasDom=document.getElementById("myCanvas")
 let cxt=canvasDom.getContext("2d")
@@ -78,44 +79,44 @@ animateData.push(itemObj)
 let totalSecond=animateData[animateData.length-1].second
 let animateFnTime=time
 let animateFn=setInterval(()=>{
-if(totalSecond<=-(animateFnTime*(circleSize*20))){
-clearInterval(animateFn)
-let H1=document.getElementsByTagName('h1')[0]
-let H2=document.getElementsByTagName('h2')[0]
-let UL=document.getElementsByTagName('ul')[0]
-H1.setAttribute('class','aimateTop')
-H2.setAttribute('class','aimateTop')
-UL.setAttribute('class','aimateTop')
-}
-cxt.beginPath()
-cxt.fillStyle="#fff"
-cxt.fillRect(0,0,1000,1000)
-cxt.closePath()
-animateData.forEach(item=>{
-if(!item.second){
-drawCircle(item)
-}else{
-item.second=item.second-animateFnTime
-}
-})
-totalSecond-=animateFnTime
+    if(totalSecond<=-(animateFnTime*(circleSize*20))){
+        clearInterval(animateFn)
+        let H1=document.getElementsByTagName('h1')[0]
+        let H2=document.getElementsByTagName('h2')[0]
+        let UL=document.getElementsByTagName('ul')[0]
+        H1.setAttribute('class','aimateTop')
+        H2.setAttribute('class','aimateTop')
+        UL.setAttribute('class','aimateTop')
+    }
+    cxt.beginPath()
+    cxt.fillStyle="#fff"
+    cxt.fillRect(0,0,1000,1000)
+    cxt.closePath()
+    animateData.forEach(item=>{
+    if(!item.second){
+        drawCircle(item)
+    }else{
+        item.second=item.second-animateFnTime
+    }
+    })
+    totalSecond-=animateFnTime
 },animateFnTime)
 function drawCircle(item){
-let X=item.x*(circleSize+circleSize)+circleSize
-let Y=item.y*(circleSize+circleSize)+circleSize
-let SIZE=0
-cxt.fillStyle=!item.code?RGB():RGB()
+    let X=item.x*(circleSize+circleSize)+circleSize
+    let Y=item.y*(circleSize+circleSize)+circleSize
+    let SIZE=0
+    cxt.fillStyle=!item.code?RGB():RGB()
 if(!item.scale){
-item.size-=0.1
-SIZE=item.size<=0?0:item.size
+    item.size-=0.1
+    SIZE=item.size<=0?0:item.size
 }else{
-item.size+=0.1
-SIZE=item.size>circleSize?circleSize:item.size
+    item.size+=0.1
+    SIZE=item.size>circleSize?circleSize:item.size
 if(item.size>circleSize&&!item.code){
-item.scale=false
+    item.scale=false
 }
 if(item.size>=circleSize&&item.code){
-cxt.fillStyle=`rgba(${0+item.x*2},${200-item.y*15},${255-item.x*3})`
+    cxt.fillStyle=`rgba(${0+item.x*2},${200-item.y*15},${255-item.x*3})`
 }
 }
 cxt.beginPath()
