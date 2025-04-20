@@ -155,6 +155,8 @@ export default class Doms {
     }
     getAttr(e, t) {
         const _target = e.target
+        console.log('%c [ _target ]-158', 'font-size:13px; background:pink; color:#bf2c9f;', _target)
+        console.log('%c [ this.itemClassNames ]-166', 'font-size:13px; background:pink; color:#bf2c9f;', this.itemClassNames)
         let [_boundingClientRect, _class, _num] = [
             _target.getBoundingClientRect(),
             _target.getAttribute('class'),
