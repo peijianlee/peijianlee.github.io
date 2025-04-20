@@ -1,0 +1,1 @@
+import{_ as e}from"./DlAUqK2U.js";import{o as t,c as o}from"./DAXYy-sZ.js";const n={name:"textGradient",components:{},props:{},data(){return{}},mounted(){},methods:{}};function r(a,s,c,p,d,m){return t(),o("mark",null,"websites.")}const i=e(n,[["render",r],["__scopeId","data-v-44af93bb"]]);export{i as default};

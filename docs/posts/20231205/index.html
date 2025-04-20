@@ -1,0 +1,546 @@
+<!DOCTYPE html><html  class="no-js" lang="zh-CN" data-capo=""><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vue 使用 docxtemplater 导出 word 文件-icsscn</title>
+<style>*,::backdrop,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#3b82f680;--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;tab-size:4;-webkit-tap-highlight-color:transparent}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-size:1em;font-variation-settings:normal}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:initial}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-feature-settings:inherit;font-size:100%;font-variation-settings:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:initial;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:initial}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}[hidden]:where(:not([hidden=until-found])){display:none}.container{margin-left:auto;margin-right:auto;padding-left:2rem;padding-right:2rem;width:100%}@media (min-width:1400px){.container{max-width:1400px}}.pointer-events-none{pointer-events:none}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.inset-x-0{left:0;right:0}.bottom-\[30vh\]{bottom:30vh}.left-0{left:0}.left-1\/2{left:50%}.right-2{right:.5rem}.top-0{top:0}.top-1\/2{top:50%}.top-12{top:3rem}.top-2{top:.5rem}.top-\[1px\]{top:1px}.-z-10{z-index:-10}.z-10{z-index:10}.z-\[100\]{z-index:100}.z-\[200\]{z-index:200}.z-\[999\]{z-index:999}.\!m-0{margin:0!important}.mx-auto{margin-left:auto;margin-right:auto}.my-4{margin-bottom:1rem;margin-top:1rem}.-ml-12{margin-left:-3rem}.mb-1{margin-bottom:.25rem}.ml-0{margin-left:0}.mr-1{margin-right:.25rem}.mr-2{margin-right:.5rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-6{margin-top:1.5rem}.box-content{box-sizing:initial}.line-clamp-2{-webkit-line-clamp:2}.line-clamp-2,.line-clamp-3{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical}.line-clamp-3{-webkit-line-clamp:3}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.hidden{display:none}.\!h-\[50vh\]{height:50vh!important}.h-10{height:2.5rem}.h-12{height:3rem}.h-2\.5{height:.625rem}.h-4{height:1rem}.h-64{height:16rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-\[100vh\]{height:100vh}.h-\[200px\]{height:200px}.h-\[calc\(100\%-42px\)\]{height:calc(100% - 42px)}.h-\[calc\(100vh-480px\)\]{height:calc(100vh - 480px)}.h-full{height:100%}.min-h-\[calc\(98vh-5rem\)\]{min-height:calc(98vh - 5rem)}.w-1\/2{width:50%}.w-12{width:3rem}.w-2\.5{width:.625rem}.w-3{width:.75rem}.w-5{width:1.25rem}.w-9{width:2.25rem}.w-\[100\%-1\.75rem\]{width:100%-1.75rem}.w-\[100vw\]{width:100vw}.w-\[350px\]{width:350px}.w-\[94vw\]{width:94vw}.w-full{width:100%}.w-px{width:1px}.min-w-\[200px\]{min-width:200px}.max-w-\[50vw\]{max-width:50vw}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.-translate-y-1\/2{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%}.-translate-y-20{--tw-translate-y:-5rem}.-translate-y-20,.-translate-y-\[\.1rem\]{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-\[\.1rem\]{--tw-translate-y:-.1rem}.translate-y-\[\.08rem\]{--tw-translate-y:.08rem}.transform,.translate-y-\[\.08rem\]{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-not-allowed{cursor:not-allowed}.cursor-pointer{cursor:pointer}.touch-none{touch-action:none}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-col-reverse{flex-direction:column-reverse}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}.gap-2{gap:.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-y-2{row-gap:.5rem}.space-x-2>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-left:calc(.5rem*(1 - var(--tw-space-x-reverse)));margin-right:calc(.5rem*var(--tw-space-x-reverse))}.space-x-3>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-left:calc(.75rem*(1 - var(--tw-space-x-reverse)));margin-right:calc(.75rem*var(--tw-space-x-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.text-ellipsis{text-overflow:ellipsis}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:.25rem}.rounded-\[inherit\]{border-radius:inherit}.rounded-full{border-radius:9999px}.rounded-md{border-radius:.375rem}.rounded-sm{border-radius:.125rem}.rounded-t{border-top-left-radius:.25rem;border-top-right-radius:.25rem}.border{border-width:1px}.border-0{border-width:0}.border-y{border-top-width:1px}.border-b,.border-y{border-bottom-width:1px}.border-l{border-left-width:1px}.border-t{border-top-width:1px}.border-solid{border-style:solid}.border-dashed{border-style:dashed}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246/var(--tw-border-opacity,1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235/var(--tw-border-opacity,1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219/var(--tw-border-opacity,1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240/var(--tw-border-opacity,1))}.border-l-transparent{border-left-color:#0000}.border-t-transparent{border-top-color:#0000}.\!bg-\[\#2d2d2d\]{--tw-bg-opacity:1!important;background-color:rgb(45 45 45/var(--tw-bg-opacity,1))!important}.\!bg-sky-500{--tw-bg-opacity:1!important;background-color:rgb(14 165 233/var(--tw-bg-opacity,1))!important}.bg-\[\#2d2d2d\]{--tw-bg-opacity:1;background-color:rgb(45 45 45/var(--tw-bg-opacity,1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity,1))}.bg-black\/80{background-color:#000c}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254/var(--tw-bg-opacity,1))}.bg-blue-300{--tw-bg-opacity:1;background-color:rgb(147 197 253/var(--tw-bg-opacity,1))}.bg-blue-400{--tw-bg-opacity:1;background-color:rgb(96 165 250/var(--tw-bg-opacity,1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246/var(--tw-bg-opacity,1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity,1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.bg-orange-50{--tw-bg-opacity:1;background-color:rgb(255 247 237/var(--tw-bg-opacity,1))}.bg-red-500{--tw-bg-opacity:1;background-color:rgb(239 68 68/var(--tw-bg-opacity,1))}.bg-sky-900{--tw-bg-opacity:1;background-color:rgb(12 74 110/var(--tw-bg-opacity,1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.bg-slate-300{--tw-bg-opacity:1;background-color:rgb(203 213 225/var(--tw-bg-opacity,1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-stone-100{--tw-bg-opacity:1;background-color:rgb(245 245 244/var(--tw-bg-opacity,1))}.bg-stone-50{--tw-bg-opacity:1;background-color:rgb(250 250 249/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-gradient-to-b{background-image:linear-gradient(to bottom,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-blue-200{--tw-gradient-from:#bfdbfe var(--tw-gradient-from-position);--tw-gradient-to:#bfdbfe00 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-cyan-400{--tw-gradient-from:#22d3ee var(--tw-gradient-from-position);--tw-gradient-to:#22d3ee00 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-gray-500{--tw-gradient-from:#6b7280 var(--tw-gradient-from-position);--tw-gradient-to:#6b728000 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-white{--tw-gradient-from:#fff var(--tw-gradient-from-position);--tw-gradient-to:#fff0 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-0\%{--tw-gradient-from-position:0%}.via-blue-500{--tw-gradient-to:#3b82f600 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#3b82f6 var(--tw-gradient-via-position),var(--tw-gradient-to)}.via-50\%{--tw-gradient-via-position:50%}.to-blue-500{--tw-gradient-to:#3b82f6 var(--tw-gradient-to-position)}.to-blue-700{--tw-gradient-to:#1d4ed8 var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:#0000 var(--tw-gradient-to-position)}.bg-\[length\:200\%\]{background-size:200%}.bg-\[length\:700\%_auto\]{background-size:700% auto}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.bg-\[left\],.bg-left{background-position:0}.bg-no-repeat{background-repeat:no-repeat}.p-4{padding:1rem}.p-px{padding:1px}.\!py-0{padding-bottom:0!important;padding-top:0!important}.px-0{padding-left:0;padding-right:0}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-bottom:.25rem;padding-top:.25rem}.py-2{padding-bottom:.5rem;padding-top:.5rem}.py-3{padding-bottom:.75rem;padding-top:.75rem}.py-4{padding-bottom:1rem;padding-top:1rem}.py-\[6px\]{padding-bottom:6px;padding-top:6px}.pb-5{padding-bottom:1.25rem}.pr-3{padding-right:.75rem}.pt-12{padding-top:3rem}.pt-3{padding-top:.75rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-\[\.8rem\]{font-size:.8rem}.text-\[0\.75rem\]{font-size:.75rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.leading-6{line-height:1.5rem}.leading-8{line-height:2rem}.leading-\[3rem\]{line-height:3rem}.\!text-white{--tw-text-opacity:1!important;color:rgb(255 255 255/var(--tw-text-opacity,1))!important}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246/var(--tw-text-opacity,1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216/var(--tw-text-opacity,1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175/var(--tw-text-opacity,1))}.text-blue-900{--tw-text-opacity:1;color:rgb(30 58 138/var(--tw-text-opacity,1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity,1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity,1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99/var(--tw-text-opacity,1))}.text-orange-600{--tw-text-opacity:1;color:rgb(234 88 12/var(--tw-text-opacity,1))}.text-sky-400{--tw-text-opacity:1;color:rgb(56 189 248/var(--tw-text-opacity,1))}.text-slate-50{--tw-text-opacity:1;color:rgb(248 250 252/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42/var(--tw-text-opacity,1))}.text-transparent{color:#0000}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline-offset-4{text-underline-offset:4px}.opacity-50{opacity:.5}.opacity-\[0\.6\]{opacity:.6}.shadow{--tw-shadow:0 1px 3px 0 #0000001a,0 1px 2px -1px #0000001a;--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color)}.shadow,.shadow-\[inset_0_-2px_0_rgba\(56\2c 189\2c 248\2c \.0\)\]{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[inset_0_-2px_0_rgba\(56\2c 189\2c 248\2c \.0\)\]{--tw-shadow:inset 0 -2px 0 #38bdf800;--tw-shadow-colored:inset 0 -2px 0 var(--tw-shadow-color)}.shadow-lg{--tw-shadow:0 10px 15px -3px #0000001a,0 4px 6px -4px #0000001a;--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-sm{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 #0000000d;--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color)}.outline{outline-style:solid}.ring-offset-white{--tw-ring-offset-color:#fff}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-\[2px\]{--tw-backdrop-blur:blur(2px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1)}.transition-all{transition-duration:.15s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1)}.transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.transition-shadow{transition-duration:.15s;transition-property:box-shadow;transition-timing-function:cubic-bezier(.4,0,.2,1)}.transition-transform{transition-duration:.15s;transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1)}.duration-200{transition-duration:.2s}.duration-300{transition-duration:.3s}.duration-500{transition-duration:.5s}.ease-in{transition-timing-function:cubic-bezier(.4,0,1,1)}.ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}@keyframes enter{0%{opacity:var(--tw-enter-opacity,1);transform:translate3d(var(--tw-enter-translate-x,0),var(--tw-enter-translate-y,0),0) scale3d(var(--tw-enter-scale,1),var(--tw-enter-scale,1),var(--tw-enter-scale,1)) rotate(var(--tw-enter-rotate,0))}}@keyframes exit{to{opacity:var(--tw-exit-opacity,1);transform:translate3d(var(--tw-exit-translate-x,0),var(--tw-exit-translate-y,0),0) scale3d(var(--tw-exit-scale,1),var(--tw-exit-scale,1),var(--tw-exit-scale,1)) rotate(var(--tw-exit-rotate,0))}}.duration-200{animation-duration:.2s}.duration-300{animation-duration:.3s}.duration-500{animation-duration:.5s}.ease-in{animation-timing-function:cubic-bezier(.4,0,1,1)}.ease-out{animation-timing-function:cubic-bezier(0,0,.2,1)}.after\:absolute:after{content:var(--tw-content);position:absolute}.after\:inset-0:after{content:var(--tw-content);inset:0}.after\:inset-y-0:after{bottom:0;content:var(--tw-content);top:0}.after\:left-1\/2:after{content:var(--tw-content);left:50%}.after\:-z-\[1\]:after{content:var(--tw-content);z-index:-1}.after\:w-1:after{content:var(--tw-content);width:.25rem}.after\:-translate-x-1\/2:after{content:var(--tw-content);--tw-translate-x:-50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.after\:rounded:after{border-radius:.25rem;content:var(--tw-content)}.after\:bg-stone-100:after{content:var(--tw-content);--tw-bg-opacity:1;background-color:rgb(245 245 244/var(--tw-bg-opacity,1))}.after\:transition:after{content:var(--tw-content);transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1)}.after\:duration-500:after{animation-duration:.5s;content:var(--tw-content);transition-duration:.5s}.hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-blue-400:hover{--tw-border-opacity:1;border-color:rgb(96 165 250/var(--tw-border-opacity,1))}.hover\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.hover\:bg-blue-500:hover{--tw-bg-opacity:1;background-color:rgb(59 130 246/var(--tw-bg-opacity,1))}.hover\:bg-red-500\/90:hover{background-color:#ef4444e6}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.hover\:bg-slate-100\/80:hover{background-color:#f1f5f9cc}.hover\:bg-slate-900\/90:hover{background-color:#0f172ae6}.hover\:bg-stone-100:hover{--tw-bg-opacity:1;background-color:rgb(245 245 244/var(--tw-bg-opacity,1))}.hover\:bg-stone-200:hover{--tw-bg-opacity:1;background-color:rgb(231 229 228/var(--tw-bg-opacity,1))}.hover\:bg-\[right\]:hover,.hover\:bg-right:hover{background-position:100%}.hover\:text-blue-700:hover{--tw-text-opacity:1;color:rgb(29 78 216/var(--tw-text-opacity,1))}.hover\:text-slate-900:hover{--tw-text-opacity:1;color:rgb(15 23 42/var(--tw-text-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.hover\:underline:hover{text-decoration-line:underline}.hover\:shadow-\[inset_0_-14px_0_rgba\(56\2c 189\2c 248\2c \.2\)\]:hover{--tw-shadow:inset 0 -14px 0 #38bdf833;--tw-shadow-colored:inset 0 -14px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px #0000001a,0 2px 4px -2px #0000001a;--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.hover\:after\:scale-x-\[1\.4\]:hover:after{--tw-scale-x:1.4}.hover\:after\:scale-x-\[1\.4\]:hover:after,.hover\:after\:scale-y-\[1\.6\]:hover:after{content:var(--tw-content);transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:after\:scale-y-\[1\.6\]:hover:after{--tw-scale-y:1.6}.hover\:after\:opacity-0:hover:after{content:var(--tw-content);opacity:0}.focus-visible\:outline-none:focus-visible{outline:2px solid #0000;outline-offset:2px}.focus-visible\:ring-1:focus-visible{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.focus-visible\:ring-1:focus-visible,.focus-visible\:ring-2:focus-visible{box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus-visible\:ring-2:focus-visible{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.focus-visible\:ring-slate-950:focus-visible{--tw-ring-opacity:1;--tw-ring-color:rgb(2 6 23/var(--tw-ring-opacity,1))}.focus-visible\:ring-offset-1:focus-visible{--tw-ring-offset-width:1px}.focus-visible\:ring-offset-2:focus-visible{--tw-ring-offset-width:2px}.active\:translate-y-0:active{--tw-translate-y:0px;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:shadow-sm:active{--tw-shadow:0 1px 2px 0 #0000000d;--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.disabled\:pointer-events-none:disabled{pointer-events:none}.disabled\:opacity-50:disabled{opacity:.5}.group:hover .group-hover\:-ml-12{margin-left:-3rem}.group:hover .group-hover\:ml-0{margin-left:0}.group:hover .group-hover\:translate-y-0{--tw-translate-y:0px;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.data-\[panel-group-direction\=vertical\]\:flex-col[data-panel-group-direction=vertical]{flex-direction:column}.data-\[state\=open\]\:animate-in[data-state=open]{animation-duration:.15s;animation-name:enter;--tw-enter-opacity:initial;--tw-enter-scale:initial;--tw-enter-rotate:initial;--tw-enter-translate-x:initial;--tw-enter-translate-y:initial}.data-\[state\=closed\]\:animate-out[data-state=closed]{animation-duration:.15s;animation-name:exit;--tw-exit-opacity:initial;--tw-exit-scale:initial;--tw-exit-rotate:initial;--tw-exit-translate-x:initial;--tw-exit-translate-y:initial}.data-\[state\=closed\]\:fade-out-0[data-state=closed]{--tw-exit-opacity:0}.data-\[state\=open\]\:fade-in-0[data-state=open]{--tw-enter-opacity:0}.data-\[state\=closed\]\:zoom-out-95[data-state=closed]{--tw-exit-scale:.95}.data-\[state\=open\]\:zoom-in-95[data-state=open]{--tw-enter-scale:.95}.data-\[state\=closed\]\:slide-out-to-left-1\/2[data-state=closed]{--tw-exit-translate-x:-50%}.data-\[state\=closed\]\:slide-out-to-top-\[48\%\][data-state=closed]{--tw-exit-translate-y:-48%}.data-\[state\=open\]\:slide-in-from-left-1\/2[data-state=open]{--tw-enter-translate-x:-50%}.data-\[state\=open\]\:slide-in-from-top-\[48\%\][data-state=open]{--tw-enter-translate-y:-48%}.dark\:border-\[\#2d2d2d\]:is(.dark *){--tw-border-opacity:1;border-color:rgb(45 45 45/var(--tw-border-opacity,1))}.dark\:border-gray-700:is(.dark *){--tw-border-opacity:1;border-color:rgb(55 65 81/var(--tw-border-opacity,1))}.dark\:border-gray-800:is(.dark *){--tw-border-opacity:1;border-color:rgb(31 41 55/var(--tw-border-opacity,1))}.dark\:border-neutral-800:is(.dark *){--tw-border-opacity:1;border-color:rgb(38 38 38/var(--tw-border-opacity,1))}.dark\:border-slate-800:is(.dark *){--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1))}.dark\:\!bg-stone-600:is(.dark *){--tw-bg-opacity:1!important;background-color:rgb(87 83 78/var(--tw-bg-opacity,1))!important}.dark\:bg-\[\#3e3e3e\]:is(.dark *){--tw-bg-opacity:1;background-color:rgb(62 62 62/var(--tw-bg-opacity,1))}.dark\:bg-gray-500:is(.dark *){--tw-bg-opacity:1;background-color:rgb(107 114 128/var(--tw-bg-opacity,1))}.dark\:bg-gray-700:is(.dark *){--tw-bg-opacity:1;background-color:rgb(55 65 81/var(--tw-bg-opacity,1))}.dark\:bg-neutral-800:is(.dark *){--tw-bg-opacity:1;background-color:rgb(38 38 38/var(--tw-bg-opacity,1))}.dark\:bg-red-900:is(.dark *){--tw-bg-opacity:1;background-color:rgb(127 29 29/var(--tw-bg-opacity,1))}.dark\:bg-slate-50:is(.dark *){--tw-bg-opacity:1;background-color:rgb(248 250 252/var(--tw-bg-opacity,1))}.dark\:bg-slate-800:is(.dark *){--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.dark\:bg-slate-950:is(.dark *){--tw-bg-opacity:1;background-color:rgb(2 6 23/var(--tw-bg-opacity,1))}.dark\:bg-stone-700:is(.dark *){--tw-bg-opacity:1;background-color:rgb(68 64 60/var(--tw-bg-opacity,1))}.dark\:bg-transparent:is(.dark *){background-color:initial}.dark\:from-blue-400:is(.dark *){--tw-gradient-from:#60a5fa var(--tw-gradient-from-position);--tw-gradient-to:#60a5fa00 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.dark\:from-cyan-300:is(.dark *){--tw-gradient-from:#67e8f9 var(--tw-gradient-from-position);--tw-gradient-to:#67e8f900 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.dark\:from-gray-700:is(.dark *){--tw-gradient-from:#374151 var(--tw-gradient-from-position);--tw-gradient-to:#37415100 var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.dark\:to-blue-200:is(.dark *){--tw-gradient-to:#bfdbfe var(--tw-gradient-to-position)}.dark\:to-blue-500:is(.dark *){--tw-gradient-to:#3b82f6 var(--tw-gradient-to-position)}.dark\:to-white:is(.dark *){--tw-gradient-to:#fff var(--tw-gradient-to-position)}.dark\:text-sky-400:is(.dark *){--tw-text-opacity:1;color:rgb(56 189 248/var(--tw-text-opacity,1))}.dark\:text-slate-200:is(.dark *){--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.dark\:text-slate-400:is(.dark *){--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.dark\:text-slate-50:is(.dark *){--tw-text-opacity:1;color:rgb(248 250 252/var(--tw-text-opacity,1))}.dark\:text-slate-900:is(.dark *){--tw-text-opacity:1;color:rgb(15 23 42/var(--tw-text-opacity,1))}.dark\:text-white:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.dark\:shadow-neutral-900:is(.dark *){--tw-shadow-color:#171717;--tw-shadow:var(--tw-shadow-colored)}.dark\:ring-offset-slate-950:is(.dark *){--tw-ring-offset-color:#020617}.dark\:after\:bg-slate-700:is(.dark *):after{content:var(--tw-content);--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.dark\:hover\:border-gray-700:hover:is(.dark *){--tw-border-opacity:1;border-color:rgb(55 65 81/var(--tw-border-opacity,1))}.dark\:hover\:bg-gray-400:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(156 163 175/var(--tw-bg-opacity,1))}.dark\:hover\:bg-gray-600:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(75 85 99/var(--tw-bg-opacity,1))}.dark\:hover\:bg-red-900\/90:hover:is(.dark *){background-color:#7f1d1de6}.dark\:hover\:bg-slate-50\/90:hover:is(.dark *){background-color:#f8fafce6}.dark\:hover\:bg-slate-800:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.dark\:hover\:bg-slate-800\/80:hover:is(.dark *){background-color:#1e293bcc}.dark\:hover\:bg-stone-700:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(68 64 60/var(--tw-bg-opacity,1))}.dark\:hover\:text-slate-50:hover:is(.dark *){--tw-text-opacity:1;color:rgb(248 250 252/var(--tw-text-opacity,1))}.dark\:hover\:text-white:hover:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.dark\:hover\:shadow-\[inset_0_-14px_0_rgba\(56\2c 189\2c 248\2c \.4\)\]:hover:is(.dark *){--tw-shadow:inset 0 -14px 0 #38bdf866;--tw-shadow-colored:inset 0 -14px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.dark\:focus-visible\:ring-slate-300:focus-visible:is(.dark *){--tw-ring-opacity:1;--tw-ring-color:rgb(203 213 225/var(--tw-ring-opacity,1))}@media (min-width:640px){.sm\:mt-0{margin-top:0}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:justify-end{justify-content:flex-end}.sm\:gap-x-2{column-gap:.5rem}.sm\:rounded-lg{border-radius:.5rem}.sm\:text-left{text-align:left}}@media (min-width:768px){.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (min-width:1024px){.lg\:w-4\/5{width:80%}.lg\:px-0{padding-left:0;padding-right:0}}@media (min-width:1280px){.xl\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.xl\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.xl\:px-0{padding-left:0;padding-right:0}}.\[\&\[data-orientation\=vertical\]\>div\]\:rotate-90[data-orientation=vertical]>div{--tw-rotate:90deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.\[\&\[data-orientation\=vertical\]\]\:h-px[data-orientation=vertical]{height:1px}.\[\&\[data-orientation\=vertical\]\]\:w-full[data-orientation=vertical]{width:100%}.\[\&\[data-orientation\=vertical\]\]\:after\:left-0[data-orientation=vertical]:after{content:var(--tw-content);left:0}.\[\&\[data-orientation\=vertical\]\]\:after\:h-1[data-orientation=vertical]:after{content:var(--tw-content);height:.25rem}.\[\&\[data-orientation\=vertical\]\]\:after\:w-full[data-orientation=vertical]:after{content:var(--tw-content);width:100%}.\[\&\[data-orientation\=vertical\]\]\:after\:-translate-y-1\/2[data-orientation=vertical]:after{--tw-translate-y:-50%}.\[\&\[data-orientation\=vertical\]\]\:after\:-translate-y-1\/2[data-orientation=vertical]:after,.\[\&\[data-orientation\=vertical\]\]\:after\:translate-x-0[data-orientation=vertical]:after{content:var(--tw-content);transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.\[\&\[data-orientation\=vertical\]\]\:after\:translate-x-0[data-orientation=vertical]:after{--tw-translate-x:0px}.\[\&_svg\]\:pointer-events-none svg{pointer-events:none}.\[\&_svg\]\:size-4 svg{height:1rem;width:1rem}.\[\&_svg\]\:shrink-0 svg{flex-shrink:0}</style>
+<style>body{font-family:Geist,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.copy-to-clipboard-button{color:#fff!important;padding:5px 12px!important}</style>
+<style>:root{--btn-color:#646060;--btn-bg-color:#eee;--btn-left:auto;--btn-right:2px;--btn-size:24px}.dark{--btn-color:#fff;--btn-bg-color:#444;--btn-left:2px;--btn-right:auto;background-color:#171717;color-scheme:dark}.dark .view-transition__btn>span>svg:first-child{display:none}.dark .view-transition__btn>span>svg:nth-child(2){display:inline-block}.view-transition__btn{background-color:var(--btn-bg-color);border:2px solid var(--btn-color);border-radius:calc(var(--btn-size)/2);box-sizing:border-box;height:var(--btn-size);position:relative;width:45px}.view-transition__btn>span{content:"";position:absolute;--size:calc(var(--btn-size) - 8px);align-items:center;background-color:var(--btn-color);border-radius:calc(var(--size)/2);display:flex;height:var(--size);justify-content:center;left:var(--btn-left);right:var(--btn-right);top:2px;width:var(--size)}.view-transition__btn>span>svg:nth-child(2){display:none}::view-transition-new(root),::view-transition-old(root){animation-duration:100s}html.theme::view-transition-old(*){animation:none;mix-blend-mode:normal}html.theme::view-transition-new(*){animation:clip var(--animation-second) ease-in;mix-blend-mode:normal}@keyframes clip{0%{clip-path:circle(0 at var(--x) var(--y))}to{clip-path:circle(150% at var(--x) var(--y))}}</style>
+<style>.page-enter-active,.page-leave-active{transition:all .4s}.page-leave-to{filter:blur(1rem);opacity:0;transform:translateX(0)}.page-enter-from{opacity:0;transform:translateX(100%)}</style>
+<style>.content-doc__frame{line-height:1.75rem}.content-doc__frame ol,.content-doc__frame ul{list-style:auto inside}.content-doc__frame h1,.content-doc__frame h2,.content-doc__frame h3,.content-doc__frame h4,.content-doc__frame h5,.content-doc__frame h6{font-weight:700;margin-bottom:.75rem;margin-top:.75rem}.content-doc__frame h1{font-size:1.875rem;line-height:2.25rem;margin-bottom:.25rem;margin-top:.75rem;--tw-text-opacity:1;color:rgb(59 130 246/var(--tw-text-opacity,1))}.content-doc__frame h2{font-size:1.5rem;line-height:2rem;--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.content-doc__frame h3{font-size:1.25rem;line-height:1.75rem;--tw-text-opacity:1;color:rgb(59 130 246/var(--tw-text-opacity,1))}.content-doc__frame hr,.content-doc__frame p{margin-bottom:.75rem;margin-top:.75rem}.content-doc__frame hr a,.content-doc__frame p a{border-bottom-width:1px;border-style:solid;box-shadow:inset 0 -2px hsla(204,8%,76%,.3);--tw-border-opacity:1;border-color:rgb(147 197 253/var(--tw-border-opacity,1));--tw-text-opacity:1;animation-duration:.2s;animation-timing-function:cubic-bezier(.4,0,1,1);color:rgb(29 78 216/var(--tw-text-opacity,1));transition-duration:.2s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-timing-function:cubic-bezier(.4,0,1,1)}.content-doc__frame hr a:hover,.content-doc__frame p a:hover{box-shadow:inset 0 -10px hsla(204,8%,76%,.3)}.content-doc__frame hr code,.content-doc__frame p code{margin-left:.5rem;margin-right:.5rem;--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1));padding-left:.5rem;padding-right:.5rem;--tw-text-opacity:1;color:rgb(59 130 246/var(--tw-text-opacity,1))}.content-doc__frame table td,.content-doc__frame table th{border-width:1px;--tw-border-opacity:1;border-color:rgb(209 213 219/var(--tw-border-opacity,1));padding:.75rem}.content-doc__frame table th{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.content-doc__frame pre[class*=language-]{background-color:#323527;overflow:auto}.dark .content-doc__frame h1{font-size:1.875rem;line-height:2.25rem}.dark .content-doc__frame h1,.dark .content-doc__frame h2{--tw-text-opacity:1;color:rgb(56 189 248/var(--tw-text-opacity,1))}.dark .content-doc__frame h2{font-size:1.5rem;line-height:2rem}.dark .content-doc__frame h3{font-size:1.25rem;line-height:1.75rem;--tw-text-opacity:1;color:rgb(56 189 248/var(--tw-text-opacity,1))}.dark .content-doc__frame p a{--tw-border-opacity:1;border-color:rgb(56 189 248/var(--tw-border-opacity,1));--tw-text-opacity:1;color:rgb(56 189 248/var(--tw-text-opacity,1))}.dark .content-doc__frame p code{--tw-bg-opacity:1;background-color:rgb(12 74 110/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.dark .content-doc__frame pre[class*=language-]{background-color:#272822;overflow:auto}</style>
+<style>.nuxt-icon svg{height:1em;margin-bottom:.125em;vertical-align:middle;width:1em}.nuxt-icon.nuxt-icon--fill,.nuxt-icon.nuxt-icon--fill *{fill:currentColor!important}.nuxt-icon.nuxt-icon--stroke,.nuxt-icon.nuxt-icon--stroke *{stroke:currentColor!important}</style>
+<style>pre code .line{display:block;min-height:1rem}</style>
+<link rel="stylesheet" href="/_nuxt/entry.n6Im4M9A.css" crossorigin>
+<link rel="stylesheet" href="/_nuxt/nuxt-icon.BdpeBhx2.css" crossorigin>
+<link rel="stylesheet" href="/_nuxt/prism-okaidia.B6lxz5qW.css" crossorigin>
+<link rel="stylesheet" href="/_nuxt/ProsePre.B_fgAJq0.css" crossorigin>
+<link rel="preload" as="fetch" crossorigin="anonymous" href="/posts/20231205/_payload.json?e75963bb-b754-46f9-ae06-a3178b960fbc">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DAXYy-sZ.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/CySC6RI5.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/BDvsOU_6.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/YZJSwjbS.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DyfitxFQ.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/wErwTc2-.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/CxYJgpPD.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/BgyvY7BX.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DVj2r2fU.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DUY8jjOC.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/BnGhM4CZ.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/7gXdRvoY.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/MLzUMAms.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/BN73TPVW.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/D4IzXvAW.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DlAUqK2U.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DLykh7zs.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/zVMEWZqk.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DYDWLU9h.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/Drt7xDgY.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/xRtMvW9Q.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/QEZ2Ae7Y.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/D8GlCrHT.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/D7E7cX2_.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/B8OAqfxy.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DyG_aXG3.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/BpFbQzyy.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DecFSTpT.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/BEf_mi28.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/Bo-wiqWE.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/BdSC7iaj.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/CPi10TMX.js">
+<link rel="prefetch" as="script" crossorigin href="/_nuxt/D-dGtMZ0.js">
+<link rel="prefetch" as="script" crossorigin href="/_nuxt/Cl-wL3QA.js">
+<link rel="prefetch" as="script" crossorigin href="/_nuxt/BLJK1yPo.js">
+<meta property="og:title" content="vue 使用 docxtemplater 导出 word 文件">
+<meta name="description" content="docxtemplater 是一种邮件合并工具，以编程方式使用并处理条件、循环，并且可以扩展以插入任何内容（表格、html、图像）">
+<meta property="og:description" content="docxtemplater 是一种邮件合并工具，以编程方式使用并处理条件、循环，并且可以扩展以插入任何内容（表格、html、图像）">
+<script type="module" src="/_nuxt/DAXYy-sZ.js" crossorigin></script>
+<script id="unhead:payload" type="application/json">{"title":"icsscn","titleTemplate":"%s-icsscn"}</script><script>"use strict";(()=>{const t=window,e=document.documentElement,c=["dark","light"],n=getStorageValue("localStorage","nuxt-color-mode")||"light";let i=n==="system"?u():n;const r=e.getAttribute("data-color-mode-forced");r&&(i=r),l(i),t["__NUXT_COLOR_MODE__"]={preference:n,value:i,getColorScheme:u,addColorScheme:l,removeColorScheme:d};function l(o){const s=""+o+"",a="";e.classList?e.classList.add(s):e.className+=" "+s,a&&e.setAttribute("data-"+a,o)}function d(o){const s=""+o+"",a="";e.classList?e.classList.remove(s):e.className=e.className.replace(new RegExp(s,"g"),""),a&&e.removeAttribute("data-"+a)}function f(o){return t.matchMedia("(prefers-color-scheme"+o+")")}function u(){if(t.matchMedia&&f("").media!=="not all"){for(const o of c)if(f(":"+o).matches)return o}return"light"}})();function getStorageValue(t,e){switch(t){case"localStorage":return window.localStorage.getItem(e);case"sessionStorage":return window.sessionStorage.getItem(e);case"cookie":return getCookie(e);default:return null}}function getCookie(t){const c=("; "+window.document.cookie).split("; "+t+"=");if(c.length===2)return c.pop()?.split(";").shift()}</script></head><body><div id="__nuxt"><div dir="ltr" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px;" class="relative overflow-hidden overflow-x-hidden w-full h-[100vh]"><!--[--><!--[--><div data-radix-scroll-area-viewport style="overflow-x:hidden;overflow-y:hidden;" class="h-full w-full rounded-[inherit]" tabindex="0"><div style=""><!--[--><!--[--><div class="lg:w-4/5 w-[100vw] lg:px-0 px-6 mx-auto flex-col pt-12" data-prismjs-copy-timeout="1000"><header class="fixed z-10 top-0 inset-x-0 bg-gradient-to-b from-white to-transparent dark:from-gray-700 backdrop-blur-[2px]"><div class="h-12 lg:w-4/5 lg:px-0 px-6 mx-auto flex justify-between items-center"><a href="/" class="text-xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-blue-700 dark:from-cyan-300 dark:to-white bg-clip-text">ICSSCN</a><ul class="flex justify-around items-center text-gray-600 space-x-2"><!--[--><li><a href="/" class="text-sm px-3 py-[6px] rounded transition-colors duration-500 bg-stone-50 dark:bg-transparent dark:text-white hover:bg-stone-200 dark:hover:bg-stone-700">home</a></li><li><a href="/links" class="text-sm px-3 py-[6px] rounded transition-colors duration-500 bg-stone-50 dark:bg-transparent dark:text-white hover:bg-stone-200 dark:hover:bg-stone-700">links</a></li><li><a href="/tags" class="text-sm px-3 py-[6px] rounded transition-colors duration-500 bg-stone-50 dark:bg-transparent dark:text-white hover:bg-stone-200 dark:hover:bg-stone-700">tags</a></li><li><a href="/components" class="text-sm px-3 py-[6px] rounded transition-colors duration-500 bg-stone-50 dark:bg-transparent dark:text-white hover:bg-stone-200 dark:hover:bg-stone-700">components</a></li><!--]--><li class="flex justify-center"><button class="view-transition__btn"><span><svg viewBox="0 0 1024 1024" width="18" height="18"><path fill="white" d="M752.41931153 240.7063601c8.36993432 0 15.62255883 3.08990502 21.72821045 9.16589356 6.1353147 6.08093262 9.18566918 13.3928833 9.18566918 21.73315382 0 8.55285621-3.05035376 15.85986352-9.18566918 21.94079614l-43.67394996 43.66900658c-5.93261719 5.97216773-13.17041016 8.95825195-21.72326709 8.95825195-8.87420678 0-16.20098901-2.98608422-22.08911085-8.75061035-5.88317847-5.87329102-8.80004906-13.2890625-8.80004906-22.14843774 0-8.54791283 2.95642114-15.75604272 8.91375732-21.72821044l43.66900659-43.67394996c6.14025879-6.07598853 13.44726539-9.16589356 21.98034668-9.16589356z m37.66223167 240.39459181h61.79809547c8.52813721 0 15.82031227 2.98608422 21.83697534 9.06207276C879.78271508 496.24395728 882.78857422 503.45208717 882.78857422 512c0 8.55285621-3.00585914 15.85986352-9.07196021 21.83697533-6.01666236 6.07598853-13.30883813 9.06207276-21.83697534 9.06207276h-61.79809547c-8.52813721 0-15.80053734-2.98608422-21.86663841-9.06207276-6.01666236-5.97711182-9.05712867-13.2890625-9.05712867-21.83697533 0-8.55285621 3.04046631-15.76098609 9.05712867-21.83697533 6.06610107-6.07598853 13.33850122-9.06207276 21.86663841-9.06207276zM512 141.21142578c8.52813721 0 15.79064917 3.08990502 21.85180688 9.06207276 6.02160645 6.08093262 9.05712867 13.3928833 9.05712867 21.83697533v61.79809546c0 8.55285621-3.03552222 15.85986352-9.0521853 21.83697534-6.06610107 6.07598853-13.32861305 9.16589356-21.85675025 9.16589355-8.53802467 0-15.80053734-3.08990502-21.86663842-9.16589355-6.01666236-5.97711182-9.0521853-13.2890625-9.05218458-21.83697534V172.11047387c0-8.44409203 3.03552222-15.76098609 9.05218458-21.83697533C496.20440674 144.3013308 503.46691871 141.21142578 512.00494408 141.21142578zM271.81304907 240.7063601c8.36499023 0 15.61267066 3.08990502 21.743042 9.16589356l43.66900659 43.67394996c6.14025879 6.07598853 9.17083764 13.38793922 9.17083764 21.72821044 0 8.55285621-3.01080323 15.86480689-9.05712938 21.83697534-6.03149391 6.08093262-13.30389404 9.06207276-21.85180617 9.06207275-8.69622827 0-16.02795386-2.98608422-21.95068359-8.85443115l-43.68383814-43.67395068c-5.97216773-5.97216773-8.92858886-13.28411842-8.92858886-22.03967284 0-8.55285621 3.00585914-15.76098609 9.07196021-21.83697462 6.01666236-5.97216773 13.30883813-9.06207276 21.85675096-9.06207276h-0.03955126z m436.93725586 436.91253615c8.36499023 0 15.60772729 2.98608422 21.72326709 9.16589355l43.67394995 43.67395067c6.1353147 6.17980933 9.18566918 13.38793922 9.18566919 21.93585205 0 8.34521461-3.05035376 15.65716529-9.18566919 21.73315382-6.1105957 6.17980933-13.35827613 9.16589356-21.72326636 9.16589356-8.52813721 0-15.84008789-2.98608422-21.98034668-9.16589356l-43.66900659-43.66900587c-5.95733618-5.87329102-8.91375732-13.1852417-8.91375732-21.73315453 0-8.55285621 3.01080323-15.86480689 9.05712866-21.94079614 6.03149391-6.07598853 13.32861305-9.16589356 21.85180689-9.16589355h-0.01977564zM512.00494408 388.40380836c-34.12243628 0-63.22192359 12.05310035-87.39239525 36.2532351-24.1358645 24.10125732-36.21368384 53.25018335-36.21368384 87.34295654 0 34.0927732 12.07782007 63.24169922 36.21368384 87.44677734C448.78796387 623.53814721 477.88250709 635.59619164 512 635.59619164c34.12243628 0 63.23181176-12.05310035 87.4072268-36.15435838C623.51837158 575.2466433 635.59619164 546.09771729 635.59619164 512c0-34.0927732-12.07782007-63.24169922-36.18896484-87.34295654C575.23181176 400.45690942 546.12243628 388.40380836 512 388.40380836zM172.12036133 481.10095191h61.79809547c8.53802467 0 15.80053734 2.98608422 21.86663841 9.06207276 6.01666236 6.08093262 9.05712867 13.2890625 9.05712867 21.83697533 0 8.55285621-3.04046631 15.85986352-9.05712867 21.83697533-6.06610107 6.07598853-13.32861305 9.06207276-21.86663841 9.06207276h-61.79809547c-8.52813721 0-15.81042481-2.98608422-21.83697534-9.06207276C144.21728492 527.85986352 141.21142578 520.54791283 141.21142578 512c0-8.55285621 3.00585914-15.76098609 9.07196021-21.83697533 6.03149391-6.07598853 13.30883813-9.06207276 21.83697534-9.06207276zM512.00494408 759.19238258c8.52813721 0 15.79064917 2.98608422 21.85180617 9.06207274 6.02160645 6.08093262 9.05712867 13.2890625 9.05712938 21.83697535v61.79809546c0 8.55285621-3.03552222 15.85986352-9.0521853 21.83697533C527.79559326 879.80249 520.53308129 882.78857422 512 882.78857422c-8.53802467 0-15.80053734-2.98608422-21.86663842-9.06207276-6.01666236-5.97711182-9.0521853-13.2890625-9.05218458-21.83697533v-61.79809546c0-8.55285621 3.03552222-15.76098609 9.05218458-21.83697534 6.06610107-6.07598853 13.32861305-9.06207276 21.86663842-9.06207275z m-196.47839379-81.57348633c8.5034182 0 15.80053734 2.98608422 21.84686279 9.16589355 6.03149391 6.08093262 9.07196021 13.3928833 9.07196021 21.94079614 0 8.44409203-3.08001685 15.65222192-9.19555664 21.72821044l-43.67394995 43.67394996c-6.10565162 6.17980933-13.34838867 9.16589356-21.72326637 9.16589356-8.54791283 0-15.84008789-2.98608422-21.85180687-8.96319533-6.07104516-6.07598853-9.0769043-13.38793922-9.0769043-21.93585205 0-8.65173364 2.95642114-15.96862769 8.92858887-21.94079614l43.68383813-43.66900658c6.10565162-6.17980933 13.44232202-9.16589356 21.95068359-9.16589355h0.03955054zM512 326.60571289c33.628052 0 64.6506958 8.34521461 93.0481565 24.81811547 28.42712378 16.69042992 50.92163109 39.1404419 67.4637456 67.56756568 16.57177758 28.32824708 24.86755347 59.32617188 24.86755347 93.00860596 0 33.68243408-8.27600098 64.68035888-24.86755347 93.10748267-16.58166504 28.32824708-39.08605981 50.77825904-67.4637456 67.4637456-28.36285424 16.58166504-59.37561059 24.82305884-93.0481565 24.82305884-33.66760254 0-64.67047143-8.24139381-93.05804468-24.81811547-28.37768578-16.69042992-50.86230492-39.14538598-67.46374487-67.46868897-16.58166504-28.42712378-24.86755347-59.42504859-24.86755348-93.10748267 0-33.68243408 8.31555152-64.68035888 24.86755348-93.00860596 16.55200195-28.42712378 39.03662109-50.87713647 67.46374487-67.56262231C447.35424828 334.94598413 478.371948 326.60571289 512 326.60571289z"></path></svg><svg viewBox="0 0 1024 1024" width="18" height="18"><path fill="#374151" d="M439.04383639 224.33271976a289.43717504 289.43717504 0 0 0-89.06329676 39.44690807c-27.5075319 18.12412161-51.158867 39.64960558-70.96389486 64.57645191-19.79019562 24.92684633-35.31880082 53.25011237-46.62042137 84.97474006C221.10449032 445.05050411 215.45368042 478.01109252 215.45368042 512c0 40.16870887 7.81621301 78.48347702 23.45358166 115.04318192 15.64725682 36.67341315 36.77228986 68.19039996 63.2910532 94.76354538 26.53359488 26.56820206 58.11485196 47.57952611 94.69927585 63.23667111 36.59431134 15.65714501 75.00301286 23.48324474 115.16183354 23.48324475 33.97407594 0 66.85061917-5.56182137 98.62468557-16.89310498 31.76417894-11.32633953 60.10227581-26.77584294 85.01429133-46.65502781 24.87740834-19.77536407 46.43255539-43.46625042 64.57150781-70.96389488a290.15403174 290.15403174 0 0 0 39.43701989-88.98913905c-8.3056532 0.72180079-17.71378249 1.13213991-28.0958481 1.1321392-45.21637032 0-88.35138342-8.85936294-129.45942212-26.46932463-41.1327577-17.71872658-76.62459295-41.50848964-106.44089858-71.27535655C505.84007277 458.54719011 482.10963587 423.01086095 464.42057238 381.91765379 446.7562286 340.81455917 437.94135957 297.65977044 437.94135957 252.4483442c0-10.40184195 0.39550758-19.77536407 1.15685891-28.01674772l-0.049438-0.09887672zM512.02976157 141.21192041c8.32542811 0 16.51242896 0.31146168 24.6054972 0.92944167-16.4036648 35.32374419-24.60549719 72.09603405-24.60549719 110.30698212 0 35.12104668 6.84227598 68.69961578 20.58121076 100.83458258 13.70927096 32.03114601 32.15474243 59.63261126 55.35124448 82.80933769 23.16683898 23.17178306 50.76830423 41.60736635 82.82416923 55.30674985 32.02125855 13.69938351 65.654209 20.60098567 100.78514387 20.60098568 38.23072298 0 75.03267594-8.24138293 110.35147675-24.62032874 0.59326099 8.14250622 0.86517214 16.28006837 0.86517213 24.62032874 0 33.57856837-4.43956893 66.43533597-13.29893256 98.46648269-8.90880166 32.03114601-21.28817928 61.69419283-37.24195443 88.78149743-15.92411206 27.19112615-35.31880082 52.11797247-58.09013296 74.87941716-22.77627549 22.76144395-47.74267309 42.12152555-74.87447306 58.09013223-27.15157487 15.96366261-56.75529553 28.32326532-88.78644152 37.28644905A368.16784419 368.16784419 0 0 1 512.00009921 882.78807959a368.20739474 368.20739474 0 0 1-98.48625832-13.28904439c-32.03609009-8.95824037-61.6249792-21.31784236-88.79138561-37.28150569-27.12685589-15.96860669-52.08336529-35.32868827-74.89919206-58.09013223-22.7515565-22.76144395-42.13635709-47.68829101-58.05058169-74.87941715-15.96366261-27.0922487-28.34304097-56.75529553-37.2518426-88.78149744A367.9354836 367.9354836 0 0 1 141.21201889 512c0-33.57856837 4.4494571-66.43533597 13.30882004-98.46648269 8.90880166-32.03114601 21.28817928-61.69419283 37.25184259-88.78149744 15.91916798-27.19112615 35.29902519-52.11797247 58.0505817-74.87941715 22.81582676-22.86526476 47.77233617-42.22534634 74.89919206-58.09013223C351.89380578 175.81880789 381.4826949 163.36032846 413.51878498 154.50096479A368.20739474 368.20739474 0 0 1 512.00009921 141.21192041h0.02966236z"></path></svg></span></button></li></ul></div></header><main class="min-h-[calc(98vh-5rem)] relative"><!--[--><div class="content-doc__frame"><h1>vue 使用 docxtemplater 导出 word 文件</h1><div class="py-3 flex space-x-2 text-gray-600"><a href="/" class="text-xs text-white px-3 py-1 rounded-md flex justify-center bg-gradient-to-r from-blue-200 to-blue-500 bg-[length:200%] bg-[left] dark:from-blue-400 dark:to-blue-500 transition-all duration-300 hover:bg-[right]"><span class="nuxt-icon nuxt-icon--fill text-[.8rem] mr-1 translate-y-[.08rem]"><?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1739783423117" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1402" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M687.86087 757.982609c17.808696 16.695652 17.808696 45.634783 1.113043 63.443478-8.904348 8.904348-21.147826 13.356522-32.278261 13.356522s-22.26087-4.452174-31.165217-12.243479l-289.391305-278.260869c-8.904348-8.904348-13.356522-20.034783-13.356521-32.278261s4.452174-23.373913 13.356521-32.278261l289.391305-278.260869c17.808696-16.695652 45.634783-16.695652 63.443478 1.113043 16.695652 17.808696 16.695652 45.634783-1.113043 63.443478L431.86087 512l256 245.982609z" p-id="1403"></path></svg></span> BACK </a><!--[--><span class="text-xs bg-orange-50 text-orange-600 px-3 py-1 rounded-md flex justify-center dark:"><span>2023-12-05 12-30-00</span></span><ul class="flex space-x-2"><!--[--><li class="text-xs bg-blue-50 text-blue-600 px-3 py-1 rounded-md">docxtemplater</li><li class="text-xs bg-blue-50 text-blue-600 px-3 py-1 rounded-md">文件导出</li><!--]--></ul><!--]--></div><!--[--><div><h1 id="docxtemplater-导出-word"><!--[-->docxtemplater 导出 word<!--]--></h1><p><!--[-->docxtemplater 是一种邮件合并工具，以编程方式使用并处理条件、循环，并且可以扩展以插入任何内容（表格、html、图像）<!--]--></p><h2 id="一安装-docxtemplater"><a href="#一安装-docxtemplater"><!--[-->一、安装 docxtemplater<!--]--></a></h2><!--[--><pre class="language-cmd" style=""><!--[--><code>// 安装 docxtemplater
+npm install docxtemplater pizzip  --save
+// 安装 jszip-utils
+npm install jszip-utils --save
+// 安装 FileSaver
+npm install file-saver --save
+// 引入处理图片的插件
+npm install docxtemplater-image-module-free --save
+//docx-preview预览插件
+npm i docx-preview --save
+</code><!--]--></pre><!--]--><h2 id="二docxtemplater-语法"><a href="#二docxtemplater-语法"><!--[-->二、docxtemplater 语法<!--]--></a></h2><h3 id="_1-单一变量使用-包含"><a href="#_1-单一变量使用-包含"><!--[-->1.  单一变量使用  {}  包含<!--]--></a></h3><!--[--><pre class="language-js" style=""><!--[--><code>{
+    name: &#39;lisi&#39;,
+    age: 18
+}
+</code><!--]--></pre><!--]--><p><!--[--><code class=""><!--[-->在 word 模板文件中表示为：<!--]--></code><!--]--></p><!--[--><pre class="language-js" style=""><!--[--><code>{name}、{age}
+</code><!--]--></pre><!--]--><h3 id="_2-json数组格式则包裹一个循环对象"><a href="#_2-json数组格式则包裹一个循环对象"><!--[-->2.  json数组格式，则包裹一个循环对象：<!--]--></a></h3><!--[--><pre class="language-js" style=""><!--[--><code>list: [
+    {name:&#39;lisi&#39;, class: &#39;4-1&#39;, age:&#39;18&#39;},
+    {name:&#39;wangwu&#39;, class: &#39;4-2&#39;, age:&#39;16&#39;}
+]
+</code><!--]--></pre><!--]--><p><!--[--><code class=""><!--[-->在 word 模板文件中表示为：<!--]--></code><!--]--></p><table><!--[--><thead><!--[--><tr><!--[--><th align="center"><!--[-->姓名<!--]--></th><th align="center"><!--[-->班级<!--]--></th><th align="center"><!--[-->年龄<!--]--></th><!--]--></tr><!--]--></thead><tbody><!--[--><tr><!--[--><td align="center"><!--[-->内容默认居左<!--]--></td><td align="center"><!--[-->内容居中<!--]--></td><td align="center"><!--[-->内容居右<!--]--></td><!--]--></tr><tr><!--[--><td align="center"><!--[-->{#list}{name}<!--]--></td><td align="center"><!--[-->{class}<!--]--></td><td align="center"><!--[-->{age}{/list}<!--]--></td><!--]--></tr><!--]--></tbody><!--]--></table><h3 id="_3-使用图片地址"><a href="#_3-使用图片地址"><!--[-->3.  使用图片地址：<!--]--></a></h3><!--[--><pre class="language-js" style=""><!--[--><code>{%imgUrl}
+</code><!--]--></pre><!--]--><h3 id="_4-如果多张图片地址时与循环列表一样-但必须换行"><a href="#_4-如果多张图片地址时与循环列表一样-但必须换行"><!--[-->4.  如果多张图片地址时，与循环列表一样, 但<em><!--[--><strong><!--[-->必须换行<!--]--></strong><!--]--></em>：<!--]--></a></h3><!--[--><pre class="language-js" style=""><!--[--><code>{#imglist}
+    {%imgUrl}
+{/imglist} 
+</code><!--]--></pre><!--]--><h2 id="三封装js"><a href="#三封装js"><!--[-->三、封装JS<!--]--></a></h2><p><!--[-->新建 <code class=""><!--[-->outputWord.js<!--]--></code> 文件<!--]--></p><!--[--><pre class="language-js" style=""><!--[--><code>/**
+ * 导出word文档
+ * 
+// 安装 docxtemplater
+npm install docxtemplater pizzip  --save
+// 安装 jszip-utils
+npm install jszip-utils --save
+// 安装 FileSaver
+npm install file-saver --save
+// 引入处理图片的插件
+npm install docxtemplater-image-module-free --save
+//docx-preview预览插件
+npm i docx-preview --save
+
+// 安装全部
+npm install docxtemplater pizzip jszip-utils file-saver docxtemplater-image-module-free docx-preview --save
+ */
+import Docxtemplater from &#39;docxtemplater&#39;
+import ImageModule from &#39;docxtemplater-image-module-free&#39;
+import PizZip from &#39;pizzip&#39;
+import JSZipUtils from &#39;jszip-utils&#39;
+import { renderAsync } from &#39;docx-preview&#39;
+import { saveAs } from &#39;file-saver&#39;
+import * as echarts from &#39;echarts&#39;
+
+let imageMaxWidth = 640
+let createdTime = &#39;&#39;
+let imageSizeObjs = {}
+/**
+ * 将base64格式的数据转为ArrayBuffer
+ * @param {Object} dataURL base64格式的数据
+ */
+function base64DataURLToArrayBuffer(dataURL) {
+    const base64Regex = /^data:image\/(png|jpg|jpeg|svg|svg\+xml);base64,/;
+    if (!base64Regex.test(dataURL)) {
+        return false
+    }
+    const stringBase64 = dataURL.replace(base64Regex, &quot;&quot;)
+    let binaryString
+    if (typeof window !== &quot;undefined&quot;) {
+        binaryString = window.atob(stringBase64)
+    } else {
+        binaryString = Buffer.from(stringBase64, &quot;base64&quot;).toString(&quot;binary&quot;)
+    }
+    const len = binaryString.length
+    const bytes = new Uint8Array(len)
+    for (let i = 0; i &lt; len; i++) {
+        const ascii = binaryString.charCodeAt(i)
+        bytes[i] = ascii
+    }
+    return bytes.buffer
+}
+ 
+/**
+ * 将图片的url路径转为base64路径
+ * 可以用await等待Promise的异步返回
+ * @param {Object} imgUrl 图片路径
+ */
+export const getBase64Sync = (imgUrl) =&gt; {
+    return new Promise((resolve, reject) =&gt; {
+        // 一定要设置为let，不然图片不显示
+        let image = new Image()
+        //图片地址
+        image.src = imgUrl
+        // 解决跨域问题
+        image.setAttribute(&quot;crossOrigin&quot;, &#39;*&#39;)  // 支持跨域图片
+        // image.onload为异步加载
+        image.onload = () =&gt; {
+            let canvas = document.createElement(&quot;canvas&quot;)
+            const {width, height} = image
+            canvas.width = width
+            canvas.height = height
+            let context = canvas.getContext(&quot;2d&quot;)
+            context.drawImage(image, 0, 0, width, height)
+            //图片后缀名
+            let ext = image.src.substring(image.src.lastIndexOf(&quot;.&quot;) + 1).toLowerCase()
+            //图片质量
+            let quality = 0.8
+            //转成base64
+            let dataurl = canvas.toDataURL(&quot;image/&quot; + ext, quality)
+            // 将缩放后的尺寸信息保存
+            let key = fomratKey(dataurl)
+            imageSizeObjs[key] = imageScaleSize(width, height)
+            // 解除引用
+            image = null
+            //返回
+            resolve(dataurl)
+        };
+    })
+}
+// 截取base64后25位，加key，作为imageSizeObjs的key值
+const fomratKey = (base64Data) =&gt; {
+    const last25 = base64Data.substring(base64Data.length - 25)
+    return `${last25}`
+}
+
+// 缩放图片尺寸
+const imageScaleSize = (w, h) =&gt; {
+    if (w &gt; imageMaxWidth) {
+        const scale = imageMaxWidth / w
+        w *= scale
+        h *= scale
+        return([Math.ceil(w), Math.ceil(h)])
+    } else {
+        return([w, h])
+    }
+}
+ 
+/**
+ * 将echart转为base64
+ * 可以用await等待Promise的异步返回
+ * @param {Object} imgUrl 图片路径
+ */
+export const chartToBase64Pic = (opt) =&gt; {
+    const {dom, bgColor = &#39;#fff&#39;} = opt || {}
+    return new Promise((resolve, reject) =&gt; {
+        if (!dom) {
+            console.warn(&#39;未传入echarts的dom&#39;)
+            resolve(null)
+        }
+        const echartDom = echarts.getInstanceByDom(dom)
+        const base64Str = echartDom.getDataURL({
+            type: &#39;png&#39;,
+            //导出的图片分辨率比例，默认为 1
+            pixelRatio: 1,
+            // 导出的图片背景色，默认使用 option 里的 backgroundColor
+            backgroundColor: bgColor
+        })
+        // 将缩放后的尺寸信息保存
+        let key = fomratKey(base64Str)
+        imageSizeObjs[key] = imageScaleSize(dom.offsetWidth, dom.offsetHeight)
+        resolve(base64Str)
+    })
+}
+
+// 获取年月日时分秒
+const getDate = () =&gt; {
+    const now = new Date()
+    const year = now.getFullYear()
+    const month = (now.getMonth() + 1).toString().padStart(2, &#39;0&#39;)
+    const day = now.getDate().toString().padStart(2, &#39;0&#39;)
+    const hour = now.getHours().toString().padStart(2, &#39;0&#39;)
+    const minute = now.getMinutes().toString().padStart(2, &#39;0&#39;)
+    const second = now.getSeconds().toString().padStart(2, &#39;0&#39;)
+    return [
+        `${year}-${month}-${day} ${hour}:${minute}:${second}`,
+        `${year}年${month}月${day}日${hour}时${minute}分${second}秒`,
+        `${year}-${month}-${day}`,
+        `${year}年${month}月${day}日`
+    ]
+}
+
+/** 
+ * 递归所有数据，并对图片处理，返回新的对象
+ * 避免污染原数据
+ */
+const deepCopyAndHandleBase64 = async (obj) =&gt; {
+    if (obj === null || typeof obj !== &#39;object&#39;) {
+        return obj
+    }
+    let copy = Array.isArray(obj)? [] : {}
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            const val = obj[key]
+            if (val instanceof Element) {
+                // 将 echart dom 的对象转成base64
+                copy[key] = await chartToBase64Pic({dom: val})
+            } else if (typeof(val) === &#39;string&#39; &amp;&amp; val.indexOf(&#39;http&#39;) !== -1) {
+                // 将http的图片转成base64
+                copy[key] = await getBase64Sync(val)
+            } else {
+                copy[key] = await deepCopyAndHandleBase64(obj[key])
+            }
+        }
+    }
+    return copy
+}
+
+/**
+ * 渲染文档
+ * @param {Object} outputWordData 必填，要导出的数据列表
+ * @param {Object} fileConfigInfo 选填，配置文件，内容包括
+ *     @param {String} templateDocxPath 必填，模板路径
+ *     @param {String} imgMaxWidth 选填，图片的最大宽度，超过按比例缩放
+ *     @param {String} placeInfo 选填，页面的信息,会混入 outputWordData
+ */
+export const ExportBriefDataDocx = async (outputWordData, fileConfigInfo) =&gt; {
+    imageSizeObjs = {}
+
+    const {imgMaxWidth, placeInfo = {}, templateDocxPath} = fileConfigInfo || {}
+    // 如果有传入 imgMaxWidth 
+    if (imgMaxWidth) imageMaxWidth = imgMaxWidth
+    let outData = await deepCopyAndHandleBase64(outputWordData)
+    outData = Object.assign(outData, placeInfo)
+
+    // 如果没有createdTime的对象，就创建当前时间
+    const [fullDate, fullDateCn, date, dateCn] = getDate()
+    if (!outData.createdTime) {
+        outData.createdTime = fullDate
+        createdTime = fullDate
+    } else {
+        createdTime = outData.createdTime
+    }
+    outData.fullDateCn = fullDateCn
+    outData.dateCn = dateCn
+    return new Promise((resolve) =&gt; {
+        //这里要引入处理图片的插件
+        JSZipUtils.getBinaryContent(templateDocxPath, (error, content) =&gt; {
+            if (error) {
+                console.log(error)
+            }
+        
+            let imageOpts = {
+                //图像是否居中
+                centered: true,
+                //将base64的数据转为ArrayBuffer
+                getImage: (chartId) =&gt; {
+                    return base64DataURLToArrayBuffer(chartId)
+                },
+                getSize: (img, tagValue, tagName) =&gt; {
+                    const key = fomratKey(tagValue)
+                    return imageSizeObjs[key] || []
+                }
+            }
+
+            // 创建一个JSZip实例，内容为模板的内容        
+            const zip = new PizZip(content)
+            // 创建并加载 Docxtemplater 实例对象
+            // 设置模板变量的值
+            let doc = new Docxtemplater()
+            doc.attachModule(new ImageModule(imageOpts))
+            doc.loadZip(zip)
+            doc.setData(outData)
+            try {
+                // 呈现文档，会将内部所有变量替换成值，
+                doc.render()
+            } catch (error) {
+                const e = {
+                    message: error.message,
+                    name: error.name,
+                    stack: error.stack,
+                    properties: error.properties
+                }
+                console.log(&#39;err&#39;,{ error: e })
+                // 当使用json记录时，此处抛出错误信息
+                throw error
+            }
+            // 生成一个代表Docxtemplater对象的zip文件（不是一个真实的文件，而是在内存中的表示）
+            const out = doc.getZip().generate({
+                type: &#39;blob&#39;,
+                mimeType: &#39;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#39;
+            })
+            resolve(out)
+        })
+    })
+}
+export const ViewWordFile = (out, dom) =&gt; {
+    dom
+        ? renderAsync(out, dom)
+        : console.warn(&#39;dom 未定义&#39;)
+}
+
+export const DownWordFile = (out, outFileName) =&gt; {
+    outFileName
+        ? saveAs(out, `${outFileName}(${createdTime})`)
+        : console.warn(&#39;outFileName 未定义&#39;)
+} 
+
+</code><!--]--></pre><!--]--><h2 id="四封装vue组件"><a href="#四封装vue组件"><!--[-->四、封装vue组件<!--]--></a></h2><p><!--[-->新建 <code class=""><!--[-->outputWord.vue<!--]--></code> 文件<!--]--></p><ol><!--[--><li><!--[-->例子使用 elementUI，可以删除相关代码<!--]--></li><li><!--[-->例子是支持 echart 图形导出，<code class=""><!--[-->需要引入 echart<!--]--></code><!--]--></li><!--]--></ol><!--[--><pre class="language-js" style=""><!--[--><code>/*
+    Component: outputWord
+*/
+&lt;template&gt;
+    &lt;div class=&quot;outputWord&quot; style=&quot;display:inline-block;&quot;&gt;
+        &lt;el-button :size=&quot;size&quot; type=&quot;success&quot; icon=&quot;el-icon-download&quot; @click=&quot;exportWordFile&quot; &gt;
+            {{title}}
+        &lt;/el-button&gt;
+        &lt;el-dialog
+            fullscreen
+            append-to-body
+            title=&quot;生成智能报告&quot;
+            :visible.sync=&quot;dialogVisible&quot;&gt;
+            &lt;div ref=&quot;dailyContent&quot; style=&quot;height:calc(100vh - 155px); overflow: auto;&quot;&gt;&lt;/div&gt;
+            &lt;span slot=&quot;footer&quot; class=&quot;dialog-footer&quot;&gt;
+                &lt;el-button type=&quot;success&quot; icon=&quot;el-icon-download&quot; @click=&quot;download&quot;&gt;导出&lt;/el-button&gt;
+                &lt;el-button @click=&quot;dialogVisible = false&quot;&gt;关闭&lt;/el-button&gt;
+            &lt;/span&gt;
+        &lt;/el-dialog&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import {
+    ExportBriefDataDocx,
+    ViewWordFile,
+    DownWordFile
+} from &#39;@/utils/methods/outputWord/outputWord.js&#39;
+
+
+export default {
+    props: {
+        title: {
+            default: &#39;导出预览&#39;
+        },
+        templateName: {
+            default: &#39;&#39;
+        },
+        outputWordData: {
+            type: Object,
+            default: () =&gt; null
+        },
+        outFileName: {
+            type: String,
+            default: &#39;未定义&#39;
+        },
+        size: {
+            type: String,
+            default: &#39;&#39;
+        }
+    },
+    data () {
+        return {
+            docx: null,
+            dialogVisible: false,
+            fileConfig: {
+                agjlxtj: {
+                    outFileName: &quot;测试word文档&quot;,
+                    templateDocxPath: &quot;/测试word文档.docx&quot;,
+                    imgMaxWidth: 750,
+                    placeInfo: {
+                        headerTitle: &quot;信息科技有限公司&quot;,
+                        headerSubTitle: &quot;信息科技有限公司&quot;
+                    }
+                }
+            }
+        }   
+    },
+    mounted () {
+    },
+    methods:{
+        async exportWordFile (){
+            const fileConfigInfo = this.fileConfig[this.templateName]
+            this.docx = null
+            this.dialogVisible = true
+            this.docx = await ExportBriefDataDocx(this.outputWordData, fileConfigInfo)
+            ViewWordFile(this.docx, this.$refs.dailyContent)
+        },
+        download () {
+            DownWordFile(this.docx, this.outFileName)
+        }
+    }
+}
+&lt;/script&gt;
+&lt;style scoped lang=&quot;stylus&quot; rel=&quot;stylesheet/stylus&quot;&gt;
+&gt;&gt;&gt; .el-dialog .el-dialog__body
+    padding 0
+&lt;/style&gt;
+</code><!--]--></pre><!--]--><h2 id="五调用方法"><a href="#五调用方法"><!--[-->五、调用方法<!--]--></a></h2><p><!--[-->新建 <code class=""><!--[-->index.vue<!--]--></code> 文件<!--]--></p><!--[--><pre class="language-js" style=""><!--[--><code>/*
+    Component: index
+*/
+&lt;template&gt;
+    &lt;div class=&quot;index&quot;&gt;
+        &lt;outputWord
+            title=&quot;生成报表&quot;
+            outFileName=&quot;测试统计报表&quot;
+            templateName=&quot;agjlxtj&quot;
+            :outputWordData=&quot;outputWordData&quot;
+        /&gt;
+        &lt;el-button style=&quot;margin-left: 10px;&quot; @click=&quot;getDataList&quot;&gt;生成数据&lt;/el-button&gt;
+        &lt;el-table :data=&quot;outputWordData.list&quot; border style=&quot;width: 100%&quot;&gt;
+            &lt;el-table-column prop=&quot;name&quot; label=&quot;名称&quot; /&gt;
+            &lt;el-table-column prop=&quot;value&quot; label=&quot;数量&quot; /&gt;
+        &lt;/el-table&gt;
+        &lt;div ref=&quot;pieChart&quot; style=&quot;width: 500px; height: 500px;&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import * as echarts from &#39;echarts&#39;
+import outputWord from &quot;@/utils/methods/outputWord/outputWord.vue&quot;
+export default {
+    name: &quot;index&quot;,
+    components: {
+        outputWord
+    },
+    props: {},
+    data () {
+        return {
+            outputWordData: {
+                title: &#39;测试word文档&#39;,
+                subtitle1: &#39;统计列表&#39;,
+                subtitle2: &#39;占比统计&#39;,
+                list: [],
+                imglist:[
+                    {
+                        imgUrl: &quot;https://t7.baidu.com/it/u=4198287529,2774471735&amp;fm=193&amp;f=GIF&quot;
+                    },
+                    {
+                        imgUrl: &quot;https://t7.baidu.com/it/u=2621658848,3952322712&amp;fm=193&amp;f=GIF&quot;
+                    }
+                ],
+                echartBase64: &#39;&#39;
+            }
+        }
+    },
+    mounted() {
+        this.pieChartRef = echarts.init(this.$refs.pieChart)
+        // 将要导出图形的dom赋值
+        this.outputWordData.echartBase64 = this.$refs.pieChart
+        this.getDataList()
+    },
+    methods: {
+        random (limit = 1001) {
+            return Math.floor(Math.random() * limit)
+        },
+        getDataList () {
+            const length = this.random(10) + 5
+            const list = []
+            for(let i = 0; i &lt; length; i++) {
+                const index = i + 1
+                list.push({
+                    index, name: `person-${index}`, value: this.random()
+                })
+            }
+            this.outputWordData.list = list
+        this.drawPicChart(list)
+        },
+        drawPicChart (data) {
+            const option = {
+                tooltip: {
+                    trigger: &#39;item&#39;
+                },
+                legend: {
+                    top: &#39;5%&#39;,
+                    left: &#39;center&#39;
+                },
+                series: [
+                    {
+                        name: &#39;Access From&#39;,
+                        type: &#39;pie&#39;,
+                        radius: [&#39;40%&#39;, &#39;70%&#39;],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: &#39;#fff&#39;,
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: false,
+                            position: &#39;center&#39;
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data
+                    }
+                ]
+            }
+            this.pieChartRef.setOption(option)
+        }
+    }
+}
+
+&lt;/script&gt;
+&lt;style scoped lang=&quot;stylus&quot; rel=&quot;stylesheet/stylus&quot;&gt;
+.index
+    padding 10px
+&lt;/style&gt;
+</code><!--]--></pre><!--]--></div><!--]--><div class="py-4 my-4 border-y border-gray-200 dark:border-gray-800 flex justify-between space-x-3"><a href="/posts/20220720" class="group text-sm box-content w-1/2 rounded py-2 pr-3 flex items-center transition-colors duration-300 border border-gray-300 dark:border-gray-700 hover:border-blue-400 hover:bg-blue-50 hover:text-blue-700 dark:hover:border-gray-700 dark:hover:bg-gray-600 dark:hover:text-white"><span class="w-12 h-12 overflow-hidden flex"><span class="nuxt-icon nuxt-icon--fill w-12 h-12 text-2xl flex-shrink-0 flex justify-center items-center transition-all group-hover:-ml-12"><?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1739783423117" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1402" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M687.86087 757.982609c17.808696 16.695652 17.808696 45.634783 1.113043 63.443478-8.904348 8.904348-21.147826 13.356522-32.278261 13.356522s-22.26087-4.452174-31.165217-12.243479l-289.391305-278.260869c-8.904348-8.904348-13.356522-20.034783-13.356521-32.278261s4.452174-23.373913 13.356521-32.278261l289.391305-278.260869c17.808696-16.695652 45.634783-16.695652 63.443478 1.113043 16.695652 17.808696 16.695652 45.634783-1.113043 63.443478L431.86087 512l256 245.982609z" p-id="1403"></path></svg></span><span class="nuxt-icon nuxt-icon--fill w-12 h-12 text-2xl flex-shrink-0 flex justify-center items-center transition-all ml-0"><?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1739783423117" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1402" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M687.86087 757.982609c17.808696 16.695652 17.808696 45.634783 1.113043 63.443478-8.904348 8.904348-21.147826 13.356522-32.278261 13.356522s-22.26087-4.452174-31.165217-12.243479l-289.391305-278.260869c-8.904348-8.904348-13.356522-20.034783-13.356521-32.278261s4.452174-23.373913 13.356521-32.278261l289.391305-278.260869c17.808696-16.695652 45.634783-16.695652 63.443478 1.113043 16.695652 17.808696 16.695652 45.634783-1.113043 63.443478L431.86087 512l256 245.982609z" p-id="1403"></path></svg></span></span><span class="leading-6 line-clamp-2 flex-1">JavaScript 解构赋值详解</span></a><a href="/posts/20231206" class="group text-sm box-content w-1/2 rounded py-2 px-3 flex items-center transition-colors duration-300 border border-gray-300 dark:border-gray-700 hover:border-blue-400 hover:bg-blue-50 hover:text-blue-700 dark:hover:border-gray-700 dark:hover:bg-gray-600 dark:hover:text-white"><span class="leading-6 line-clamp-2 flex-1">css 测试</span><span class="w-12 h-12 overflow-hidden flex"><span class="nuxt-icon nuxt-icon--fill w-12 h-12 text-2xl flex-shrink-0 flex justify-center items-center transition-all ease-in duration-200 -ml-12 group-hover:ml-0"><?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1739783435610" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1568" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M701.217391 512c0 12.243478-4.452174 23.373913-13.356521 32.278261l-289.391305 278.260869C389.565217 830.330435 378.434783 834.782609 367.304348 834.782609c-12.243478 0-23.373913-4.452174-32.278261-13.356522-16.695652-17.808696-16.695652-45.634783 1.113043-63.443478l256-245.982609-256-245.982609c-17.808696-16.695652-17.808696-45.634783-1.113043-63.443478 16.695652-17.808696 45.634783-17.808696 63.443478-1.113043l289.391305 278.260869c8.904348 8.904348 13.356522 20.034783 13.356521 32.278261z" p-id="1569"></path></svg></span><span class="nuxt-icon nuxt-icon--fill w-12 h-12 text-2xl flex-shrink-0 flex justify-center items-center transition-all ease-in duration-200"><?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1739783435610" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1568" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M701.217391 512c0 12.243478-4.452174 23.373913-13.356521 32.278261l-289.391305 278.260869C389.565217 830.330435 378.434783 834.782609 367.304348 834.782609c-12.243478 0-23.373913-4.452174-32.278261-13.356522-16.695652-17.808696-16.695652-45.634783 1.113043-63.443478l256-245.982609-256-245.982609c-17.808696-16.695652-17.808696-45.634783-1.113043-63.443478 16.695652-17.808696 45.634783-17.808696 63.443478-1.113043l289.391305 278.260869c8.904348 8.904348 13.356522 20.034783 13.356521 32.278261z" p-id="1569"></path></svg></span></span></a></div></div><!--]--></main><footer class="text-sm text-gray-500 pt-3 pb-5 text-center"><span>Copyright © 2016-2024 Nuxt - MIT License</span></footer></div><!--]--><!--]--></div></div><style> /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */ [data-radix-scroll-area-viewport] { scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; } [data-radix-scroll-area-viewport]::-webkit-scrollbar { display:none; } </style><!--]--><!----><!----><!----><!--]--></div></div><div id="teleports"></div><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="true" id="__NUXT_DATA__" data-src="/posts/20231205/_payload.json?e75963bb-b754-46f9-ae06-a3178b960fbc">[{"state":1,"once":452,"_errors":453,"serverRendered":5,"path":11,"prerenderedAt":456},["Reactive",2],{"$scolor-mode":3,"$sdd-pages":7,"$sdd-surrounds":359,"$sdd-globals":386,"$sdd-navigation":388,"$syearPostList":433,"$stagPostList":443},{"preference":4,"value":4,"unknown":5,"forced":6},"light",true,false,["ShallowRef",8],["ShallowReactive",9],{"/posts/20231205":10},{"_path":11,"_dir":12,"_draft":6,"_partial":6,"_locale":13,"title":14,"description":15,"navigation":16,"body":22,"_type":352,"_id":353,"_source":354,"_file":355,"_stem":356,"_extension":357,"layout":358},"/posts/20231205","posts","","vue 使用 docxtemplater 导出 word 文件","docxtemplater 是一种邮件合并工具，以编程方式使用并处理条件、循环，并且可以扩展以插入任何内容（表格、html、图像）",{"title":14,"description":15,"date":17,"account":18,"tags":19},"2023-12-05 12:30:00","lpj",[20,21],"docxtemplater","文件导出",{"type":23,"children":24,"toc":337},"root",[25,34,39,46,59,65,72,83,92,101,107,116,124,194,200,209,227,236,242,255,264,270,281,302,311,317,328],{"type":26,"tag":27,"props":28,"children":30},"element","h1",{"id":29},"docxtemplater-导出-word",[31],{"type":32,"value":33},"text","docxtemplater 导出 word",{"type":26,"tag":35,"props":36,"children":37},"p",{},[38],{"type":32,"value":15},{"type":26,"tag":40,"props":41,"children":43},"h2",{"id":42},"一安装-docxtemplater",[44],{"type":32,"value":45},"一、安装 docxtemplater",{"type":26,"tag":47,"props":48,"children":53},"pre",{"className":49,"code":51,"language":52,"meta":13},[50],"language-cmd","// 安装 docxtemplater\nnpm install docxtemplater pizzip  --save\n// 安装 jszip-utils\nnpm install jszip-utils --save\n// 安装 FileSaver\nnpm install file-saver --save\n// 引入处理图片的插件\nnpm install docxtemplater-image-module-free --save\n//docx-preview预览插件\nnpm i docx-preview --save\n","cmd",[54],{"type":26,"tag":55,"props":56,"children":57},"code",{"__ignoreMap":13},[58],{"type":32,"value":51},{"type":26,"tag":40,"props":60,"children":62},{"id":61},"二docxtemplater-语法",[63],{"type":32,"value":64},"二、docxtemplater 语法",{"type":26,"tag":66,"props":67,"children":69},"h3",{"id":68},"_1-单一变量使用-包含",[70],{"type":32,"value":71},"1.  单一变量使用  {}  包含",{"type":26,"tag":47,"props":73,"children":78},{"className":74,"code":76,"language":77,"meta":13},[75],"language-js","{\n    name: 'lisi',\n    age: 18\n}\n","js",[79],{"type":26,"tag":55,"props":80,"children":81},{"__ignoreMap":13},[82],{"type":32,"value":76},{"type":26,"tag":35,"props":84,"children":85},{},[86],{"type":26,"tag":55,"props":87,"children":89},{"className":88},[],[90],{"type":32,"value":91},"在 word 模板文件中表示为：",{"type":26,"tag":47,"props":93,"children":96},{"className":94,"code":95,"language":77,"meta":13},[75],"{name}、{age}\n",[97],{"type":26,"tag":55,"props":98,"children":99},{"__ignoreMap":13},[100],{"type":32,"value":95},{"type":26,"tag":66,"props":102,"children":104},{"id":103},"_2-json数组格式则包裹一个循环对象",[105],{"type":32,"value":106},"2.  json数组格式，则包裹一个循环对象：",{"type":26,"tag":47,"props":108,"children":111},{"className":109,"code":110,"language":77,"meta":13},[75],"list: [\n    {name:'lisi', class: '4-1', age:'18'},\n    {name:'wangwu', class: '4-2', age:'16'}\n]\n",[112],{"type":26,"tag":55,"props":113,"children":114},{"__ignoreMap":13},[115],{"type":32,"value":110},{"type":26,"tag":35,"props":117,"children":118},{},[119],{"type":26,"tag":55,"props":120,"children":122},{"className":121},[],[123],{"type":32,"value":91},{"type":26,"tag":125,"props":126,"children":127},"table",{},[128,153],{"type":26,"tag":129,"props":130,"children":131},"thead",{},[132],{"type":26,"tag":133,"props":134,"children":135},"tr",{},[136,143,148],{"type":26,"tag":137,"props":138,"children":140},"th",{"align":139},"center",[141],{"type":32,"value":142},"姓名",{"type":26,"tag":137,"props":144,"children":145},{"align":139},[146],{"type":32,"value":147},"班级",{"type":26,"tag":137,"props":149,"children":150},{"align":139},[151],{"type":32,"value":152},"年龄",{"type":26,"tag":154,"props":155,"children":156},"tbody",{},[157,176],{"type":26,"tag":133,"props":158,"children":159},{},[160,166,171],{"type":26,"tag":161,"props":162,"children":163},"td",{"align":139},[164],{"type":32,"value":165},"内容默认居左",{"type":26,"tag":161,"props":167,"children":168},{"align":139},[169],{"type":32,"value":170},"内容居中",{"type":26,"tag":161,"props":172,"children":173},{"align":139},[174],{"type":32,"value":175},"内容居右",{"type":26,"tag":133,"props":177,"children":178},{},[179,184,189],{"type":26,"tag":161,"props":180,"children":181},{"align":139},[182],{"type":32,"value":183},"{#list}{name}",{"type":26,"tag":161,"props":185,"children":186},{"align":139},[187],{"type":32,"value":188},"{class}",{"type":26,"tag":161,"props":190,"children":191},{"align":139},[192],{"type":32,"value":193},"{age}{/list}",{"type":26,"tag":66,"props":195,"children":197},{"id":196},"_3-使用图片地址",[198],{"type":32,"value":199},"3.  使用图片地址：",{"type":26,"tag":47,"props":201,"children":204},{"className":202,"code":203,"language":77,"meta":13},[75],"{%imgUrl}\n",[205],{"type":26,"tag":55,"props":206,"children":207},{"__ignoreMap":13},[208],{"type":32,"value":203},{"type":26,"tag":66,"props":210,"children":212},{"id":211},"_4-如果多张图片地址时与循环列表一样-但必须换行",[213,215,225],{"type":32,"value":214},"4.  如果多张图片地址时，与循环列表一样, 但",{"type":26,"tag":216,"props":217,"children":218},"em",{},[219],{"type":26,"tag":220,"props":221,"children":222},"strong",{},[223],{"type":32,"value":224},"必须换行",{"type":32,"value":226},"：",{"type":26,"tag":47,"props":228,"children":231},{"className":229,"code":230,"language":77,"meta":13},[75],"{#imglist}\n    {%imgUrl}\n{/imglist} \n",[232],{"type":26,"tag":55,"props":233,"children":234},{"__ignoreMap":13},[235],{"type":32,"value":230},{"type":26,"tag":40,"props":237,"children":239},{"id":238},"三封装js",[240],{"type":32,"value":241},"三、封装JS",{"type":26,"tag":35,"props":243,"children":244},{},[245,247,253],{"type":32,"value":246},"新建 ",{"type":26,"tag":55,"props":248,"children":250},{"className":249},[],[251],{"type":32,"value":252},"outputWord.js",{"type":32,"value":254}," 文件",{"type":26,"tag":47,"props":256,"children":259},{"className":257,"code":258,"language":77,"meta":13},[75],"/**\n * 导出word文档\n * \n// 安装 docxtemplater\nnpm install docxtemplater pizzip  --save\n// 安装 jszip-utils\nnpm install jszip-utils --save\n// 安装 FileSaver\nnpm install file-saver --save\n// 引入处理图片的插件\nnpm install docxtemplater-image-module-free --save\n//docx-preview预览插件\nnpm i docx-preview --save\n\n// 安装全部\nnpm install docxtemplater pizzip jszip-utils file-saver docxtemplater-image-module-free docx-preview --save\n */\nimport Docxtemplater from 'docxtemplater'\nimport ImageModule from 'docxtemplater-image-module-free'\nimport PizZip from 'pizzip'\nimport JSZipUtils from 'jszip-utils'\nimport { renderAsync } from 'docx-preview'\nimport { saveAs } from 'file-saver'\nimport * as echarts from 'echarts'\n\nlet imageMaxWidth = 640\nlet createdTime = ''\nlet imageSizeObjs = {}\n/**\n * 将base64格式的数据转为ArrayBuffer\n * @param {Object} dataURL base64格式的数据\n */\nfunction base64DataURLToArrayBuffer(dataURL) {\n    const base64Regex = /^data:image\\/(png|jpg|jpeg|svg|svg\\+xml);base64,/;\n    if (!base64Regex.test(dataURL)) {\n        return false\n    }\n    const stringBase64 = dataURL.replace(base64Regex, \"\")\n    let binaryString\n    if (typeof window !== \"undefined\") {\n        binaryString = window.atob(stringBase64)\n    } else {\n        binaryString = Buffer.from(stringBase64, \"base64\").toString(\"binary\")\n    }\n    const len = binaryString.length\n    const bytes = new Uint8Array(len)\n    for (let i = 0; i \u003C len; i++) {\n        const ascii = binaryString.charCodeAt(i)\n        bytes[i] = ascii\n    }\n    return bytes.buffer\n}\n \n/**\n * 将图片的url路径转为base64路径\n * 可以用await等待Promise的异步返回\n * @param {Object} imgUrl 图片路径\n */\nexport const getBase64Sync = (imgUrl) => {\n    return new Promise((resolve, reject) => {\n        // 一定要设置为let，不然图片不显示\n        let image = new Image()\n        //图片地址\n        image.src = imgUrl\n        // 解决跨域问题\n        image.setAttribute(\"crossOrigin\", '*')  // 支持跨域图片\n        // image.onload为异步加载\n        image.onload = () => {\n            let canvas = document.createElement(\"canvas\")\n            const {width, height} = image\n            canvas.width = width\n            canvas.height = height\n            let context = canvas.getContext(\"2d\")\n            context.drawImage(image, 0, 0, width, height)\n            //图片后缀名\n            let ext = image.src.substring(image.src.lastIndexOf(\".\") + 1).toLowerCase()\n            //图片质量\n            let quality = 0.8\n            //转成base64\n            let dataurl = canvas.toDataURL(\"image/\" + ext, quality)\n            // 将缩放后的尺寸信息保存\n            let key = fomratKey(dataurl)\n            imageSizeObjs[key] = imageScaleSize(width, height)\n            // 解除引用\n            image = null\n            //返回\n            resolve(dataurl)\n        };\n    })\n}\n// 截取base64后25位，加key，作为imageSizeObjs的key值\nconst fomratKey = (base64Data) => {\n    const last25 = base64Data.substring(base64Data.length - 25)\n    return `${last25}`\n}\n\n// 缩放图片尺寸\nconst imageScaleSize = (w, h) => {\n    if (w > imageMaxWidth) {\n        const scale = imageMaxWidth / w\n        w *= scale\n        h *= scale\n        return([Math.ceil(w), Math.ceil(h)])\n    } else {\n        return([w, h])\n    }\n}\n \n/**\n * 将echart转为base64\n * 可以用await等待Promise的异步返回\n * @param {Object} imgUrl 图片路径\n */\nexport const chartToBase64Pic = (opt) => {\n    const {dom, bgColor = '#fff'} = opt || {}\n    return new Promise((resolve, reject) => {\n        if (!dom) {\n            console.warn('未传入echarts的dom')\n            resolve(null)\n        }\n        const echartDom = echarts.getInstanceByDom(dom)\n        const base64Str = echartDom.getDataURL({\n            type: 'png',\n            //导出的图片分辨率比例，默认为 1\n            pixelRatio: 1,\n            // 导出的图片背景色，默认使用 option 里的 backgroundColor\n            backgroundColor: bgColor\n        })\n        // 将缩放后的尺寸信息保存\n        let key = fomratKey(base64Str)\n        imageSizeObjs[key] = imageScaleSize(dom.offsetWidth, dom.offsetHeight)\n        resolve(base64Str)\n    })\n}\n\n// 获取年月日时分秒\nconst getDate = () => {\n    const now = new Date()\n    const year = now.getFullYear()\n    const month = (now.getMonth() + 1).toString().padStart(2, '0')\n    const day = now.getDate().toString().padStart(2, '0')\n    const hour = now.getHours().toString().padStart(2, '0')\n    const minute = now.getMinutes().toString().padStart(2, '0')\n    const second = now.getSeconds().toString().padStart(2, '0')\n    return [\n        `${year}-${month}-${day} ${hour}:${minute}:${second}`,\n        `${year}年${month}月${day}日${hour}时${minute}分${second}秒`,\n        `${year}-${month}-${day}`,\n        `${year}年${month}月${day}日`\n    ]\n}\n\n/** \n * 递归所有数据，并对图片处理，返回新的对象\n * 避免污染原数据\n */\nconst deepCopyAndHandleBase64 = async (obj) => {\n    if (obj === null || typeof obj !== 'object') {\n        return obj\n    }\n    let copy = Array.isArray(obj)? [] : {}\n    for (let key in obj) {\n        if (obj.hasOwnProperty(key)) {\n            const val = obj[key]\n            if (val instanceof Element) {\n                // 将 echart dom 的对象转成base64\n                copy[key] = await chartToBase64Pic({dom: val})\n            } else if (typeof(val) === 'string' && val.indexOf('http') !== -1) {\n                // 将http的图片转成base64\n                copy[key] = await getBase64Sync(val)\n            } else {\n                copy[key] = await deepCopyAndHandleBase64(obj[key])\n            }\n        }\n    }\n    return copy\n}\n\n/**\n * 渲染文档\n * @param {Object} outputWordData 必填，要导出的数据列表\n * @param {Object} fileConfigInfo 选填，配置文件，内容包括\n *     @param {String} templateDocxPath 必填，模板路径\n *     @param {String} imgMaxWidth 选填，图片的最大宽度，超过按比例缩放\n *     @param {String} placeInfo 选填，页面的信息,会混入 outputWordData\n */\nexport const ExportBriefDataDocx = async (outputWordData, fileConfigInfo) => {\n    imageSizeObjs = {}\n\n    const {imgMaxWidth, placeInfo = {}, templateDocxPath} = fileConfigInfo || {}\n    // 如果有传入 imgMaxWidth \n    if (imgMaxWidth) imageMaxWidth = imgMaxWidth\n    let outData = await deepCopyAndHandleBase64(outputWordData)\n    outData = Object.assign(outData, placeInfo)\n\n    // 如果没有createdTime的对象，就创建当前时间\n    const [fullDate, fullDateCn, date, dateCn] = getDate()\n    if (!outData.createdTime) {\n        outData.createdTime = fullDate\n        createdTime = fullDate\n    } else {\n        createdTime = outData.createdTime\n    }\n    outData.fullDateCn = fullDateCn\n    outData.dateCn = dateCn\n    return new Promise((resolve) => {\n        //这里要引入处理图片的插件\n        JSZipUtils.getBinaryContent(templateDocxPath, (error, content) => {\n            if (error) {\n                console.log(error)\n            }\n        \n            let imageOpts = {\n                //图像是否居中\n                centered: true,\n                //将base64的数据转为ArrayBuffer\n                getImage: (chartId) => {\n                    return base64DataURLToArrayBuffer(chartId)\n                },\n                getSize: (img, tagValue, tagName) => {\n                    const key = fomratKey(tagValue)\n                    return imageSizeObjs[key] || []\n                }\n            }\n\n            // 创建一个JSZip实例，内容为模板的内容        \n            const zip = new PizZip(content)\n            // 创建并加载 Docxtemplater 实例对象\n            // 设置模板变量的值\n            let doc = new Docxtemplater()\n            doc.attachModule(new ImageModule(imageOpts))\n            doc.loadZip(zip)\n            doc.setData(outData)\n            try {\n                // 呈现文档，会将内部所有变量替换成值，\n                doc.render()\n            } catch (error) {\n                const e = {\n                    message: error.message,\n                    name: error.name,\n                    stack: error.stack,\n                    properties: error.properties\n                }\n                console.log('err',{ error: e })\n                // 当使用json记录时，此处抛出错误信息\n                throw error\n            }\n            // 生成一个代表Docxtemplater对象的zip文件（不是一个真实的文件，而是在内存中的表示）\n            const out = doc.getZip().generate({\n                type: 'blob',\n                mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'\n            })\n            resolve(out)\n        })\n    })\n}\nexport const ViewWordFile = (out, dom) => {\n    dom\n        ? renderAsync(out, dom)\n        : console.warn('dom 未定义')\n}\n\nexport const DownWordFile = (out, outFileName) => {\n    outFileName\n        ? saveAs(out, `${outFileName}(${createdTime})`)\n        : console.warn('outFileName 未定义')\n} \n\n",[260],{"type":26,"tag":55,"props":261,"children":262},{"__ignoreMap":13},[263],{"type":32,"value":258},{"type":26,"tag":40,"props":265,"children":267},{"id":266},"四封装vue组件",[268],{"type":32,"value":269},"四、封装vue组件",{"type":26,"tag":35,"props":271,"children":272},{},[273,274,280],{"type":32,"value":246},{"type":26,"tag":55,"props":275,"children":277},{"className":276},[],[278],{"type":32,"value":279},"outputWord.vue",{"type":32,"value":254},{"type":26,"tag":282,"props":283,"children":284},"ol",{},[285,291],{"type":26,"tag":286,"props":287,"children":288},"li",{},[289],{"type":32,"value":290},"例子使用 elementUI，可以删除相关代码",{"type":26,"tag":286,"props":292,"children":293},{},[294,296],{"type":32,"value":295},"例子是支持 echart 图形导出，",{"type":26,"tag":55,"props":297,"children":299},{"className":298},[],[300],{"type":32,"value":301},"需要引入 echart",{"type":26,"tag":47,"props":303,"children":306},{"className":304,"code":305,"language":77,"meta":13},[75],"/*\n    Component: outputWord\n*/\n\u003Ctemplate>\n    \u003Cdiv class=\"outputWord\" style=\"display:inline-block;\">\n        \u003Cel-button :size=\"size\" type=\"success\" icon=\"el-icon-download\" @click=\"exportWordFile\" >\n            {{title}}\n        \u003C/el-button>\n        \u003Cel-dialog\n            fullscreen\n            append-to-body\n            title=\"生成智能报告\"\n            :visible.sync=\"dialogVisible\">\n            \u003Cdiv ref=\"dailyContent\" style=\"height:calc(100vh - 155px); overflow: auto;\">\u003C/div>\n            \u003Cspan slot=\"footer\" class=\"dialog-footer\">\n                \u003Cel-button type=\"success\" icon=\"el-icon-download\" @click=\"download\">导出\u003C/el-button>\n                \u003Cel-button @click=\"dialogVisible = false\">关闭\u003C/el-button>\n            \u003C/span>\n        \u003C/el-dialog>\n    \u003C/div>\n\u003C/template>\n\n\u003Cscript>\nimport {\n    ExportBriefDataDocx,\n    ViewWordFile,\n    DownWordFile\n} from '@/utils/methods/outputWord/outputWord.js'\n\n\nexport default {\n    props: {\n        title: {\n            default: '导出预览'\n        },\n        templateName: {\n            default: ''\n        },\n        outputWordData: {\n            type: Object,\n            default: () => null\n        },\n        outFileName: {\n            type: String,\n            default: '未定义'\n        },\n        size: {\n            type: String,\n            default: ''\n        }\n    },\n    data () {\n        return {\n            docx: null,\n            dialogVisible: false,\n            fileConfig: {\n                agjlxtj: {\n                    outFileName: \"测试word文档\",\n                    templateDocxPath: \"/测试word文档.docx\",\n                    imgMaxWidth: 750,\n                    placeInfo: {\n                        headerTitle: \"信息科技有限公司\",\n                        headerSubTitle: \"信息科技有限公司\"\n                    }\n                }\n            }\n        }   \n    },\n    mounted () {\n    },\n    methods:{\n        async exportWordFile (){\n            const fileConfigInfo = this.fileConfig[this.templateName]\n            this.docx = null\n            this.dialogVisible = true\n            this.docx = await ExportBriefDataDocx(this.outputWordData, fileConfigInfo)\n            ViewWordFile(this.docx, this.$refs.dailyContent)\n        },\n        download () {\n            DownWordFile(this.docx, this.outFileName)\n        }\n    }\n}\n\u003C/script>\n\u003Cstyle scoped lang=\"stylus\" rel=\"stylesheet/stylus\">\n>>> .el-dialog .el-dialog__body\n    padding 0\n\u003C/style>\n",[307],{"type":26,"tag":55,"props":308,"children":309},{"__ignoreMap":13},[310],{"type":32,"value":305},{"type":26,"tag":40,"props":312,"children":314},{"id":313},"五调用方法",[315],{"type":32,"value":316},"五、调用方法",{"type":26,"tag":35,"props":318,"children":319},{},[320,321,327],{"type":32,"value":246},{"type":26,"tag":55,"props":322,"children":324},{"className":323},[],[325],{"type":32,"value":326},"index.vue",{"type":32,"value":254},{"type":26,"tag":47,"props":329,"children":332},{"className":330,"code":331,"language":77,"meta":13},[75],"/*\n    Component: index\n*/\n\u003Ctemplate>\n    \u003Cdiv class=\"index\">\n        \u003CoutputWord\n            title=\"生成报表\"\n            outFileName=\"测试统计报表\"\n            templateName=\"agjlxtj\"\n            :outputWordData=\"outputWordData\"\n        />\n        \u003Cel-button style=\"margin-left: 10px;\" @click=\"getDataList\">生成数据\u003C/el-button>\n        \u003Cel-table :data=\"outputWordData.list\" border style=\"width: 100%\">\n            \u003Cel-table-column prop=\"name\" label=\"名称\" />\n            \u003Cel-table-column prop=\"value\" label=\"数量\" />\n        \u003C/el-table>\n        \u003Cdiv ref=\"pieChart\" style=\"width: 500px; height: 500px;\">\u003C/div>\n    \u003C/div>\n\u003C/template>\n\n\u003Cscript>\nimport * as echarts from 'echarts'\nimport outputWord from \"@/utils/methods/outputWord/outputWord.vue\"\nexport default {\n    name: \"index\",\n    components: {\n        outputWord\n    },\n    props: {},\n    data () {\n        return {\n            outputWordData: {\n                title: '测试word文档',\n                subtitle1: '统计列表',\n                subtitle2: '占比统计',\n                list: [],\n                imglist:[\n                    {\n                        imgUrl: \"https://t7.baidu.com/it/u=4198287529,2774471735&fm=193&f=GIF\"\n                    },\n                    {\n                        imgUrl: \"https://t7.baidu.com/it/u=2621658848,3952322712&fm=193&f=GIF\"\n                    }\n                ],\n                echartBase64: ''\n            }\n        }\n    },\n    mounted() {\n        this.pieChartRef = echarts.init(this.$refs.pieChart)\n        // 将要导出图形的dom赋值\n        this.outputWordData.echartBase64 = this.$refs.pieChart\n        this.getDataList()\n    },\n    methods: {\n        random (limit = 1001) {\n            return Math.floor(Math.random() * limit)\n        },\n        getDataList () {\n            const length = this.random(10) + 5\n            const list = []\n            for(let i = 0; i \u003C length; i++) {\n                const index = i + 1\n                list.push({\n                    index, name: `person-${index}`, value: this.random()\n                })\n            }\n            this.outputWordData.list = list\n        this.drawPicChart(list)\n        },\n        drawPicChart (data) {\n            const option = {\n                tooltip: {\n                    trigger: 'item'\n                },\n                legend: {\n                    top: '5%',\n                    left: 'center'\n                },\n                series: [\n                    {\n                        name: 'Access From',\n                        type: 'pie',\n                        radius: ['40%', '70%'],\n                        avoidLabelOverlap: false,\n                        itemStyle: {\n                            borderRadius: 10,\n                            borderColor: '#fff',\n                            borderWidth: 2\n                        },\n                        label: {\n                            show: false,\n                            position: 'center'\n                        },\n                        labelLine: {\n                            show: false\n                        },\n                        data\n                    }\n                ]\n            }\n            this.pieChartRef.setOption(option)\n        }\n    }\n}\n\n\u003C/script>\n\u003Cstyle scoped lang=\"stylus\" rel=\"stylesheet/stylus\">\n.index\n    padding 10px\n\u003C/style>\n",[333],{"type":26,"tag":55,"props":334,"children":335},{"__ignoreMap":13},[336],{"type":32,"value":331},{"title":13,"searchDepth":338,"depth":338,"links":339},2,[340,341,349,350,351],{"id":42,"depth":338,"text":45},{"id":61,"depth":338,"text":64,"children":342},[343,345,346,347],{"id":68,"depth":344,"text":71},3,{"id":103,"depth":344,"text":106},{"id":196,"depth":344,"text":199},{"id":211,"depth":344,"text":348},"4.  如果多张图片地址时，与循环列表一样, 但必须换行：",{"id":238,"depth":338,"text":241},{"id":266,"depth":338,"text":269},{"id":313,"depth":338,"text":316},"markdown","content:posts:20231205.md","content","posts/20231205.md","posts/20231205","md","default",["ShallowRef",360],["ShallowReactive",361],{"/posts/20231205":362},[363,375],{"_path":364,"_dir":12,"_draft":6,"_partial":6,"_locale":13,"title":365,"description":13,"navigation":366,"_type":352,"_id":372,"_source":354,"_file":373,"_stem":374,"_extension":357},"/posts/20220720","JavaScript 解构赋值详解",{"title":365,"description":367,"date":368,"account":18,"tags":369},"解构赋值（Destructuring Assignment）是 ES6 引入的语法特性，允许通过模式匹配的方式从数组或对象中提取值，并赋值给对应的变量。可以显著简化从数据结构中获取值的操作。","2022-07-20 16:40:30",[370,371],"es6","解构赋值","content:posts:20220720.md","posts/20220720.md","posts/20220720",{"_path":376,"_dir":12,"_draft":6,"_partial":6,"_locale":13,"title":377,"description":13,"navigation":378,"_type":352,"_id":383,"_source":354,"_file":384,"_stem":385,"_extension":357},"/posts/20231206","css 测试",{"title":377,"description":379,"date":380,"account":18,"tags":381},"我们一般安装的是最新版本的 node ,但是有时候，我们又需要使用低版本的 node ,在不借助第三方工具的情况下，我们只能卸载现有版本,安装需要的版本，这样显然很麻烦，今天就来介绍一个windows系统使用的 node 多版本管理工具 nvm ，全称是 node.js version management ,可以在多个 node 版本之间自由切换！","2021-10-10 15:40:30",[382],"nvm","content:posts:20231206.md","posts/20231206.md","posts/20231206",["ShallowRef",387],{},[389,392,395,398,428],{"title":390,"_path":391,"description":390},"index","/components",{"title":393,"_path":394,"description":393},"home","/",{"title":396,"_path":397,"description":396},"links","/links",{"title":399,"_path":400,"children":401},"Posts","/posts",[402,407,415,420,423,426],{"title":403,"_path":404,"description":379,"date":405,"account":18,"tags":406},"nvm 安装","/posts/20211010","2021-10-10",[382],{"title":408,"_path":409,"description":410,"date":411,"account":18,"tags":412},"前端微服务-qiankun安装与配置","/posts/20211028","qiankun 孵化自蚂蚁金融科技基于微前端架构的云产品统一接入平台，在经过一批线上应用的充分检验及打磨后，我们将其微前端内核抽取出来并开源，希望能同时帮助社区有类似需求的系统更方便的构建自己的微前端系统，同时也希望通过社区的帮助将 qiankun 打磨的更加成熟完善。","2021-10-28",[413,414],"前端微服务","乾坤",{"title":416,"_path":417,"description":379,"date":411,"account":18,"tags":418},"前端微服务 - ifram 解决方案","/posts/20211105",[413,419],"iframe",{"title":365,"_path":364,"description":367,"date":421,"account":18,"tags":422},"2022-07-20",[370,371],{"title":14,"_path":11,"description":15,"date":424,"account":18,"tags":425},"2023-12-05",[20,21],{"title":377,"_path":376,"description":379,"date":405,"account":18,"tags":427},[382],{"title":429,"_path":430,"children":431,"description":429},"tags","/tags",[432],{"title":429,"_path":430,"description":429},{"2021":434,"2022":439,"2023":441},[435,436,437,438],["Reactive",402],["Reactive",407],["Reactive",415],["Reactive",426],[440],["Reactive",420],[442],["Reactive",423],{"nvm":444,"前端微服务":445,"乾坤":446,"iframe":447,"es6":448,"解构赋值":449,"docxtemplater":450,"文件导出":451},[435,438],[436,437],[436],[437],[440],[440],[442],[442],["Set"],["ShallowReactive",454],{"content-query-Ae5VQEsKqt":455},null,1745134959179]</script>
+<script>window.__NUXT__={};window.__NUXT__.config={public:{mdc:{components:{prose:true,map:{p:"prose-p",a:"prose-a",blockquote:"prose-blockquote","code-inline":"prose-code-inline",code:"ProseCodeInline",em:"prose-em",h1:"prose-h1",h2:"prose-h2",h3:"prose-h3",h4:"prose-h4",h5:"prose-h5",h6:"prose-h6",hr:"prose-hr",img:"prose-img",ul:"prose-ul",ol:"prose-ol",li:"prose-li",strong:"prose-strong",table:"prose-table",thead:"prose-thead",tbody:"prose-tbody",td:"prose-td",th:"prose-th",tr:"prose-tr"}},headings:{anchorLinks:{h1:false,h2:true,h3:true,h4:true,h5:false,h6:false}}},content:{locales:[],defaultLocale:"",integrity:1745134919582,experimental:{stripQueryParameters:false,advanceQuery:false,clientDB:false},respectPathCase:false,api:{baseURL:"/api/_content"},navigation:{fields:["layout"]},tags:{p:"prose-p",a:"prose-a",blockquote:"prose-blockquote","code-inline":"prose-code-inline",code:"ProseCodeInline",em:"prose-em",h1:"prose-h1",h2:"prose-h2",h3:"prose-h3",h4:"prose-h4",h5:"prose-h5",h6:"prose-h6",hr:"prose-hr",img:"prose-img",ul:"prose-ul",ol:"prose-ol",li:"prose-li",strong:"prose-strong",table:"prose-table",thead:"prose-thead",tbody:"prose-tbody",td:"prose-td",th:"prose-th",tr:"prose-tr"},highlight:false,wsUrl:"",documentDriven:{page:true,navigation:true,surround:true,globals:{},layoutFallbacks:["theme"],injectPage:true},host:"",trailingSlash:false,search:"",contentHead:true,anchorLinks:{depth:4,exclude:[1]}}},app:{baseURL:"/",buildId:"e75963bb-b754-46f9-ae06-a3178b960fbc",buildAssetsDir:"/_nuxt/",cdnURL:""}}</script></body></html>
