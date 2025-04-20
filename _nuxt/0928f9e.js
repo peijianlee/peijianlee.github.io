@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[32],{376:function(e){e.exports=JSON.parse('{"id":"Q6720","title":"Q6720","pice":"RM 68.00","coversNum":4,"colors":[["#dcd8d4"],["#6b3f36"]],"infoPicNum":26,"sizes":[{"name":"","disabled":false}]}')}}]);
