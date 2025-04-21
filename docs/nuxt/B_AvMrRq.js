@@ -1,1 +1,0 @@
-import{_ as e}from"./DlAUqK2U.js";import{o as t,c as o}from"./DAXYy-sZ.js";const c={},s={class:"btn-slide"};function n(r,_){return t(),o("button",s,"button slide")}const f=e(c,[["render",n],["__scopeId","data-v-8a70c0ef"]]);export{f as default};

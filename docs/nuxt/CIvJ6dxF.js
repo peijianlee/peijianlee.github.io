@@ -1,1 +1,0 @@
-import{_ as e}from"./DlAUqK2U.js";import{o as c,c as o}from"./DAXYy-sZ.js";const s={},t={class:"bg-lines"};function n(a,r){return c(),o("span",t)}const d=e(s,[["render",n],["__scopeId","data-v-04f90bfa"]]);export{d as default};

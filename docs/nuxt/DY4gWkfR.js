@@ -1,1 +1,0 @@
-import{_ as e}from"./DlAUqK2U.js";import{o as c,c as o}from"./DAXYy-sZ.js";const t={},n={class:"container"};function r(s,_){return c(),o("div",n)}const i=e(t,[["render",r],["__scopeId","data-v-8e0b2e8c"]]);export{i as default};

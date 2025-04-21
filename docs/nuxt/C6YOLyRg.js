@@ -1,1 +1,0 @@
-import{_ as e}from"./DlAUqK2U.js";import{o as c,c as o}from"./DAXYy-sZ.js";const n={},s={class:"inline-clice"};function t(a,r){return c(),o("span",s)}const f=e(n,[["render",t],["__scopeId","data-v-7f545e6a"]]);export{f as default};

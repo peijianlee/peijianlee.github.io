@@ -1,1 +1,0 @@
-import{_ as e}from"./DlAUqK2U.js";import{o,c as t}from"./DAXYy-sZ.js";const c={},n={class:"shine"};function s(r,_){return o(),t("button",n,"Shine")}const i=e(c,[["render",s],["__scopeId","data-v-f3246b50"]]);export{i as default};

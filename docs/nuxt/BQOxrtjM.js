@@ -1,1 +1,0 @@
-import{_ as e}from"./DlAUqK2U.js";import{o as n,c}from"./DAXYy-sZ.js";const o={},r={class:"under-line"};function s(t,a){return n(),c("span",r,"Underline")}const i=e(o,[["render",s],["__scopeId","data-v-89878abe"]]);export{i as default};
