@@ -1,0 +1,1 @@
+{"id":"33a74617-b325-4899-99b2-cb53b5676c10","timestamp":1781246461283,"matcher":{"static":{"/sitemap.xml":{"redirect":"/sitemap_index.xml"},"/index-sitemap.xml":{"redirect":"/__sitemap__/index.xml"},"/zh-CN-sitemap.xml":{"redirect":"/__sitemap__/zh-CN.xml"},"/en-sitemap.xml":{"redirect":"/__sitemap__/en.xml"}},"wildcard":{},"dynamic":{}},"prerendered":[]}

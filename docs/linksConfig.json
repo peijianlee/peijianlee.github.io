@@ -18,12 +18,6 @@
         "category": "ai"
     },
     {
-        "name": "master go",
-        "link": "https://mastergo.com/",
-        "logo": "https://static.mastergo.com/static/favicon/favicon-32x32-new.png",
-        "category": "tool"
-    },
-    {
         "name": "tailwindcss",
         "link": "https://tailwindcss.com/",
         "logo": "https://tailwindcss.com/favicons/favicon.ico?v=4",

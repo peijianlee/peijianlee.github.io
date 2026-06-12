@@ -1,0 +1,1 @@
+import{_ as a,o as c,c as e}from"./1R_0XqAT.js";const t={},o={"data-glitch":"Loading...",class:"glitch"};function n(s,_){return c(),e("div",o,"Loading...")}const r=a(t,[["render",n],["__scopeId","data-v-4ae2ad9a"]]);export{r as default};
