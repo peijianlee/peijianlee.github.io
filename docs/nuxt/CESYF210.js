@@ -1,0 +1,1 @@
+import{_ as e,o as c,c as t}from"./BF8per-H.js";const n={},o={class:"shine"};function s(_,a){return c(),t("button",o,"Shine")}const d=e(n,[["render",s],["__scopeId","data-v-f3246b50"]]);export{d as default};

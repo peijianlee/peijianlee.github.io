@@ -1,0 +1,1 @@
+import{_ as e,o as n,c}from"./BF8per-H.js";const s={},o={class:"under-line"};function t(a,r){return n(),c("span",o,"Underline")}const d=e(s,[["render",t],["__scopeId","data-v-89878abe"]]);export{d as default};

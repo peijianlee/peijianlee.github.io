@@ -6,10 +6,10 @@
         "category": "javascript"
     },
     {
-        "name": "Motion Vue",
-        "link": "https://motion.seacoly.me/",
-        "logo": "https://motion.seacoly.me/logo.svg",
-        "category": "vue"
+        "name": "inspira",
+        "link": "https://inspira-ui.com/",
+        "logo": "https://inspira-ui.com/favicon.ico",
+        "category": "javascript"
     },
     {
         "name": "kimi",
@@ -26,7 +26,7 @@
     {
         "name": "tailwindcss",
         "link": "https://tailwindcss.com/",
-        "logo": "https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg",
+        "logo": "https://tailwindcss.com/favicons/favicon.ico?v=4",
         "category": "css"
     },
     {

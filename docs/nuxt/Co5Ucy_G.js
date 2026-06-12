@@ -1,0 +1,1 @@
+import{_ as e,o as t,c}from"./BF8per-H.js";const o={},s={class:"btn-slide"};function n(_,a){return t(),c("button",s,"button slide")}const d=e(o,[["render",n],["__scopeId","data-v-8a70c0ef"]]);export{d as default};

@@ -1,0 +1,1 @@
+import{_ as a,o as r,c as o,a as e}from"./BF8per-H.js";const t={},c={class:"arrow-group"};function l(n,s){return r(),o("ul",c,[...s[0]||(s[0]=[e("li",{class:"arrow"},"Step-1",-1),e("li",{class:"arrow"},"Step-2",-1),e("li",{class:"arrow"},"Step-3",-1),e("li",{class:"arrow"},"Step-4",-1)])])}const p=a(t,[["render",l],["__scopeId","data-v-93ea961e"]]);export{p as default};

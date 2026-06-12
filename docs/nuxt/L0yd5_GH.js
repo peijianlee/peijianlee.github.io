@@ -1,0 +1,1 @@
+import{_ as e,o as c,c as o}from"./BF8per-H.js";const t={},n={class:"container"};function s(_,a){return c(),o("div",n)}const d=e(t,[["render",s],["__scopeId","data-v-8e0b2e8c"]]);export{d as default};

@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as o}from"./BF8per-H.js";const n={name:"textGradient",components:{},props:{},data(){return{}},mounted(){},methods:{}};function a(s,r,c,p,d,_){return t(),o("mark",null,"websites.")}const f=e(n,[["render",a],["__scopeId","data-v-44af93bb"]]);export{f as default};

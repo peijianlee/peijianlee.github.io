@@ -1,0 +1,1 @@
+import{_ as e,o as c,c as s}from"./BF8per-H.js";const n={},o={class:"bg-lines"};function t(a,_){return c(),s("span",o)}const f=e(n,[["render",t],["__scopeId","data-v-04f90bfa"]]);export{f as default};

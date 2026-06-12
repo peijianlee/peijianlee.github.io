@@ -1,0 +1,1 @@
+import e from"./TTHGoICy.js";import{f as t,c as o,b as r,o as c}from"./BF8per-H.js";const s={class:"h-[calc(100vh-120px)] flex items-center justify-center"},f=t({__name:"[...slug]",setup(a){return(n,_)=>(c(),o("div",s,[r(e)]))}});export{f as default};
