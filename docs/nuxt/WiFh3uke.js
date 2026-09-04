@@ -1,0 +1,1 @@
+import{u as c,a0 as i}from"./BkbRDp_9.js";const a=e=>{const{title:t,description:o,keywords:n}=e;c({title:t,meta:[{name:"description",content:o},{name:"keywords",content:n}]})},d=(e,t)=>{const{t:o}=i(),{title:n,description:s,keywords:r}=t||{};return{title:n||o(`${e}.name`),description:s||o(`${e}.description`),keywords:r||o(`${e}.keywords`)}},p=(e,t)=>{e&&a(d(e,t))};export{p as u};
